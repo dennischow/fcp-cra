@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+
+import * as constants from "../../app.constant";
 import "./app-footer.styles.scss";
 
 const AppFooter = ({ props, ...otherProps }) => {
@@ -7,7 +9,7 @@ const AppFooter = ({ props, ...otherProps }) => {
             <footer className="app-footer">
                 <div className="app-footer__container container-fluid">
                     <small className="app-footer__copyright-info">
-                        <span className="app-footer__text">©{new Date().getFullYear()} Brand Name</span>
+                        <span className="app-footer__text">{`© ${new Date().getFullYear()} ${constants.BRAND_NAME}`}</span>
                     </small>
                     <p className="app-footer__remark">
                         <span className="app-footer__text">Handcrafted by Dennis Chow</span>

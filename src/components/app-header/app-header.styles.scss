@@ -1,10 +1,20 @@
 .app-header {
-    padding: 10px 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 60px;
+    height: 100%;
     background-color: var(--c-white);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    z-index: 5;
+
+    &__container {
+        padding: 0;
+    }
 
     &__brand {
         margin: 0;
+        padding: 10px;
         font-size: 1.6rem;
     }
 
@@ -12,15 +22,26 @@
     }
 
     &__brand-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+        height: 110px;
         color: var(--c-orange);
         text-decoration: none;
     }
 
     &__brand-logo {
+
     }
 
     &__brand-name {
+        display: flex;
         margin-left: 5px;
+        width: 80px;
+        font-size: 1.2rem;
         color: var(--c-orange);
+        text-align: right;
+        transform: rotate(-90deg) translate(-35px, -5px);
     }
 }

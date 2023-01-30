@@ -32,6 +32,7 @@ html {
 }
 
 body {
+    font-family: "Roboto", sans-serif;
     color: var(--c-base-color);
     font-size: 1.6rem;
 }
@@ -48,5 +49,6 @@ body {
 
 .app-main {
     padding: 30px 0;
+    width: calc(100% - 60px);
     flex-grow: 1;
 }

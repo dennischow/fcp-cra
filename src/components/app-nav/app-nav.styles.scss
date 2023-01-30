@@ -1,0 +1,33 @@
+.app-nav {
+
+    &__list {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        list-style: none;
+    }
+
+    &__item {
+        // padding: 0 10px;
+        border-bottom: 1px solid var(--c-lighter-grey);
+
+        &:first-child {
+            border-top: 1px solid var(--c-lighter-grey);
+        }
+    }
+
+    &__link {
+        display: flex;
+        // width: 60px;
+        height: 60px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: var(--c-base-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+    }
+
+}
