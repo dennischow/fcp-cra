@@ -6,9 +6,9 @@ const AppHeader = ({ props, ...otherProps }) => {
         <header className="app-header">
             <div className="container-fluid">
                 <h1 className="app-header__brand">
-                    <span className="app-header__brand-name">Brand Name</span>
-                    <a className="app-header__brand-logo-link">
+                    <a className="app-header__brand-link">
                         <BrandLogo className="app-header__brand-logo" />
+                        <span className="app-header__brand-name">Brand Name</span>
                     </a>
                 </h1>
             </div>

@@ -1,0 +1,52 @@
+:root {
+    --c-orange: #f7931d;
+    --c-dark-orange: #f05a2a;
+
+    --c-lemon: #ffde00;
+    --c-mango: #ffcc00;
+
+    --c-lettuce-green: #27ae60;
+    --c-lime-green: #23eea4;
+
+    --c-blue: #27aae1;
+    --c-cyan: #00ffff;
+
+    --c-light-red: #a94442;
+    --c-red: #ff0000;
+
+    --c-black: #000000;
+    --c-white: #ffffff;
+    --c-base-color: #333333;
+
+    --c-darken-grey: #444444;
+    --c-darker-grey: #666666;
+    --c-dark-grey: #777777;
+    --c-grey: #999999;
+    --c-light-grey: #cccccc;
+    --c-lighter-grey: #eeeeee;
+    --c-lighten-grey: #f7f7f7;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: var(--c-base-color);
+    font-size: 1.6rem;
+}
+
+#root {
+    display: block;
+}
+
+.app-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-main {
+    padding: 30px 0;
+    flex-grow: 1;
+}

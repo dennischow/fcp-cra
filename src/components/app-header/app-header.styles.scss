@@ -1,9 +1,26 @@
 .app-header {
     padding: 10px 0;
-    background: #EEEEEE;
+    background-color: var(--c-white);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
-    h1 {
-        font-size: 16px;
+    &__brand {
+        margin: 0;
+        font-size: 1.6rem;
     }
 
+    &__link {
+    }
+
+    &__brand-link {
+        color: var(--c-orange);
+        text-decoration: none;
+    }
+
+    &__brand-logo {
+    }
+
+    &__brand-name {
+        margin-left: 5px;
+        color: var(--c-orange);
+    }
 }

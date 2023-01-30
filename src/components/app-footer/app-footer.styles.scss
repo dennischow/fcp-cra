@@ -1,9 +1,25 @@
 .app-footer {
-    display: flex;
     position: relative;
     height: 50px;
-    align-items: center;
-    background-color: #FFFFFF;
-    border-top: 1px solid #CCC;
+
+    background-color: var(--c-white);
+    border-top: 1px solid var(--c-light-grey);
     z-index: 10;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__text {
+        color: var(--c-grey);
+        font-size: 1.4rem;
+    }
+
+    &__copyright-info,
+    &__remark {
+        margin: 0;
+    }
 }

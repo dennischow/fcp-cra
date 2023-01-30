@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./App.scss";
 import AppHeader from "./components/app-header/app-header.component";
 import AppFooter from "./components/app-footer/app-footer.component";
 
