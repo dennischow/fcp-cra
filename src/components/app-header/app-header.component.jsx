@@ -1,5 +1,5 @@
 import * as constants from "../../app.constant";
-import { ReactComponent as BrandLogo } from "./../../resources/images/brand-logo.svg";
+import { ReactComponent as BrandLogo } from "./../../resources/images/common/brand-logo.svg";
 import "./app-header.styles.scss";
 import AppNav from "../app-nav/app-nav.component";
 

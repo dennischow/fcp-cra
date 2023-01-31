@@ -3,7 +3,7 @@
     width: calc(100% - 60px);
     height: 50px;
     background-color: var(--c-white);
-    border-top: 1px solid var(--c-light-grey);
+    border-top: 1px solid var(--c-light-gray);
     z-index: 0;
 
     &__container {
@@ -14,7 +14,7 @@
     }
 
     &__text {
-        color: var(--c-grey);
+        color: var(--c-gray);
         font-size: 1.4rem;
     }
 

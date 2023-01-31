@@ -18,13 +18,13 @@
     --c-white: #ffffff;
     --c-base-color: #333333;
 
-    --c-darken-grey: #444444;
-    --c-darker-grey: #666666;
-    --c-dark-grey: #777777;
-    --c-grey: #999999;
-    --c-light-grey: #cccccc;
-    --c-lighter-grey: #eeeeee;
-    --c-lighten-grey: #f7f7f7;
+    --c-darken-gray: #444444;
+    --c-darker-gray: #666666;
+    --c-dark-gray: #777777;
+    --c-gray: #999999;
+    --c-light-gray: #cccccc;
+    --c-lighter-gray: #eeeeee;
+    --c-lighten-gray: #f7f7f7;
 }
 
 html {
@@ -48,7 +48,7 @@ body {
 }
 
 .app-main {
-    padding: 30px 0;
+    padding: 0;
     width: calc(100% - 60px);
     flex-grow: 1;
 }
