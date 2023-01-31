@@ -11,12 +11,17 @@ const Home = () => {
                 <title>Homepage</title>
             </Helmet>
             <div className="page-home">
+
                 <AppHeroBanner
                     heroBackgroundUrl={heroBackgroundImg}
-                    heading="<span>Just</span> <span>a Front-End</span> <span>Web Developer</span>"
+                    heading="<span>Just a</span> <span>Front-End</span> <span>Web Developer</span>"
                     subHeading="Who cares about things that users see and interact with"
                 />
-                <h2>Home</h2>
+
+                <div className="container">
+                    <h2>Home</h2>
+                </div>
+
             </div>
         </Fragment>
     );

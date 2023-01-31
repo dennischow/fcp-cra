@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./variable.scss";
 import "./App.scss";
 
 import AppLayout from "./components/app-layout/app-layout.component";
