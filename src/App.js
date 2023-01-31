@@ -1,19 +1,23 @@
+import { Fragment } from "react";
+import { Routes, Route } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import AppHeader from "./components/app-header/app-header.component";
-import AppFooter from "./components/app-footer/app-footer.component";
+
+import AppLayout from "./components/app-layout/app-layout.component";
+import Home from "./routes/home/home.component";
+import About from "./routes/about/about.component";
 
 function App() {
     return (
-        <div className="app-view">
-            <AppHeader />
-            <main className="app-main">
-                <div className="container-fluid">
-                    Body
-                </div>
-            </main>
-            <AppFooter />
-        </div>
+        <Fragment>
+            <Routes>
+                <Route path="/" element={<AppLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                </Route>
+            </Routes>
+        </Fragment>
     );
 }
 
