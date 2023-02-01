@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import * as constants from "../../app.constants";
 import "./app-nav.styles.scss";
@@ -8,14 +8,14 @@ const AppNav = ({ props, ...otherProps }) => {
         <nav className="app-nav">
             <ul className="app-nav__list">
                 <li className="app-nav__item">
-                    <Link className="app-nav__link" to={constants.ROUTES.home.path}>
+                    <NavLink className="app-nav__link" to={constants.ROUTES.home.path}>
                         {constants.ROUTES.home.name}
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="app-nav__item">
-                    <Link className="app-nav__link" to={constants.ROUTES.about.path}>
+                    <NavLink className="app-nav__link" to={constants.ROUTES.about.path}>
                         {constants.ROUTES.about.name}
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
