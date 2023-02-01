@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import * as constants from "../../app.constant";
+import * as constants from "../../app.constants";
 import "./app-footer.styles.scss";
 
 const AppFooter = ({ props, ...otherProps }) => {

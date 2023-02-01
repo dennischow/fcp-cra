@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-import * as constants from "../../app.constant";
+import * as constants from "../../app.constants";
 import AppHeader from "./../app-header/app-header.component";
 import AppFooter from "./../app-footer/app-footer.component";
 

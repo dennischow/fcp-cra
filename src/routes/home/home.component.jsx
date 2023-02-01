@@ -21,7 +21,7 @@ const Home = () => {
                     subHeading="Who cares about things that users see and interact with"
                 />
 
-                <div className="section projects-hilite">
+                <section className="section projects-hilite">
                     <div className="projects-hilite__container">
                         <div className="projects-hilite__teaser">
                             <h2 className="projects-hilite__teaser-title">Creativity</h2>
@@ -47,9 +47,9 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div className="section recent-articles">
+                <section className="section recent-articles">
                     <div className="recent-articles__container">
                         <div className="recent-articles__header">
                             <h2 className="recent-articles__header-title">Recent article posts</h2>
@@ -107,10 +107,9 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                </section>
 
-                </div>
-
-                <div className="section passionate-hilite">
+                <section className="section passionate-hilite">
                     <div className="passionate-hilite__container">
                         <div className="passionate-hilite__teaser">
                             <h2 className="passionate-hilite__teaser-title">Passionate</h2>
@@ -132,7 +131,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <AppStatistics />
 
