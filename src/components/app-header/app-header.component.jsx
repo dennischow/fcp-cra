@@ -6,7 +6,7 @@ import AppNav from "../app-nav/app-nav.component";
 const AppHeader = ({ props, ...otherProps }) => {
     return (
         <header className="app-header">
-            <div className="app-header__container container-fluid">
+            <div className="app-header__container">
                 <h1 className="app-header__brand">
                     <a className="app-header__brand-link">
                         <BrandLogo className="app-header__brand-logo" />

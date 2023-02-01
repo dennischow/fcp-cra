@@ -4,7 +4,7 @@ const AppHeroBanner = ({ heroBackgroundUrl, heading, subHeading, ...otherProps }
 
     return (
         <section className="app-hero-banner">
-            <div className="app-hero-banner__container container-fluid">
+            <div className="app-hero-banner__container">
                 <div className="app-hero-banner__box">
                     <div className="app-hero-banner__visual" style={{backgroundImage: `url(${heroBackgroundUrl})`}}></div>
                     <div className="app-hero-banner__content">

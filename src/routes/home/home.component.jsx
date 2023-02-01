@@ -48,6 +48,91 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div className="section recent-articles">
+                    <div className="recent-articles__container">
+                        <div className="recent-articles__header">
+                            <h2 className="recent-articles__header-title">Recent article posts</h2>
+                            <p className="recent-articles__header-des">A casual corner to share what's on my mind. Come hang!</p>
+                            <a className="recent-articles__header-link" href="#">View all post</a>
+                        </div>
+                        <div className="recent-articles__entries">
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                            <div className="recent-articles__entry">
+                                <a className="recent-articles__entry-link" href="#">How Lo-Fi Music Can Improve Your Focus When Working From Home</a>
+                                <small className="recent-articles__entry-info">
+                                    <time className="recent-articles__entry-date">[Time]</time> | <span className="recent-articles__entry-views">[Views]</span>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div className="section passionate-hilite">
+                    <div className="passionate-hilite__container">
+                        <div className="passionate-hilite__teaser">
+                            <h2 className="passionate-hilite__teaser-title">Passionate</h2>
+                            <p className="passionate-hilite__teaser-des">I have a passion. Want to know what it is? Come check it out.</p>
+                            <a className="passionate-hilite__teaser-link" href="#">Learn more</a>
+                        </div>
+                        <div className="passionate-hilite__interests">
+                            <div className="passionate-hilite__interest">
+                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-text">Code</p>
+                            </div>
+                            <div className="passionate-hilite__interest">
+                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-text">Design</p>
+                            </div>
+                            <div className="passionate-hilite__interest">
+                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-text">Music</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </Fragment>
     );

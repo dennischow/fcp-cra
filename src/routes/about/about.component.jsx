@@ -18,7 +18,7 @@ const About = () => {
                     subHeading="Let's get it started"
                 />
 
-                <div className="container">
+                <div>
                     <h2>About</h2>
                 </div>
 

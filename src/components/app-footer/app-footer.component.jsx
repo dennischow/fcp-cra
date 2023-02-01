@@ -7,7 +7,7 @@ const AppFooter = ({ props, ...otherProps }) => {
     return (
         <Fragment>
             <footer className="app-footer">
-                <div className="app-footer__container container-fluid">
+                <div className="app-footer__container">
                     <small className="app-footer__copyright-info">
                         <span className="app-footer__text">{`© ${new Date().getFullYear()} ${constants.BRAND_NAME}`}</span>
                     </small>
