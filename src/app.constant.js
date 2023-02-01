@@ -3,7 +3,7 @@ export const BRAND_NAME = "Example Production";
 export const ROUTES = {
     home: {
         name: "Home",
-        path: "",
+        path: "/",
     },
     about: {
         name: "About",
@@ -22,3 +22,22 @@ export const ROUTES = {
         path: "*",
     },
 };
+
+export const STATISTICS = [
+    {
+        subject: "projects uploaded",
+        number: 40,
+    },
+    {
+        subject: "articles shared",
+        number: 228,
+    },
+    {
+        subject: "testimonials received",
+        number: 16,
+    },
+    {
+        subject: "passion",
+        number: "infinite",
+    },
+];

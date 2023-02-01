@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Helmet } from "react-helmet-async";
 
 import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
+import AppStatistics from "../../components/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
 import "./home.styles.scss";
@@ -132,6 +133,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+
+                <AppStatistics />
 
             </div>
         </Fragment>
