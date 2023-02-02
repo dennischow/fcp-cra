@@ -1,12 +1,15 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext } from "react";
 
-export const AppContext = createContext({
-    currentApp: null,
-    setCurrentApp: () => null,
-});
+export const AppContext = createContext();
 
-export const AppProvider = ({ children }) => {
-    const [currentApp, setCurrentApp] = useState(null);
-    const value = { currentApp, setCurrentApp };
+export const AppContextProvider = ({ children }) => {
+    const [projectEntries, setProjectEntries] = useState([]);
+    const [articleEntries, setArticleEntries] = useState([]);
+    const value = {
+        projectEntries,
+        setProjectEntries,
+        articleEntries,
+        setArticleEntries,
+    };
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
