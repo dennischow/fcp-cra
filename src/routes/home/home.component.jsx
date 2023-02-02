@@ -11,8 +11,6 @@ import "./home.styles.scss";
 const Home = () => {
     const { projectEntries, articleEntries } = useContext(AppContext);
 
-    console.log(articleEntries)
-
     return (
         <Fragment>
             <Helmet>
