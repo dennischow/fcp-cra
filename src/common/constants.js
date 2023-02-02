@@ -23,6 +23,12 @@ export const ROUTES = {
     },
 };
 
+export const ENNDPOINT = {
+    projects: "http://www.fat-cow.net/index.php/factories/work-api",
+    testimonials: "http://www.fat-cow.net/index.php/factories/testimonial-api",
+    articles: "http://www.fat-cow.net/index.php/factories/blog-api",
+};
+
 export const STATISTICS = [
     {
         subject: "projects uploaded",

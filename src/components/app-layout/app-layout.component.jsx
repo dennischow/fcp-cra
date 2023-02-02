@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-import * as constants from "../../app.constants";
+import * as CONSTANTS from "../../common/constants";
 import AppHeader from "./../app-header/app-header.component";
 import AppFooter from "./../app-footer/app-footer.component";
 
@@ -10,7 +10,7 @@ const AppLayout = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>{constants.BRAND_NAME}</title>
+                <title>{CONSTANTS.BRAND_NAME}</title>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=auto" rel="stylesheet" />
