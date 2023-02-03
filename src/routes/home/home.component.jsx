@@ -14,8 +14,6 @@ const Home = () => {
 
     const { projectEntries, articleEntries } = useContext(AppContext);
 
-    console.log(articleEntries);
-
     const convertToRelativeDate = (date) => moment(date).fromNow();
 
     return (
@@ -117,7 +115,7 @@ const Home = () => {
                     </div>
                 </section>
 
-                <TestimonialWidget />
+                <TestimonialWidget isContentExpandedByDefault={false} defaultEnteriesLimit={6} />
 
                 <AppStatistics />
             </div>

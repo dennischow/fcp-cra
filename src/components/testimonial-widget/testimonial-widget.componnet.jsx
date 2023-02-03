@@ -1,13 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import { AppContext } from "../../contexts/appContext";
 import "./testimonial-widget.styles.scss";
 
-const TestimonialWidget = () => {
+const TestimonialWidget = ({ isContentExpandedByDefault, defaultEnteriesLimit }) => {
 
     const { testimonialEntries } = useContext(AppContext);
+    const [isExpanded, setIsExpanded] = useState(isContentExpandedByDefault || false);
+    const [enteriesLimit, setEnteriesLimit] = useState(defaultEnteriesLimit || 5);
 
-    console.log(testimonialEntries)
+    const toggleExpandContent = () => setIsExpanded(!isExpanded);
+    const showAllEntries = () => setEnteriesLimit(testimonialEntries.length);
+
+    useEffect(() => {
+        console.log("testimonialEntries.length:", testimonialEntries.length);
+        console.log("enteriesLimit: ", enteriesLimit);
+    }, [enteriesLimit]);
 
     return (
         <div className="testimonial-widget">
@@ -19,49 +27,56 @@ const TestimonialWidget = () => {
                         <span>“Testimonials</span> from whom I have collaborated with”
                     </h3>
                     <p className="testimonial-widget__header-group-buttons-container">
-                        <button type="button">
+                        <button type="button" onClick={toggleExpandContent}>
                             <span className="s-dot"></span>
                             <span className="s-left">Hide</span>
                             <span className="s-right">Show</span>
                         </button>
                     </p>
                 </div>
-                <div className="testimonial-widget__content-group">
-                    <div className="testimonial-widget__content-group-list">
-                        {testimonialEntries.length > 0 && testimonialEntries.map((item, index) => (
-                            <div className="testimonial-widget__content-group-list-item" data-id={item.entry_id} key={item.entry_id}>
-                                <blockquote className="testimonial-widget__content-group-item">
-                                    <div className="testimonial-widget__content-group-content">
-                                        <p className="testimonial-widget__content-group-text">
-                                            {item.testimonial_content}
-                                        </p>
-                                        <footer className="testimonial-widget__content-group-sender-info">
-                                            <span className="testimonial-widget__content-group-visual">
-                                                <img className="testimonial-widget__content-group-img"
-                                                    width="80"
-                                                    height="80"
-                                                    src={item.profile_picture}
-                                                    alt={`picture of ${item.person_name}`}
-                                                />
-                                            </span>
-                                            <p className="testimonial-widget__content-group-person">
-                                                {item.person_name}
+                {isExpanded && (
+                    <div className="testimonial-widget__content-group">
+                        <div className="testimonial-widget__content-group-list">
+                            {testimonialEntries.length > 0 && testimonialEntries.slice(0, enteriesLimit).map((item, index) => (
+                                <div className="testimonial-widget__content-group-list-item"
+                                    data-id={item.entry_id}
+                                    key={item.entry_id}>
+                                    <blockquote className="testimonial-widget__content-group-item">
+                                        <div className="testimonial-widget__content-group-content">
+                                            <p className="testimonial-widget__content-group-text">
+                                                {item.testimonial_content}
                                             </p>
-                                            <p className="testimonial-widget__content-group-company">
-                                                {item.company_name_website}
-                                            </p>
-                                        </footer>
-                                    </div>
-                                </blockquote>
-                            </div>
-                        ))}
+                                            <footer className="testimonial-widget__content-group-sender-info">
+                                                <span className="testimonial-widget__content-group-visual">
+                                                    <img
+                                                        className="testimonial-widget__content-group-img"
+                                                        width="80"
+                                                        height="80"
+                                                        src={item.profile_picture}
+                                                        alt={`picture of ${item.person_name}`}
+                                                    />
+                                                </span>
+                                                <p className="testimonial-widget__content-group-person">
+                                                    {item.person_name}
+                                                </p>
+                                                <p className="testimonial-widget__content-group-company">
+                                                    {item.company_name_website}
+                                                </p>
+                                            </footer>
+                                        </div>
+                                    </blockquote>
+                                </div>
+                            ))}
+                        </div>
+                        {enteriesLimit < testimonialEntries.length && (
+                            <p className="testimonial-widget__buttons-container">
+                                <button type="button" onClick={showAllEntries}>
+                                    Show all <span className="bubble">{`+${testimonialEntries.length} - ${enteriesLimit}`}</span>
+                                </button>
+                            </p>
+                        )}
                     </div>
-                    <p className="testimonial-widget__buttons-container">
-                        <button type="button">
-                            Show all<span className="bubble">+11</span>
-                        </button>
-                    </p>
-                </div>
+                )}
             </div>
         </div>
     );

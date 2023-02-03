@@ -52,6 +52,8 @@
     }
 
     &__content-group {
+        padding: 20px 0;
+        border-top: 1px solid var(--c-light-gray);
     }
 
     &__content-group-list {
@@ -60,7 +62,7 @@
     }
 
     &__content-group-item {
-        // display: flex;
+        margin: 40px 0;
     }
 
     &__content-group-content {
@@ -89,6 +91,8 @@
         height: 80px;
         border-radius: 500px;
         overflow: hidden;
+        border: 2px solid var(--c-lighten-gray);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
     }
 
     &__content-group-img {
