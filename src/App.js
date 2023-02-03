@@ -13,7 +13,7 @@ import About from "./routes/about/about.component";
 
 function App() {
 
-    const { setProjectEntries, setArticleEntries } = useContext(AppContext);
+    const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
 
     useEffect(() => {
         fetch(CONSTANTS.ENNDPOINT.projects)
@@ -31,7 +31,7 @@ function App() {
                 console.log(err);
             })
             .finally(() => {
-                console.log("Finally")
+                console.log("Finally", CONSTANTS.ENNDPOINT.projects);
             });
     }, []);
 
@@ -51,7 +51,27 @@ function App() {
                 console.log(err);
             })
             .finally(() => {
-                console.log("Finally")
+                console.log("Finally", CONSTANTS.ENNDPOINT.articles);
+            });
+    }, []);
+
+    useEffect(() => {
+        fetch(CONSTANTS.ENNDPOINT.testimonials)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`This is an HTTP error: The status is ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((actualData) => {
+                setTestimonialEntries(actualData);
+            })
+            .catch((err) => {
+                setTestimonialEntries([]);
+                console.log(err);
+            })
+            .finally(() => {
+                console.log("Finally", CONSTANTS.ENNDPOINT.testimonials);
             });
     }, []);
 

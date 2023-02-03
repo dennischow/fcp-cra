@@ -1,15 +1,22 @@
 import { Fragment, useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import moment from "moment";
 
 import { AppContext } from "../../contexts/appContext";
 import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
+import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
 import "./home.styles.scss";
 
 const Home = () => {
+
     const { projectEntries, articleEntries } = useContext(AppContext);
+
+    console.log(articleEntries);
+
+    const convertToRelativeDate = (date) => moment(date).fromNow();
 
     return (
         <Fragment>
@@ -37,6 +44,10 @@ const Home = () => {
                         <div className="projects-hilite__entries">
                             {projectEntries.length > 0 && projectEntries.slice(0, 4).map((item, index) => (
                                 <div className="projects-hilite__entry" key={item.entry_id}>
+                                    <div className="projects-hilite__entry-visual"
+                                        role="img"
+                                        style={{backgroundImage: `url(${item.thumbnail})`}}>
+                                    </div>
                                     <p className="projects-hilite__entry-cat">{item.channel_id}</p>
                                     <a className="projects-hilite__entry-link" href="#">
                                         {item.title}
@@ -61,11 +72,15 @@ const Home = () => {
                         <div className="recent-articles__entries">
                             {articleEntries.length > 0 && articleEntries.slice(0, 12).map((item, index) => (
                                 <div className="recent-articles__entry" key={item.entry_id}>
+                                    <div className="recent-articles__entry-visual"
+                                        role="img"
+                                        style={{backgroundImage: `url(${item.thumb_image ? item.thumb_image : item.thumb_image_hotlink})`}}>
+                                    </div>
                                     <a className="recent-articles__entry-link" href="#">
                                         {item.title}
                                     </a>
                                     <small className="recent-articles__entry-info">
-                                        <time className="recent-articles__entry-date">{item.entry_date}</time> |{" "}
+                                        <time className="recent-articles__entry-date">{convertToRelativeDate(item.entry_date)}</time> |{" "}
                                         <span className="recent-articles__entry-views">[Views]</span>
                                     </small>
                                 </div>
@@ -101,6 +116,8 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+
+                <TestimonialWidget />
 
                 <AppStatistics />
             </div>
