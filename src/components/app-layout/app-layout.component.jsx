@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import * as CONSTANTS from "../../common/constants";
 import AppHeader from "./../app-header/app-header.component";
 import AppFooter from "./../app-footer/app-footer.component";
+import AppSidePanel from "../app-side-panel/app-side-panel.component";
 
 const AppLayout = () => {
     return (
@@ -22,6 +23,7 @@ const AppLayout = () => {
                 </main>
                 <AppFooter />
             </div>
+            <AppSidePanel />
         </Fragment>
     );
 };
