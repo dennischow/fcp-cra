@@ -3,11 +3,11 @@ import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../contexts/appContext";
 import "./testimonial-widget.styles.scss";
 
-const TestimonialWidget = ({ isContentExpandedByDefault, defaultEnteriesLimit }) => {
+const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault }) => {
 
     const { testimonialEntries } = useContext(AppContext);
     const [isExpanded, setIsExpanded] = useState(isContentExpandedByDefault || false);
-    const [enteriesLimit, setEnteriesLimit] = useState(defaultEnteriesLimit || 5);
+    const [enteriesLimit, setEnteriesLimit] = useState(enteriesLimitByDefault || 5);
 
     const toggleExpandContent = () => setIsExpanded(!isExpanded);
     const showAllEntries = () => setEnteriesLimit(testimonialEntries.length);
@@ -29,8 +29,10 @@ const TestimonialWidget = ({ isContentExpandedByDefault, defaultEnteriesLimit })
                     <p className="testimonial-widget__header-group-buttons-container">
                         <button type="button" onClick={toggleExpandContent}>
                             <span className="s-dot"></span>
-                            <span className="s-left">Hide</span>
-                            <span className="s-right">Show</span>
+                            {isExpanded
+                                ? <span className="s-left">Hide</span>
+                                : <span className="s-right">Show</span>
+                            }
                         </button>
                     </p>
                 </div>
@@ -70,8 +72,8 @@ const TestimonialWidget = ({ isContentExpandedByDefault, defaultEnteriesLimit })
                         </div>
                         {enteriesLimit < testimonialEntries.length && (
                             <p className="testimonial-widget__buttons-container">
-                                <button type="button" onClick={showAllEntries}>
-                                    Show all <span className="bubble">{`+${testimonialEntries.length} - ${enteriesLimit}`}</span>
+                                <button className="app-cta app-cta--orange" type="button" onClick={showAllEntries}>
+                                    Show all <span className="app-cta__bubble">{`+${testimonialEntries.length - enteriesLimit}`}</span>
                                 </button>
                             </p>
                         )}

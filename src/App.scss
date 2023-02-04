@@ -30,3 +30,58 @@ body {
     width: calc(100% - 60px);
     flex-grow: 1;
 }
+
+.app-cta {
+    display: inline-block;
+    position: relative;
+    padding: 15px 30px;
+    border: 2px solid var(--c-base-color);
+    border-radius: 500px;
+    background-color: transparent;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--c-base-color);
+    cursor: pointer;
+
+    &--orange {
+        color: var(--c-dark-orange);
+        border-color: var(--c-dark-orange);
+
+        .app-cta__bubble {
+            border: 2px solid var(--c-dark-orange);
+            background-color: var(--c-dark-orange);
+            color: var(--c-white);
+        }
+
+    }
+
+    &--white {
+        color: var(--c-white);
+        border-color: var(--c-white);
+
+        .app-cta__bubble {
+            border: 2px solid var(--c-white);
+            background-color: var(--c-white);
+            color: var(--c-base-color);
+        }
+
+    }
+
+    &__bubble {
+        display: inline-block;
+        position: absolute;
+        right: 8px;
+        top: -12px;
+        padding: 2px 6px;
+        border: 2px solid var(--c-base-color);
+        border-radius: 500px;
+        background-color: var(--c-base-color);
+        color: var(--c-white);
+        font-size: 10px;
+        line-height: 1em;
+        z-index: 10;
+    }
+
+}

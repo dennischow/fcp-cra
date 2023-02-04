@@ -115,7 +115,7 @@ const Home = () => {
                     </div>
                 </section>
 
-                <TestimonialWidget isContentExpandedByDefault={false} defaultEnteriesLimit={6} />
+                <TestimonialWidget isContentExpandedByDefault={false} enteriesLimitByDefault={6} />
 
                 <AppStatistics />
             </div>
