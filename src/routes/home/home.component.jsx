@@ -31,13 +31,15 @@ const Home = () => {
                 <section className="section projects-hilite">
                     <div className="projects-hilite__container">
                         <div className="projects-hilite__teaser">
-                            <h2 className="projects-hilite__teaser-title">Creativity</h2>
-                            <p className="projects-hilite__teaser-des">
-                                There are different ways to be creative. Find out what mine are.
-                            </p>
-                            <a className="projects-hilite__teaser-link" href="#">
-                                Check it out
-                            </a>
+                            <div className="projects-hilite-teaser-box">
+                                <h2 className="projects-hilite__teaser-title">Creativity</h2>
+                                <p className="projects-hilite__teaser-des">
+                                    There are different ways to be creative. Find out what mine are.
+                                </p>
+                                <a className="projects-hilite__teaser-link app-cta app-cta--orange" href="#">
+                                    Check it out
+                                </a>
+                            </div>
                         </div>
                         <div className="projects-hilite__entries">
                             {projectEntries.length > 0 && projectEntries.slice(0, 4).map((item, index) => (
@@ -90,13 +92,15 @@ const Home = () => {
                 <section className="section passionate-hilite">
                     <div className="passionate-hilite__container">
                         <div className="passionate-hilite__teaser">
-                            <h2 className="passionate-hilite__teaser-title">Passionate</h2>
-                            <p className="passionate-hilite__teaser-des">
-                                I have a passion. Want to know what it is? Come check it out.
-                            </p>
-                            <a className="passionate-hilite__teaser-link" href="#">
-                                Learn more
-                            </a>
+                            <div className="passionate-hilite-teaser-box">
+                                <h2 className="passionate-hilite__teaser-title">Passionate</h2>
+                                <p className="passionate-hilite__teaser-des">
+                                    I have a passion. Want to know what it is? Come check it out.
+                                </p>
+                                <a className="passionate-hilite__teaser-link app-cta app-cta--orange" href="#">
+                                    Learn more
+                                </a>
+                            </div>
                         </div>
                         <div className="passionate-hilite__interests">
                             <div className="passionate-hilite__interest">

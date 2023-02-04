@@ -1,4 +1,5 @@
 :root {
+    // COLORS
     --c-orange: #f7931d;
     --c-dark-orange: #f05a2a;
 
@@ -25,4 +26,14 @@
     --c-light-gray: #cccccc;
     --c-lighter-gray: #eeeeee;
     --c-lighten-gray: #f7f7f7;
+
+    // FONT SIZES
+    --text-size-xxl: 3rem;
+    --text-size-xl: 2.4rem;
+    --text-size-l: 2.4rem;
+    --text-size-m: 2rem;
+    --text-size-body: 1.6rem;
+    --text-size-s: 1.4rem;
+    --text-size-xs: 1.2rem;
+    --text-size-xxs: 1rem;
 }

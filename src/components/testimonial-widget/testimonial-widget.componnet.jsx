@@ -27,12 +27,12 @@ const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault 
                         <span>“Testimonials</span> from whom I have collaborated with”
                     </h3>
                     <p className="testimonial-widget__header-group-buttons-container">
-                        <button type="button" onClick={toggleExpandContent}>
-                            <span className="s-dot"></span>
-                            {isExpanded
-                                ? <span className="s-left">Hide</span>
-                                : <span className="s-right">Show</span>
-                            }
+                        <button className={`testimonial-widget__toggle-switch testimonial-widget__toggle-switch--${isExpanded ? 'on' : 'off'}`}
+                            type="button"
+                            onClick={toggleExpandContent}>
+                            <span className="testimonial-widget__toggle-knob"></span>
+                            <span className="testimonial-widget__toggle-text testimonial-widget__toggle-text--on">Hide</span>
+                            <span className="testimonial-widget__toggle-text testimonial-widget__toggle-text--off">Show</span>
                         </button>
                     </p>
                 </div>

@@ -22,6 +22,9 @@
             text-align: center;
         }
 
+        &__teaser-box {
+        }
+
         &__teaser-title {
             font-weight: 700;
         }
@@ -188,6 +191,9 @@
             height: 580px;
             background-color: var(--c-lighter-gray);
             text-align: center;
+        }
+
+        &__teaser-box {
         }
 
         &__teaser-title {

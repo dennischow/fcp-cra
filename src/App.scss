@@ -11,12 +11,18 @@ html {
 body {
     font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: var(--c-base-color);
-    font-size: 1.6rem;
+    font-size: var(--text-size-body);
     overflow-y: scroll;
 }
 
 #root {
     display: block;
+}
+
+a, button {
+    border: none;
+    outline: 0;
+    cursor: pointer;
 }
 
 .app-view {
@@ -49,6 +55,10 @@ body {
         color: var(--c-dark-orange);
         border-color: var(--c-dark-orange);
 
+        &:hover {
+            color: var(--c-dark-orange);
+        }
+
         .app-cta__bubble {
             border: 2px solid var(--c-dark-orange);
             background-color: var(--c-dark-orange);
@@ -60,6 +70,10 @@ body {
     &--white {
         color: var(--c-white);
         border-color: var(--c-white);
+
+        &:hover {
+            color: var(--c-white);
+        }
 
         .app-cta__bubble {
             border: 2px solid var(--c-white);
