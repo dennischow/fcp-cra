@@ -18,7 +18,7 @@ const AppPanelArticlesSearch = () => {
     return (
         <Fragment>
             <div className="app-panel-articles-search">
-                <p>Side Plan</p>
+                <p>Search</p>
                 <form className="app-panel-articles-search__form">
                     <legend className="">search an article that you may interested to read</legend>
                     <fieldset className="app-panel-articles-search__fieldset">
