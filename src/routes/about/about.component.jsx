@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import {
     Chart as ChartJS,
@@ -55,6 +55,7 @@ const About = () => {
                 y: {
                     grid: {
                         display: true,
+                        color: "#eeeeee",
                     },
                     title: {
                         display: true,
@@ -75,6 +76,7 @@ const About = () => {
                 x: {
                     grid: {
                         display: false,
+                        color: "#eeeeee",
                     },
                     title: {
                         display: false,
@@ -197,7 +199,7 @@ const About = () => {
             datasets: [
                 {
                     // label: "Music on Headphone",
-                    data: [98, 93, 92, 80, 72, 23],
+                    data: [9.8, 9.3, 9.2, 8.0, 7.2, 2.3],
                     borderWidth: 0,
                     fill: false,
                     borderColor: "#666666",
@@ -207,6 +209,11 @@ const About = () => {
         },
     };
 
+    const [isProfileExpanded, setIsProfileExpanded] = useState(false);
+
+    const toggleProfile = () => setIsProfileExpanded(!isProfileExpanded);
+
+    // console.log(isProfileExpanded)
     return (
         <Fragment>
             <Helmet>
@@ -233,28 +240,30 @@ const About = () => {
                                 When I am not glued to my monitor, you will find me most likely banging with dumbbells at the gym, blasting music on my headphones, tasting a sexy food, and or posting pictures on Instagram.
                             </p>
                             <p className="intro-group__buttons-container">
-                                <button className="app-cta app-cta--orange" type="button">A litte bit more</button>
+                                <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>A litte bit more</button>
                             </p>
                         </div>
                     </div>
                 </section>
 
-                <section className="profile-group">
-                    <div className="profile-group__container app-container">
-                        <p className="profile-group__header">CODER <span>✖</span> DESIGNER</p>
-                        <div className="profile-group__content">
-                            <p className="profile-group__text">I create content first, clean, functional, logical, search engine spiders friendly, professional websites that validated with W3C standards, resulting in semantic structure and accessible HTML and CSS. 100% of my websites are dedicatedly hand coded. Because I enjoy the romance of "Start From Scratch".</p>
-                            <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud music , speakers, sub-woofer, and headphones are part of my gear.</p>
-                            <p className="profile-group__text">Specialties: Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
-                            <p className="profile-group__text">In the past two years, I have been on and off self-experimenting with AngularJS, Vue, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
-                            <div className="profile-group__line-chart">
-                                <Line options={aWeekOfMyWeek.options} data={aWeekOfMyWeek.data} />
+                {isProfileExpanded && (
+                    <section className="profile-group">
+                        <div className="profile-group__container app-container">
+                            <p className="profile-group__header">CODER <span>✖</span> DESIGNER</p>
+                            <div className="profile-group__content">
+                                <p className="profile-group__text">I create content first, clean, functional, logical, search engine spiders friendly, professional websites that validated with W3C standards, resulting in semantic structure and accessible HTML and CSS. 100% of my websites are dedicatedly hand coded. Because I enjoy the romance of "Start From Scratch".</p>
+                                <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud music , speakers, sub-woofer, and headphones are part of my gear.</p>
+                                <p className="profile-group__text">Specialties: Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
+                                <p className="profile-group__text">In the past two years, I have been on and off self-experimenting with AngularJS, Vue, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
+                                <div className="profile-group__line-chart">
+                                    <Line options={aWeekOfMyWeek.options} data={aWeekOfMyWeek.data} />
+                                </div>
+                                <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p>
+                                <p className="profile-group__text">Front-End Web Developer responsible for a website’s user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
                             </div>
-                            <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p>
-                            <p className="profile-group__text">Front-End Web Developer responsible for a website’s user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 <section className="passions-group">
                     <div className="passions-group__container app-container">
