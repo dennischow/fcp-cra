@@ -6,11 +6,12 @@ import {
     LinearScale,
     PointElement,
     LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend,
 } from "chart.js";
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
@@ -24,6 +25,7 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
+    BarElement,
     Title,
     Tooltip,
     Legend
@@ -38,25 +40,25 @@ const About = () => {
             plugins: {
                 legend: {
                     position: "bottom",
-                    labels: {}
+                    labels: {},
                 },
                 title: {
                     display: true,
                     // text: "Time Spent",
                     text: "A Week Of My Life",
                     font: {
-                        size: 18
-                    }
+                        size: 18,
+                    },
                 },
             },
             scales: {
                 y: {
                     grid: {
-                        display: true
+                        display: true,
                     },
                     title: {
                         display: true,
-                        text: "# of Hours"
+                        text: "# of Hours",
                     },
                     ticks: {
                         beginAtZero: true,
@@ -68,11 +70,11 @@ const About = () => {
                         // callback: function(value, index, values) {
                         //     return value + " hours";
                         // }
-                    }
+                    },
                 },
                 x: {
                     grid: {
-                        display: false
+                        display: false,
                     },
                     title: {
                         display: false,
@@ -88,9 +90,9 @@ const About = () => {
                         // callback: function(value, index, values) {
                         //     return value + " hours";
                         // }
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         data: {
             labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
@@ -100,31 +102,109 @@ const About = () => {
                     data: [6, 10, 12.2, 12.5, 13, 12, 7],
                     borderWidth: 1,
                     fill: false,
-                    borderColor: "#666666"
+                    borderColor: "#666666",
                 },
                 {
                     label: "Work-Out",
                     data: [3, 1.5, 1, 0, 0, 1, 3],
                     borderWidth: 1,
                     fill: false,
-                    borderColor: "#8BC43F"
+                    borderColor: "#8BC43F",
                 },
                 {
                     label: "Front-End Development",
                     data: [4, 8, 8, 8, 8, 7, 5],
                     borderWidth: 1,
                     fill: false,
-                    borderColor: "#F7931D"
+                    borderColor: "#F7931D",
                 },
                 {
                     label: "Experiment",
                     data: [4, 2, 2, 1.5, 1, 2, 5],
                     borderWidth: 1,
                     fill: false,
-                    borderColor: "#27AAE1"
-                }
-            ]
-        }
+                    borderColor: "#27AAE1",
+                },
+            ],
+        },
+    };
+
+    const ratioOfPassions = {
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                    position: "bottom",
+                    labels: {},
+                },
+                title: {
+                    display: true,
+                    text: "",
+                    font: {
+                        size: 18,
+                    },
+                },
+            },
+            scales: {
+                y: {
+                    grid: {
+                        display: true,
+                        color: "#eeeeee",
+                    },
+                    title: {
+                        display: false,
+                        text: "",
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        font: {
+                            size: 12,
+                        },
+                        // labelOffset: -5,
+                        // Create scientific notation labels
+                        // callback: function(value, index, values) {
+                        //     return value + " hours";
+                        // }
+                    },
+                },
+                x: {
+                    grid: {
+                        display: false,
+                        color: "#eeeeee",
+                    },
+                    title: {
+                        display: false,
+                        text: "",
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        font: {
+                            size: 12,
+                        },
+                        labelOffset: 0,
+                        // Create scientific notation labels
+                        // callback: function(value, index, values) {
+                        //     return value + " hours";
+                        // }
+                    },
+                },
+            },
+        },
+        data: {
+            labels: ["Loud Music", "Javascript Logic", "HTML & CSS", "Designing", "ExpressionEngine", "PHP & MySQL"],
+            datasets: [
+                {
+                    // label: "Music on Headphone",
+                    data: [98, 93, 92, 80, 72, 23],
+                    borderWidth: 0,
+                    fill: false,
+                    borderColor: "#666666",
+                    backgroundColor: ["#cccccc", "#999999", "#cccccc", "#999999", "#cccccc", "#999999"],
+                },
+            ],
+        },
     };
 
     return (
@@ -167,12 +247,22 @@ const About = () => {
                         <p className="profile-group__text">Specialties: Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
                         <p className="profile-group__text">In the past two years, I have been on and off self-experimenting with AngularJS, Vue, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
 
-                        <div className="profile-group__chart">
+                        <div className="profile-group__line-chart">
                             <Line options={aWeekOfMyWeek.options} data={aWeekOfMyWeek.data} />
                         </div>
 
                         <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p>
                         <p className="profile-group__text">Front-End Web Developer responsible for a website’s user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
+                    </div>
+                </section>
+
+                <section className="passions-group">
+                    <div className="passions-group__container app-container">
+                        <p className="passions-group__header">Ratio of Passions</p>
+                        <p className="passions-group__text">something I enjoy of doing</p>
+                        <div className="passions-group__bar-chart">
+                            <Bar options={ratioOfPassions.options} data={ratioOfPassions.data} />
+                        </div>
                     </div>
                 </section>
 
