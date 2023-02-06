@@ -1,0 +1,54 @@
+.page-about {
+
+    .app-container {
+        margin: 0 auto;
+        max-width: 980px;
+    }
+
+    .intro-group {
+
+        &__container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        &__visual {
+            background-color: green;
+            flex: 0 0 472px;
+            // flex-basis: 300px;
+            height: 646px;
+            background-position: right top;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("./../../resources/images/about/photoshoot-at-central-ferry-piers-shaped.jpg");
+        }
+
+        &__content {
+            background-color: lightblue;
+        }
+
+        &__name {
+            text-align: center;
+        }
+
+        &__statment {
+            text-align: center;
+        }
+
+        &__quote {
+            text-align: center;
+        }
+
+        &__brief {
+            text-align: center;
+        }
+
+        &__buttons-container {
+            text-align: center;
+        }
+
+    }
+
+}
