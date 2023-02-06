@@ -1,11 +1,8 @@
 .page-about {
 
-    .app-container {
-        margin: 0 auto;
-        max-width: 980px;
-    }
-
     .intro-group {
+        padding-top: 20px;
+        padding-bottom: 20px;
 
         &__container {
             display: flex;
@@ -17,7 +14,6 @@
         &__visual {
             background-color: green;
             flex: 0 0 472px;
-            // flex-basis: 300px;
             height: 646px;
             background-position: right top;
             background-repeat: no-repeat;
@@ -30,23 +26,81 @@
         }
 
         &__name {
+            margin-bottom: 10px;
+            padding-top: 20px;
+            font-weight: 700;
             text-align: center;
         }
 
         &__statment {
+            font-size: calc(var(--text-size-body) * 2.75);
+            line-height: 0.9em;
+            font-weight: 700;
+            text-transform: uppercase;
             text-align: center;
         }
 
         &__quote {
+            margin: 25px auto;
+            max-width: 360px;
+            font-style: italic;
             text-align: center;
         }
 
         &__brief {
+            font-size: calc(var(--text-size-m) - 0.2rem);
             text-align: center;
         }
 
         &__buttons-container {
+            margin-top: 20px;
             text-align: center;
+        }
+
+    }
+
+    .profile-group {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 1px solid var(--c-light-gray);
+
+        &__container{
+
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            line-height: 0.8em;
+            align-items: center;
+            font-size: calc(var(--text-size-xxl) * 5.5);
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url("./../../resources/images/about/my-headphone-family-bk.jpg");
+            background-clip: text;
+            color: transparent;
+
+            span {
+                font-size: 0.5em;
+                line-height: 1em;
+            }
+
+        }
+
+        &__text {
+
+        }
+
+        &__chart {
+            margin: 20px 0;
+            padding: 20px;
+            width: 100%;
+            height: 480px;
+            background-color: var(--c-lighten-gray);
         }
 
     }
