@@ -11,7 +11,7 @@ const AppNavigateToTop = () => {
                 top: 0,
                 behavior: "instant",
             });
-            console.log("AppNavigateToTop: Window scroll to top instantly", getNavigationType);
+            console.log("AppNavigateToTop: Window scroll to top instantly:", getNavigationType);
         }
     }, [getLocation]);
 };

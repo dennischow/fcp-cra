@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./variable.scss";
@@ -17,63 +18,39 @@ function App() {
     const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
 
     useEffect(() => {
-        fetch(CONSTANTS.ENNDPOINT.projects)
+        axios.get(CONSTANTS.ENNDPOINT.projects)
             .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`This is an HTTP error: The status is ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((actualData) => {
-                setProjectEntries(actualData);
-            })
-            .catch((err) => {
-                setProjectEntries([]);
-                console.log(err);
-            })
-            .finally(() => {
+                setProjectEntries(response.data);
                 console.log("Finally", CONSTANTS.ENNDPOINT.projects);
+            })
+            .catch((error) => {
+                setProjectEntries([]);
+                console.log(error);
             });
     }, []);
 
     useEffect(() => {
-        fetch(CONSTANTS.ENNDPOINT.articles)
+        axios.get(CONSTANTS.ENNDPOINT.articles)
             .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`This is an HTTP error: The status is ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((actualData) => {
-                setArticleEntries(actualData);
-            })
-            .catch((err) => {
-                setArticleEntries([]);
-                console.log(err);
-            })
-            .finally(() => {
+                setArticleEntries(response.data);
                 console.log("Finally", CONSTANTS.ENNDPOINT.articles);
+            })
+            .catch((error) => {
+                setArticleEntries([]);
+                console.log(error);
             });
     }, []);
 
     useEffect(() => {
-        fetch(CONSTANTS.ENNDPOINT.testimonials)
+        axios.get(CONSTANTS.ENNDPOINT.testimonials)
             .then((response) => {
-                if (!response.ok) {
-                    throw new Error(`This is an HTTP error: The status is ${response.status}`);
-                }
-                return response.json();
-            })
-            .then((actualData) => {
-                setTestimonialEntries(actualData);
-            })
-            .catch((err) => {
-                setTestimonialEntries([]);
-                console.log(err);
-            })
-            .finally(() => {
+                setTestimonialEntries(response.data);
                 console.log("Finally", CONSTANTS.ENNDPOINT.testimonials);
-            });
+            })
+            .catch((error) => {
+                setTestimonialEntries([]);
+                console.log(error);
+            })
     }, []);
 
     return (
