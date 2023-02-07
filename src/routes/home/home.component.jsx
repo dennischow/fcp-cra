@@ -1,7 +1,9 @@
 import { Fragment, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import moment from "moment";
 
+import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
 import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
@@ -97,9 +99,9 @@ const Home = () => {
                                 <p className="passionate-hilite__teaser-des">
                                     I have a passion. Want to know what it is? Come check it out.
                                 </p>
-                                <a className="passionate-hilite__teaser-link app-cta app-cta--orange" href="#">
+                                <Link className="passionate-hilite__teaser-link app-cta app-cta--orange" to={CONSTANTS.ROUTES.about.path}>
                                     Learn more
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="passionate-hilite__interests">

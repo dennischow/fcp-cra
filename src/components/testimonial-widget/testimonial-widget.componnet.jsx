@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 
 import { AppContext } from "../../contexts/appContext";
 import "./testimonial-widget.styles.scss";
@@ -11,11 +11,6 @@ const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault 
 
     const toggleExpandContent = () => setIsExpanded(!isExpanded);
     const showAllEntries = () => setEnteriesLimit(testimonialEntries.length);
-
-    useEffect(() => {
-        console.log("testimonialEntries.length:", testimonialEntries.length);
-        console.log("enteriesLimit: ", enteriesLimit);
-    }, [enteriesLimit]);
 
     return (
         <div className="testimonial-widget">
