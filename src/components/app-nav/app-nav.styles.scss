@@ -1,5 +1,4 @@
 .app-nav {
-
     &__list {
         display: flex;
         margin: 0;
@@ -19,17 +18,21 @@
     &__link {
         display: flex;
         position: relative;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 60px;
         text-align: center;
-        color: var(--c-base-color);
+        color: var(--c-dark-gray);
         text-decoration: none;
-        font-size: 0.9rem;
         text-transform: uppercase;
 
-        &.active {
+        &:hover {
+            color: var(--c-dark-gray);
+            background-color: var(--c-lighten-gray);
+        }
 
+        &.active {
             &::before {
                 display: block;
                 position: absolute;
@@ -41,9 +44,14 @@
                 border-radius: 500px;
                 background-color: var(--c-dark-orange);
             }
-
         }
-
     }
 
+    &__icon {
+        font-size: var(--text-size-s);
+    }
+
+    &__text {
+        font-size: var(--text-size-xxs);
+    }
 }
