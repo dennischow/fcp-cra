@@ -18,6 +18,24 @@ const Home = () => {
 
     const convertToRelativeDate = (date) => moment(date).fromNow();
 
+    const convertProjectCatIdToName = (id) => {
+        let result = null;
+        switch (id) {
+            case 4:
+                result = "Web Design/Development";
+                break;
+            case 6:
+                result = "Tee Design";
+                break;
+            case 5:
+                result = "Print Design/Production";
+                break;
+            default:
+                result = id;
+        }
+        return result;
+    };
+
     return (
         <Fragment>
             <Helmet>
@@ -38,7 +56,7 @@ const Home = () => {
                                 <p className="projects-hilite__teaser-des">
                                     There are different ways to be creative. Find out what mine are.
                                 </p>
-                                <a className="projects-hilite__teaser-link app-cta app-cta--orange" href="#">
+                                <a className="projects-hilite__teaser-link app-cta app-cta--white" href="#">
                                     Check it out
                                 </a>
                             </div>
@@ -50,7 +68,7 @@ const Home = () => {
                                         role="img"
                                         style={{backgroundImage: `url(${item.thumbnail})`}}>
                                     </div>
-                                    <p className="projects-hilite__entry-cat">{item.channel_id}</p>
+                                    <p className="projects-hilite__entry-cat">{convertProjectCatIdToName(item.channel_id)}</p>
                                     <a className="projects-hilite__entry-link" href="#">
                                         {item.title}
                                     </a>
@@ -67,7 +85,7 @@ const Home = () => {
                             <p className="recent-articles__header-des">
                                 A casual corner to share what's on my mind. Come hang!
                             </p>
-                            <a className="recent-articles__header-link" href="#">
+                            <a className="recent-articles__view-all-link" href="#">
                                 View all post
                             </a>
                         </div>
@@ -99,7 +117,7 @@ const Home = () => {
                                 <p className="passionate-hilite__teaser-des">
                                     I have a passion. Want to know what it is? Come check it out.
                                 </p>
-                                <Link className="passionate-hilite__teaser-link app-cta app-cta--orange" to={CONSTANTS.ROUTES.about.path}>
+                                <Link className="passionate-hilite__teaser-link app-cta app-cta--white" to={CONSTANTS.ROUTES.about.path}>
                                     Learn more
                                 </Link>
                             </div>

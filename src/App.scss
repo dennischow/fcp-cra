@@ -25,6 +25,10 @@ a, button {
     cursor: pointer;
 }
 
+a {
+    color: var(--c-blue);
+}
+
 .app-view {
     display: flex;
     flex-direction: column;

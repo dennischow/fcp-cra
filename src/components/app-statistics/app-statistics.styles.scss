@@ -27,6 +27,28 @@
         margin: 0;
         height: 250px;
         text-align: center;
+        color: var(--c-gray);
+    }
+
+    &__num {
+        margin-bottom: 15px;
+        font-size: calc(var(--text-size-l) * 2.25);
+        line-height: 1.5em;
+        font-weight: 700;
+
+        &::after {
+            display: block;
+            margin: 0 auto;
+            width: 40px;
+            content: "";
+            border-bottom: 1px solid var(--c-light-gray);
+        }
+
+
+    }
+
+    &__text {
+        font-weight: 700;
     }
 
 }
