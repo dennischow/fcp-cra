@@ -11,7 +11,8 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
-import { Line, Bar } from 'react-chartjs-2';
+import { Line, Bar } from "react-chartjs-2";
+import { FaInfoCircle } from "react-icons/fa";
 
 import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
@@ -242,7 +243,9 @@ const About = () => {
                                         When I am not glued to my monitor, you will find me most likely banging with dumbbells at the gym, blasting music on my headphones, tasting a sexy food, and or posting pictures on Instagram.
                                     </p>
                                     <p className="intro-group__buttons-container">
-                                        <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>A litte bit more</button>
+                                        <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>
+                                            A litte bit more <FaInfoCircle />
+                                        </button>
                                     </p>
                                 </div>
                             </div>

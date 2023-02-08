@@ -2,8 +2,6 @@ import { Fragment, useEffect, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./variable.scss";
 import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";

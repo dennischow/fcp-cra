@@ -48,9 +48,10 @@ a {
 }
 
 .app-cta {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
     padding: 15px 30px;
+    align-items: center;
     border: 2px solid var(--c-base-color);
     border-radius: 500px;
     background-color: transparent;
@@ -100,6 +101,11 @@ a {
             color: var(--c-base-color);
         }
 
+    }
+
+    & > svg,
+    &__icon {
+        margin-left: 5px;
     }
 
     &__bubble {

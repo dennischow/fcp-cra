@@ -37,3 +37,26 @@
     --text-size-xs: 1.2rem;
     --text-size-xxs: 1rem;
 }
+
+/*********************************************
+ * Screen Breakpoints
+ *********************************************/
+/*
+ * Large devices (large desktops, 1199px and down)
+ */
+$scr-desktop: "1199px";
+
+/*
+ * Medium devices (desktops, 991px and down)
+ */
+$scr-laptop: "991px";
+
+/*
+ * Small devices (tablets, 767px and down)
+ */
+$scr-tablet: "767px";
+
+/*
+ * Extra Small devices (smart phones, 679 and down)
+ */
+$scr-phone: "679px";

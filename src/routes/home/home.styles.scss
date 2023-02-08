@@ -257,6 +257,7 @@
             height: 100px;
             border: 10px solid var(--c-darker-gray);
             border-radius: 500px;
+            font-size: calc(var(--text-size-l) * 1.5);
         }
 
         &__interest-text {

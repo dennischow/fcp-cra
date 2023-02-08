@@ -76,6 +76,7 @@
         top: 0;
         width: 100%;
         overflow: hidden;
+        text-align: center;
         z-index: 0;
         pointer-events: none;
 
@@ -104,11 +105,13 @@
     }
 
     &__header-group-headline {
+        text-align: center;
         font-size: calc(var(--text-size-l) * 2.5);
         font-weight: 700;
     }
 
     &__header-group-sub-headline {
+        text-align: center;
         font-size: var(--text-size-xl);
         color: var(--c-dark-orange);
     }
@@ -145,6 +148,9 @@
     &__content-group-text {
         flex: 0 1 auto;
         padding-right: 20px;
+        margin-bottom: 0;
+        color: var(--c-gray);
+        font-size: var(--text-size-m);
 
         &::before,
         &::after {
@@ -156,6 +162,19 @@
         padding-left: 20px;
         width: 200px;
         border-left: 1px solid var(--c-light-gray);
+    }
+
+    &__content-group-person {
+        margin-top: 5px;
+        margin-bottom: 0;
+        color: var(--c-gray);
+    }
+
+    &__content-group-company {
+        margin-bottom: 0;
+        color: var(--c-gray);
+        font-size: var(--text-size-xs);
+        font-style: italic;
     }
 
     &__content-group-visual {

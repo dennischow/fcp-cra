@@ -2,6 +2,7 @@ import { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import moment from "moment";
+import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
@@ -57,7 +58,7 @@ const Home = () => {
                                     There are different ways to be creative. Find out what mine are.
                                 </p>
                                 <a className="projects-hilite__teaser-link app-cta app-cta--white" href="#">
-                                    Check it out
+                                    Check it out <FaArrowRight />
                                 </a>
                             </div>
                         </div>
@@ -86,7 +87,7 @@ const Home = () => {
                                 A casual corner to share what's on my mind. Come hang!
                             </p>
                             <a className="recent-articles__view-all-link" href="#">
-                                View all post
+                                View all post <FaArrowRight />
                             </a>
                         </div>
                         <div className="recent-articles__entries">
@@ -124,22 +125,28 @@ const Home = () => {
                         </div>
                         <div className="passionate-hilite__interests">
                             <div className="passionate-hilite__interest">
-                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-icon">
+                                    <FaCode />
+                                </p>
                                 <p className="passionate-hilite__interest-text">Code</p>
                             </div>
                             <div className="passionate-hilite__interest">
-                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-icon">
+                                    <FaPaintBrush />
+                                </p>
                                 <p className="passionate-hilite__interest-text">Design</p>
                             </div>
                             <div className="passionate-hilite__interest">
-                                <p className="passionate-hilite__interest-icon">+</p>
+                                <p className="passionate-hilite__interest-icon">
+                                    <FaMusic />
+                                </p>
                                 <p className="passionate-hilite__interest-text">Music</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <TestimonialWidget isContentExpandedByDefault={false} enteriesLimitByDefault={6} />
+                <TestimonialWidget isContentExpandedByDefault={false} enteriesLimitByDefault={5} />
 
                 <AppStatistics />
             </div>
