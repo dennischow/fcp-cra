@@ -1,21 +1,49 @@
 .app-panel-articles-search {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+
+    &__form,
+    &__result {
+        flex: 0 0 auto;
+    }
+
     &__form {
-        position: relative;
     }
 
     &__fieldset {
+        position: relative;
+    }
 
+    &__legend {
+        display: none;
     }
 
     &__input {
-        padding: 10px;
+        padding: 10px 40px 10px 10px;
         width: 100%;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        font-size: var(--text-size-s);
+    }
+
+    &__button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        padding: 5px;
+        background: transparent;
+        transform: translate(-5px, -50%);
+        color: var(--c-gray);
+        font-size: var(--text-size-xs);
     }
 
     &__result {
-        height: 300px;
+        flex: 1 1 auto;
         overflow: hidden;
         overflow-y: auto;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 
         &::-webkit-scrollbar {
             width: 10px;
@@ -82,7 +110,7 @@
         display: block;
         padding: 10px;
         font-size: var(--text-size-s);
-        color: var(--c-dark-gray);
+        color: var(--c-gray);
         text-decoration: none;
 
         &:hover {
