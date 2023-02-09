@@ -24,7 +24,7 @@ const AppPanelArticlesSearch = () => {
                 <form className="app-panel-articles-search__form">
                     <fieldset className="app-panel-articles-search__fieldset">
                         <legend className="app-panel-articles-search__legend">search an article that you may interested to read</legend>
-                        <input className="app-panel-articles-search__input" type="text" onChange={keywordSearch} value={searchValue} placeholder="keywords..." />
+                        <input className="app-panel-articles-search__input" type="text" placeholder="keywords..." autoFocus onChange={keywordSearch} value={searchValue} />
                             <button className="app-panel-articles-search__button" type="button" onClick={keywordClear}>
                             <FaTimes />
                         </button>
