@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState, useRef } from "react";
+import { Fragment, useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
 import { AppContext } from "../../contexts/appContext";
@@ -30,15 +30,15 @@ const AppPanelArticlesSearch = () => {
                         </button>
                     </fieldset>
                 </form>
-                {searchValue.length > 0 && articlesFilteredByKeywordSearch.length > 0 && (
+                {searchValue.length > 0 && (
                     <div className="app-panel-articles-search__result">
                         <ul className="app-panel-articles-search__result-list">
-                            {searchValue.length > 0 && articlesFilteredByKeywordSearch.map((item, index) => (
+                            {articlesFilteredByKeywordSearch.map((item, index) => (
                                 <li className="app-panel-articles-search__result-list-item" key={item.entry_id}>
                                     <a className="app-panel-articles-search__result-list-item-link" href="#">{item.title}</a>
                                 </li>
                             ))}
-                            {searchValue.length > 0 && articlesFilteredByKeywordSearch.length === 0 && (
+                            {articlesFilteredByKeywordSearch.length <= 0 && (
                                 <li className="app-panel-articles-search__result-list-item app-panel-articles-search__result-list-item--empty">
                                     <span className="app-panel-articles-search__result-list-item-link">No match found</span>
                                 </li>
