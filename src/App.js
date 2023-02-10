@@ -25,6 +25,7 @@ function App() {
                 setProjectEntries([]);
                 console.log(error);
             });
+        return () => {}
     }, []);
 
     useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
                 setArticleEntries([]);
                 console.log(error);
             });
+        return () => {}
     }, []);
 
     useEffect(() => {
@@ -49,6 +51,7 @@ function App() {
                 setTestimonialEntries([]);
                 console.log(error);
             })
+        return () => {}
     }, []);
 
     return (

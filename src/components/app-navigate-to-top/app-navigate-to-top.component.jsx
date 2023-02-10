@@ -13,6 +13,7 @@ const AppNavigateToTop = () => {
             });
             console.log("AppNavigateToTop: Window scroll to top instantly:", getNavigationType);
         }
+        return () => {}
     }, [getLocation]);
 };
 
