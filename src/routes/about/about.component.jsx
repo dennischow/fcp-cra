@@ -214,7 +214,6 @@ const About = () => {
 
     const toggleProfile = () => setIsProfileExpanded(!isProfileExpanded);
 
-    // console.log(isProfileExpanded)
     return (
         <Fragment>
             <Helmet>

@@ -32,7 +32,6 @@
     }
 
     &__brand-logo {
-
     }
 
     &__brand-name {
@@ -43,5 +42,24 @@
         color: var(--c-orange);
         text-align: right;
         transform: rotate(-90deg) translate(-35px, -5px);
+    }
+
+    &__scroll-progress-bar {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: var(--c-lighter-gray);
+        z-index: 10;
+    }
+
+    &__scroll-progress-grow {
+        height: 2px;
+        width: 0;
+        transition: width 0.2s linear;
+        background-color: var(--c-red);
+        background-image: linear-gradient(45deg, var(--c-red), var(--c-blue));
+        background-repeat: no-repeat;
     }
 }
