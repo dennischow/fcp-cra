@@ -17,7 +17,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 40px;
-            height: 580px;
+            height: max(580px, 35vw);
             background-color: var(--c-light-gray);
             background-image: linear-gradient(135deg, var(--c-darker-gray) 0, var(--c-gray) 100%);
             text-align: center;
@@ -148,7 +148,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 10px;
-            height: 300px;
+            height: max(300px, 17.5vw);
             background-color: var(--c-light-gray);
 
             &:nth-child(n + 7) {
@@ -186,6 +186,7 @@
             font-size: var(--text-size-xl);
             color: var(--c-white);
             font-weight: 700;
+            line-height: 1.25;
             z-index: 1;
         }
 
@@ -215,7 +216,7 @@
             flex-direction: column;
             justify-content: center;
             padding: 40px;
-            height: 580px;
+            height: max(580px, 35vw);
             background-color: var(--c-light-gray);
             background-image: linear-gradient(135deg, var(--c-orange) 0, var(--c-dark-orange) 100%);
             text-align: center;

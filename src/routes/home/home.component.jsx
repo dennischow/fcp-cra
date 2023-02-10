@@ -119,7 +119,7 @@ const Home = () => {
                                     I have a passion. Want to know what it is? Come check it out.
                                 </p>
                                 <Link className="passionate-hilite__teaser-link app-cta app-cta--white" to={CONSTANTS.ROUTES.about.path}>
-                                    Learn more
+                                    Learn more <FaArrowRight />
                                 </Link>
                             </div>
                         </div>

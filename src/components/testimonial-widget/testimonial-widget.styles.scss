@@ -106,13 +106,13 @@
 
     &__header-group-headline {
         text-align: center;
-        font-size: calc(var(--text-size-l) * 2.5);
+        font-size: calc(var(--text-size-xxl) * 2);
         font-weight: 700;
     }
 
     &__header-group-sub-headline {
         text-align: center;
-        font-size: var(--text-size-xl);
+        font-size: var(--text-size-l);
         color: var(--c-dark-orange);
     }
 
