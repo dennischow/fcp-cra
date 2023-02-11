@@ -10,6 +10,7 @@ import AppLayout from "./components/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-top.component";
 import Home from "./routes/home/home.component";
 import About from "./routes/about/about.component";
+import Projects from "./routes/projects/projects.component";
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/projects" element={<Projects />} />
                 </Route>
             </Routes>
         </Fragment>

@@ -28,6 +28,16 @@ const AppNav = ({ props, ...otherProps }) => {
                         </span>
                     </NavLink>
                 </li>
+                <li className="app-nav__item">
+                    <NavLink className="app-nav__link" to={CONSTANTS.ROUTES.projects.path}>
+                        <span className="app-nav__icon">
+                            <FaUser />
+                        </span>
+                        <span className="app-nav__text">
+                            {CONSTANTS.ROUTES.projects.name}
+                        </span>
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     );
