@@ -12,26 +12,28 @@ const Projects = () => {
     const { projectEntries } = useContext(AppContext);
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
     const categoryIdRef = useRef(4);
-
+    const categoryListElementRef = useRef();
     const categoryTabsList = [
         {
             id: 4,
             text: "Web Projects",
             categoryName: "Web Development / Design",
             definition: "thinking + coding",
-
+            isActive: true,
         },
         {
             id: 5,
             text: "Print Projects",
             categoryName: "Print Design",
             definition: "layout + cmyk",
+            isActive: false,
         },
         {
             id: 6,
             text: "Tee Projects",
             categoryName: "Tee Design",
             definition: "creativity + production",
+            isActive: false,
         },
     ];
 
@@ -39,6 +41,14 @@ const Projects = () => {
         categoryToShow(categoryIdRef.current);
         return () => {};
     }, [projectEntries]);
+
+    const getCategoryListElementClassName = (isActive) => {
+        const classNames = ["projects-category__list-item"];
+        if (isActive) {
+            classNames.push("projects-category__list-item--active");
+        }
+        return classNames.join(" ");
+    };
 
     const categoryToShow = (catId) => {
         const result = projectEntries.filter((item) => {
@@ -51,6 +61,10 @@ const Projects = () => {
         categoryIdRef.current = catId;
         categoryToShow(catId);
         console.log(event.target);
+        categoryListElementRef.current.childNodes.forEach((ele) => {
+            ele.classList.remove("projects-category__list-item--active");
+        });
+        event.target.parentNode.classList.add("projects-category__list-item--active");
     };
 
     return (
@@ -65,20 +79,20 @@ const Projects = () => {
                     subHeading="Let my work samples speak on my behalf"
                 />
 
-                <div className="profile-container app-container">
-
-
-                    <div className="projects-category">
-                        <ul className="projects-category__list" role="tablist">
+                <div className="projects-category">
+                    <div className="projects-category__container">
+                        <ul className="projects-category__list" ref={categoryListElementRef} role="tablist">
                             {categoryTabsList.map((item, index) => (
-                                <li className="projects-category__list-item" role="tab" key={item.id}>
-                                    <a className="projects-category__btn-cat-change" onClick={(event) => categorySelectHandler(event, item.id)}>{item.text}</a>
+                                <li className={getCategoryListElementClassName(item.isActive)} key={item.id} role="tab">
+                                    <a className="projects-category__btn" onClick={(event) => categorySelectHandler(event, item.id)}>{item.text}</a>
                                 </li>
                             ))}
                         </ul>
                     </div>
+                </div>
 
-                    <div className="projects-intro">
+                <div className="projects-intro">
+                    <div className="projects-intro__container">
                         {projectsFilteredByCategory.length > 0 && projectsFilteredByCategory.slice(0, 1).map((item, index) => {
                             const id = item.channel_id;
                             const catObj = categoryTabsList.find((item, index) => item.id === id);
@@ -90,8 +104,10 @@ const Projects = () => {
                             )
                         })}
                     </div>
+                </div>
 
-                    <div className="projects-block">
+                <div className="projects-block">
+                    <div className="projects-block__container">
                         <ul className="projects-block__list">
                             {projectsFilteredByCategory.length > 0 && projectsFilteredByCategory.map((item, index) => (
                                 <li className="projects-block__list-item" key={index}>
@@ -107,7 +123,6 @@ const Projects = () => {
                             ))}
                         </ul>
                     </div>
-
                 </div>
 
                 <AppStatistics />
