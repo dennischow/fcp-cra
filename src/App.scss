@@ -105,6 +105,22 @@ a {
 
     }
 
+    &--gray {
+        color: var(--c-gray);
+        border-color: var(--c-gray);
+
+        &:hover {
+            color: var(--c-gray);
+        }
+
+        .app-cta__bubble {
+            border: 2px solid var(--c-gray);
+            background-color: var(--c-gray);
+            color: var(--c-base-color);
+        }
+
+    }
+
     & > svg,
     &__icon {
         margin-left: 5px;

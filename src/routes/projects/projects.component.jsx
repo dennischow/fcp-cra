@@ -1,9 +1,11 @@
 import { Fragment, useRef, useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { FaArrowRight } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
-import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
+import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 
 import "./projects.styles.scss";
@@ -74,6 +76,7 @@ const Projects = () => {
             </Helmet>
             <div className="page-projects">
                 <AppHeroBanner
+                    type="default"
                     heroBackgroundUrl={""}
                     heading="Nowadays I focus on front-end web development"
                     subHeading="Let my work samples speak on my behalf"
@@ -84,7 +87,11 @@ const Projects = () => {
                         <ul className="projects-category__list" ref={categoryListElementRef} role="tablist">
                             {categoryTabsList.map((item, index) => (
                                 <li className={getCategoryListElementClassName(item.isActive)} key={item.id} role="tab">
-                                    <a className="projects-category__btn" onClick={(event) => categorySelectHandler(event, item.id)}>{item.text}</a>
+                                    <a
+                                        className="projects-category__btn"
+                                        onClick={(event) => categorySelectHandler(event, item.id)}>
+                                        {item.text}
+                                    </a>
                                 </li>
                             ))}
                         </ul>
@@ -93,35 +100,55 @@ const Projects = () => {
 
                 <div className="projects-intro">
                     <div className="projects-intro__container">
-                        {projectsFilteredByCategory.length > 0 && projectsFilteredByCategory.slice(0, 1).map((item, index) => {
-                            const id = item.channel_id;
-                            const catObj = categoryTabsList.find((item, index) => item.id === id);
-                            return (
-                                <p className="projects-intro__content" key={item.entry_id}>
-                                    <span className="projects-intro__category-name">{catObj.categoryName}</span>
-                                    <span className="projects-intro__definition">{catObj.definition}</span>
-                                </p>
-                            )
-                        })}
+                        {projectsFilteredByCategory.length > 0 &&
+                            projectsFilteredByCategory.slice(0, 1).map((item, index) => {
+                                const id = item.channel_id;
+                                const catObj = categoryTabsList.find((item, index) => item.id === id);
+                                return (
+                                    <p className="projects-intro__content" key={item.entry_id}>
+                                        <span className="projects-intro__category-name">{catObj.categoryName}</span>
+                                        <span className="projects-intro__definition">{catObj.definition}</span>
+                                    </p>
+                                );
+                            })}
                     </div>
                 </div>
 
                 <div className="projects-block">
                     <div className="projects-block__container">
                         <ul className="projects-block__list">
-                            {projectsFilteredByCategory.length > 0 && projectsFilteredByCategory.map((item, index) => (
-                                <li className="projects-block__list-item" key={index}>
-                                    <div className="projects-block__content">
-                                        <p className="projects-block__title">
-                                            <a className="projects-block__title-link" href="#" target="_top">{item.title}</a>
-                                        </p>
-                                        <div className="projects-block__visual visual" role="img" aria-label={item.title} style={{backgroundImage: `url(${item.thumbnail})`}}>
-                                            <img className="projects-block__img" src={item.thumbnail} height="300" width="300" alt={`Thumbnail of ${item.title}`} />
+                            {projectsFilteredByCategory.length > 0 &&
+                                projectsFilteredByCategory.map((item, index) => (
+                                    <li className="projects-block__list-item" key={index}>
+                                        <div className="projects-block__content">
+                                            <p className="projects-block__title">
+                                                <a className="projects-block__title-link" href="#" target="_top">
+                                                    {item.title}
+                                                </a>
+                                            </p>
+                                            <div
+                                                className="projects-block__visual visual"
+                                                role="img"
+                                                aria-label={item.title}
+                                                style={{ backgroundImage: `url(${item.thumbnail})` }}>
+                                                <img
+                                                    className="projects-block__img"
+                                                    src={item.thumbnail}
+                                                    height="300"
+                                                    width="300"
+                                                    alt={`Thumbnail of ${item.title}`}
+                                                />
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            ))}
+                                    </li>
+                                ))}
                         </ul>
+
+                        <div className="projects-block__buttons-container">
+                            <Link className="app-cta app-cta--gray" to={CONSTANTS.ROUTES.about.path}>
+                                Learn more about me <FaArrowRight />
+                            </Link>
+                        </div>
                     </div>
                 </div>
 

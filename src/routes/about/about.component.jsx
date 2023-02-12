@@ -14,7 +14,7 @@ import {
 import { Line, Bar } from "react-chartjs-2";
 import { FaInfoCircle } from "react-icons/fa";
 
-import AppHeroBanner from "../../components/app-hero-banner/app-hero-banner.component";
+import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/about/double-colors-exposure.jpg";
@@ -222,6 +222,7 @@ const About = () => {
             <div className="page-about">
 
                 <AppHeroBanner
+                    type="hero"
                     heroBackgroundUrl={heroBackgroundImg}
                     heading="<span>It'S time to</span> <span>introduce</span> <span>myself</span>"
                     subHeading="Let's get it started"
