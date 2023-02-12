@@ -52,6 +52,7 @@
     }
 
     &__text {
-        font-size: var(--text-size-xxs);
+        margin-top: 2px;
+        font-size: calc(var(--text-size-xxs) - 0.2rem);
     }
 }
