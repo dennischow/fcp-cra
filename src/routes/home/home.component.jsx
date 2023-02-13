@@ -1,10 +1,10 @@
 import { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import moment from "moment";
 import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
+import * as UTILS from "../../common/utils";
 import { AppContext } from "../../contexts/appContext";
 import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
@@ -16,8 +16,6 @@ import "./home.styles.scss";
 const Home = () => {
 
     const { projectEntries, articleEntries } = useContext(AppContext);
-
-    const convertToRelativeDate = (date) => moment(date).fromNow();
 
     const convertProjectCatIdToName = (id) => {
         let result = null;
@@ -102,7 +100,7 @@ const Home = () => {
                                         {item.title}
                                     </a>
                                     <small className="recent-articles__entry-info">
-                                        <time className="recent-articles__entry-date">{convertToRelativeDate(item.entry_date)}</time> |{" "}
+                                        <time className="recent-articles__entry-date">{UTILS.convertToRelativeDate(item.entry_date)}</time> |{" "}
                                         <span className="recent-articles__entry-views">[Views]</span>
                                     </small>
                                 </div>

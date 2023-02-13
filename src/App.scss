@@ -1,5 +1,9 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+:root {
+    scroll-behavior: smooth;
+}
+
 ::selection {
     background: var(--c-orange);
     color: var(--c-white);
@@ -25,6 +29,13 @@ a, button {
 
 a {
     color: var(--c-blue);
+}
+
+button {
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.8;
+    }
 }
 
 #root {
@@ -64,12 +75,12 @@ a {
     color: var(--c-base-color);
     cursor: pointer;
 
-    &:hover,
-    &:active {
+    &:hover:not([disabled]),
+    &:active:not([disabled]) {
         animation: shake-it-off 0.3s 1 linear;
     }
 
-    &:active {
+    &:active:not([disabled]) {
         transform: scale(0.95);
     }
 

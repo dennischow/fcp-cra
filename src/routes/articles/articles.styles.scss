@@ -8,19 +8,38 @@
         }
 
         &__page-indicator {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             position: sticky;
             top: 20px;
-            text-align: right;
-            z-index: 1;
+            margin-bottom: 20px;
+            z-index: 5;
+        }
 
-            span {
-                display: inline-block;
-                padding: 2px 8px;
-                font-size: var(--text-size-xs);
-                color: var(--c-white);
-                background-color: var(--c-dark-gray);
-                border-radius: 500px;
+        &__page-indicator-display {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+            height: 32px;
+            width: 120px;
+            font-size: var(--text-size-s);
+            color: var(--c-white);
+            background-color: var(--c-dark-orange);
+            border-radius: 500px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        &__page-indicator-button {
+            width: 32px;
+            height: 32px;
+
+            &:first-of-type {
+                margin-left: 5px;
+                border-right: 1px solid var(--c-light-gray);
             }
+
         }
 
         &__entries {
