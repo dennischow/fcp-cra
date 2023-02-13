@@ -15,15 +15,17 @@ const Projects = () => {
     const { articleEntries } = useContext(AppContext);
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPortion] = useState(articleEntries);
 
-    const articlesCount = useRef(0);
-    const currentPortionCountRef = useRef(1);
-    const perPortionRef = useRef(24);
-    const fromPortionRef = useRef(0);
-    const toPortionRef = useRef(perPortionRef.current);
+    const entriesPerPage = 24;
+    const totalEntriesCountRef = useRef(0);
+    const currentPageNumberRef = useRef(1);
+    const totalPageNumber = useRef(0);
+    const rangeStartsRef = useRef(0);
+    const rangeEndsRed = useRef(entriesPerPage);
 
     useEffect(() => {
         updateArticles();
-        articlesCount.current = articleEntries.length;
+        totalEntriesCountRef.current = articleEntries.length;
+        totalPageNumber.current = Math.ceil(totalEntriesCountRef.current / entriesPerPage);
         return () => {};
     }, [articleEntries]);
 
@@ -36,25 +38,26 @@ const Projects = () => {
     }, [articlesFilteredByPerPortion]);
 
     const updateArticles = () => {
-        const result = articleEntries.slice(fromPortionRef.current, toPortionRef.current);
+        const result = articleEntries.slice(rangeStartsRef.current, rangeEndsRed.current);
         setArticlesFilteredByPerPortion(result);
-        console.log(currentPortionCountRef.current);
+        console.log(currentPageNumberRef.current);
     }
 
     const articlesRangeHandler = (event, action) => {
         event.preventDefault();
-        console.log(articlesCount.current);
-        if (action === "previous" && fromPortionRef.current >= perPortionRef.current) {
-            fromPortionRef.current = fromPortionRef.current - perPortionRef.current;
-            toPortionRef.current = toPortionRef.current - perPortionRef.current;
-            currentPortionCountRef.current--;
+        if (action === "previous") {
+            rangeStartsRef.current = rangeStartsRef.current - entriesPerPage;
+            rangeEndsRed.current = rangeEndsRed.current - entriesPerPage;
+            currentPageNumberRef.current--;
         }
-        if (action === "next" && toPortionRef.current <= articlesCount.current) {
-            fromPortionRef.current = fromPortionRef.current + perPortionRef.current;
-            toPortionRef.current = toPortionRef.current + perPortionRef.current;
-            currentPortionCountRef.current++;
+        if (action === "next") {
+            rangeStartsRef.current = rangeStartsRef.current + entriesPerPage;
+            rangeEndsRed.current = rangeEndsRed.current + entriesPerPage;
+            currentPageNumberRef.current++;
         }
         updateArticles();
+        console.log(totalEntriesCountRef.current);
+        console.log(`${rangeStartsRef.current} - ${rangeEndsRed.current}`);
         console.log(`articlesRangeHandler triggered by ${action}`);
     };
 
@@ -77,15 +80,15 @@ const Projects = () => {
                         {articlesFilteredByPerPortion.length > 0 && (
                             <p className="articles-block__page-indicator">
                                 <span className="articles-block__page-indicator-display">
-                                    {`page ${currentPortionCountRef.current} of ${Math.ceil(articlesCount.current / perPortionRef.current)}`}
+                                    {`page ${currentPageNumberRef.current} of ${totalPageNumber.current}`}
                                 </span>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
-                                    disabled={!(fromPortionRef.current >= perPortionRef.current)}
+                                    disabled={currentPageNumberRef.current <= 1}
                                     onClick={(event) => articlesRangeHandler(event, "previous")}>
                                     <FaAngleLeft />
                                 </button>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--next"
-                                    disabled={!(toPortionRef.current <= articlesCount.current)}
+                                    disabled={currentPageNumberRef.current >= totalPageNumber.current}
                                     onClick={(event) => articlesRangeHandler(event, "next")}>
                                     <FaAngleRight />
                                 </button>
@@ -117,13 +120,13 @@ const Projects = () => {
                         <div className="articles-block__buttons-container">
                             <button
                                 className="app-cta app-cta--gray"
-                                disabled={!(fromPortionRef.current >= perPortionRef.current)}
+                                disabled={currentPageNumberRef.current <= 1}
                                 onClick={(event) => articlesRangeHandler(event, "previous")}>
                                 Previous
                             </button>
                             <button
                                 className="app-cta app-cta--gray"
-                                disabled={!(toPortionRef.current <= articlesCount.current)}
+                                disabled={currentPageNumberRef.current >= totalPageNumber.current}
                                 onClick={(event) => articlesRangeHandler(event, "next")}>
                                 Next
                             </button>
