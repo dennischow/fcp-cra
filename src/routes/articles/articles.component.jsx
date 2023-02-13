@@ -16,7 +16,7 @@ const Projects = () => {
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPortion] = useState(articleEntries);
 
     const articlesCount = useRef(0);
-    const currentPortionCount = useRef(1);
+    const currentPortionCountRef = useRef(1);
     const perPortionRef = useRef(24);
     const fromPortionRef = useRef(0);
     const toPortionRef = useRef(perPortionRef.current);
@@ -27,10 +27,18 @@ const Projects = () => {
         return () => {};
     }, [articleEntries]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+        return () => {};
+    }, [articlesFilteredByPerPortion]);
+
     const updateArticles = () => {
         const result = articleEntries.slice(fromPortionRef.current, toPortionRef.current);
         setArticlesFilteredByPerPortion(result);
-        console.log(currentPortionCount.current);
+        console.log(currentPortionCountRef.current);
     }
 
     const articlesRangeHandler = (event, action) => {
@@ -39,20 +47,14 @@ const Projects = () => {
         if (action === "previous" && fromPortionRef.current >= perPortionRef.current) {
             fromPortionRef.current = fromPortionRef.current - perPortionRef.current;
             toPortionRef.current = toPortionRef.current - perPortionRef.current;
-            currentPortionCount.current--;
+            currentPortionCountRef.current--;
         }
         if (action === "next" && toPortionRef.current <= articlesCount.current) {
             fromPortionRef.current = fromPortionRef.current + perPortionRef.current;
             toPortionRef.current = toPortionRef.current + perPortionRef.current;
-            currentPortionCount.current++;
+            currentPortionCountRef.current++;
         }
         updateArticles();
-        setTimeout(() => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }, 10);
         console.log(`articlesRangeHandler triggered by ${action}`);
     };
 
@@ -75,7 +77,7 @@ const Projects = () => {
                         {articlesFilteredByPerPortion.length > 0 && (
                             <p className="articles-block__page-indicator">
                                 <span className="articles-block__page-indicator-display">
-                                    {`page ${currentPortionCount.current} of ${Math.ceil(articlesCount.current / perPortionRef.current)}`}
+                                    {`page ${currentPortionCountRef.current} of ${Math.ceil(articlesCount.current / perPortionRef.current)}`}
                                 </span>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
                                     disabled={!(fromPortionRef.current >= perPortionRef.current)}
