@@ -13,34 +13,30 @@ import "./projects.styles.scss";
 const Projects = () => {
     const { projectEntries } = useContext(AppContext);
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
-    const categoryIdRef = useRef(4);
-    const categoryListElementRef = useRef();
+    const [activeCategoryId, setActiveCategoryId] = useState(4);
     const categoryTabsList = [
         {
             id: 4,
             text: "Web Projects",
             categoryName: "Web Development / Design",
             definition: "thinking + coding",
-            isActive: true,
         },
         {
             id: 5,
             text: "Print Projects",
             categoryName: "Print Design",
             definition: "layout + cmyk",
-            isActive: false,
         },
         {
             id: 6,
             text: "Tee Projects",
             categoryName: "Tee Design",
             definition: "creativity + production",
-            isActive: false,
         },
     ];
 
     useEffect(() => {
-        categoryToShow(categoryIdRef.current);
+        categoryToShow(activeCategoryId);
         return () => {};
     }, [projectEntries]);
 
@@ -60,13 +56,9 @@ const Projects = () => {
     };
 
     const categorySelectHandler = (event, catId) => {
-        categoryIdRef.current = catId;
+        setActiveCategoryId(catId);
         categoryToShow(catId);
-        console.log(event.target);
-        categoryListElementRef.current.childNodes.forEach((ele) => {
-            ele.classList.remove("projects-category__list-item--active");
-        });
-        event.target.parentNode.classList.add("projects-category__list-item--active");
+        console.log(event.target, catId);
     };
 
     return (
@@ -84,9 +76,9 @@ const Projects = () => {
 
                 <div className="projects-category">
                     <div className="projects-category__container">
-                        <ul className="projects-category__list" ref={categoryListElementRef} role="tablist">
+                        <ul className="projects-category__list" role="tablist">
                             {categoryTabsList.map((item, index) => (
-                                <li className={getCategoryListElementClassName(item.isActive)} key={item.id} role="tab">
+                                <li className={getCategoryListElementClassName(activeCategoryId === item.id)} key={item.id} role="tab">
                                     <a
                                         className="projects-category__btn"
                                         onClick={(event) => categorySelectHandler(event, item.id)}>
