@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 
 import "./App.scss";
@@ -67,6 +67,7 @@ function App() {
                     <Route path={CONSTANTS.ROUTES.projects.path} element={<Projects />} />
                     <Route path={`${CONSTANTS.ROUTES.projectDetails.path}/:entryId`} element={<ProjectDetails />} />
                     <Route path={CONSTANTS.ROUTES.articles.path} element={<Articles />} />
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Route>
             </Routes>
         </Fragment>
