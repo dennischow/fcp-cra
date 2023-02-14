@@ -6,14 +6,14 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { AppContext } from "../../contexts/appContext";
-import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
+import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 
 import "./articles.styles.scss";
 
 const Projects = () => {
     const { articleEntries } = useContext(AppContext);
-    const [articlesFilteredByPerPortion, setArticlesFilteredByPerPortion] = useState(articleEntries);
+    const [articlesFilteredByPerPortion, setArticlesFilteredByPerPage] = useState(articleEntries);
 
     const entriesPerPage = 24;
     const totalEntriesCountRef = useRef(0);
@@ -39,10 +39,7 @@ const Projects = () => {
         const startIndex = (currentPageNumberRef.current - 1) * entriesPerPage;
         const endIndex = currentPageNumberRef.current * entriesPerPage;
         const result = articleEntries.slice(startIndex, endIndex);
-        setArticlesFilteredByPerPortion(result);
-        console.log(`currentPageNumberRef: ${currentPageNumberRef.current}`);
-        console.log(`totalEntriesCountRef: ${totalEntriesCountRef.current}`);
-        console.log(`updateArticlesRange: ${startIndex}-${endIndex} in ${totalEntriesCountRef.current}`);
+        setArticlesFilteredByPerPage(result);
     }
 
     const pageSwitchHandler = (event, action) => {
@@ -63,7 +60,7 @@ const Projects = () => {
                 <title>Articles</title>
             </Helmet>
             <div className="page-articles">
-                <AppHeroBanner
+                <AppFeatureBanner
                     type="default"
                     heroBackgroundUrl={""}
                     heading="A casual corner to share what's on my mind"

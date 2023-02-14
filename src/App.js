@@ -62,9 +62,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/articles" element={<Articles />} />
+                    <Route path={CONSTANTS.ROUTES.about.path} element={<About />} />
+                    <Route path={CONSTANTS.ROUTES.projects.path} element={<Projects />} />
+                    <Route path={CONSTANTS.ROUTES.articles.path} element={<Articles />} />
                 </Route>
             </Routes>
         </Fragment>

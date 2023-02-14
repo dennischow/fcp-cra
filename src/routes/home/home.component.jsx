@@ -6,7 +6,7 @@ import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { AppContext } from "../../contexts/appContext";
-import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
+import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
@@ -41,7 +41,7 @@ const Home = () => {
                 <title>Homepage</title>
             </Helmet>
             <div className="page-home">
-                <AppHeroBanner
+                <AppFeatureBanner
                     type="hero"
                     heroBackgroundUrl={heroBackgroundImg}
                     heading="<span>Just a</span> <span>Front-End</span> <span>Web Developer</span>"

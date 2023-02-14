@@ -1,6 +1,6 @@
 import "./app-feature-banner.styles.scss";
 
-const AppHeroBanner = ({ type, heroBackgroundUrl, heading, subHeading, ...otherProps }) => {
+const AppFeatureBanner = ({ type, heroBackgroundUrl, heading, subHeading, ...otherProps }) => {
     // type: default, hero
 
     const bannerClass = `app-feature-banner app-feature-banner--${type === "hero" ? "hero" : "default"}`;
@@ -24,4 +24,4 @@ const AppHeroBanner = ({ type, heroBackgroundUrl, heading, subHeading, ...otherP
     );
 };
 
-export default AppHeroBanner;
+export default AppFeatureBanner;

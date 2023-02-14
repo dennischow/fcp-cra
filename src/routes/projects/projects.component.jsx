@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
-import AppHeroBanner from "../../components/app-feature-banner/app-feature-banner.component";
+import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 
 import "./projects.styles.scss";
@@ -75,7 +75,7 @@ const Projects = () => {
                 <title>Projects</title>
             </Helmet>
             <div className="page-projects">
-                <AppHeroBanner
+                <AppFeatureBanner
                     type="default"
                     heroBackgroundUrl={""}
                     heading="Nowadays I focus on front-end web development"
