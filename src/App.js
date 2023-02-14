@@ -11,6 +11,7 @@ import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-t
 import Home from "./routes/home/home.component";
 import About from "./routes/about/about.component";
 import Projects from "./routes/projects/projects.component";
+import ProjectDetails from "./routes/projects/project-details/project-details.component"
 import Articles from "./routes/articles/articles.component";
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
                     <Route index element={<Home />} />
                     <Route path={CONSTANTS.ROUTES.about.path} element={<About />} />
                     <Route path={CONSTANTS.ROUTES.projects.path} element={<Projects />} />
+                    <Route path={`${CONSTANTS.ROUTES.projectDetails.path}/:entryId`} element={<ProjectDetails />} />
                     <Route path={CONSTANTS.ROUTES.articles.path} element={<Articles />} />
                 </Route>
             </Routes>

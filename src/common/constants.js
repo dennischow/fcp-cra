@@ -13,6 +13,10 @@ export const ROUTES = {
         name: "Projects",
         path: "/projects",
     },
+    projectDetails: {
+        name: "Project Details",
+        path: "/project/details",
+    },
     articles: {
         name: "Articles",
         path: "/articles",

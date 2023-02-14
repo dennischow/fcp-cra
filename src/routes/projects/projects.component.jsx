@@ -122,12 +122,12 @@ const Projects = () => {
                                     <li className="projects-block__list-item" key={index}>
                                         <div className="projects-block__content">
                                             <p className="projects-block__title">
-                                                <a className="projects-block__title-link" href="#" target="_top">
+                                                <Link className="projects-block__title-link" to={`${CONSTANTS.ROUTES.projectDetails.path}/${item.url_title}`}>
                                                     {item.title}
-                                                </a>
+                                                </Link>
                                             </p>
                                             <div
-                                                className="projects-block__visual visual"
+                                                className="projects-block__visual"
                                                 role="img"
                                                 aria-label={item.title}
                                                 style={{ backgroundImage: `url(${item.thumbnail})` }}>
