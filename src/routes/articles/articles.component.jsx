@@ -18,14 +18,14 @@ const Projects = () => {
     const entriesPerPage = 24;
     const totalEntriesCountRef = useRef(0);
     const currentPageNumberRef = useRef(1);
-    const totalPageNumber = useRef(0);
+    const totalPageNumberRef = useRef(0);
     const rangeStartsRef = useRef(0);
-    const rangeEndsRed = useRef(entriesPerPage);
+    const rangeEndsRef = useRef(entriesPerPage);
 
     useEffect(() => {
         updateArticles();
         totalEntriesCountRef.current = articleEntries.length;
-        totalPageNumber.current = Math.ceil(totalEntriesCountRef.current / entriesPerPage);
+        totalPageNumberRef.current = Math.ceil(totalEntriesCountRef.current / entriesPerPage);
         return () => {};
     }, [articleEntries]);
 
@@ -38,7 +38,7 @@ const Projects = () => {
     }, [articlesFilteredByPerPortion]);
 
     const updateArticles = () => {
-        const result = articleEntries.slice(rangeStartsRef.current, rangeEndsRed.current);
+        const result = articleEntries.slice(rangeStartsRef.current, rangeEndsRef.current);
         setArticlesFilteredByPerPortion(result);
         console.log(currentPageNumberRef.current);
     }
@@ -47,17 +47,17 @@ const Projects = () => {
         event.preventDefault();
         if (action === "previous") {
             rangeStartsRef.current = rangeStartsRef.current - entriesPerPage;
-            rangeEndsRed.current = rangeEndsRed.current - entriesPerPage;
+            rangeEndsRef.current = rangeEndsRef.current - entriesPerPage;
             currentPageNumberRef.current--;
         }
         if (action === "next") {
             rangeStartsRef.current = rangeStartsRef.current + entriesPerPage;
-            rangeEndsRed.current = rangeEndsRed.current + entriesPerPage;
+            rangeEndsRef.current = rangeEndsRef.current + entriesPerPage;
             currentPageNumberRef.current++;
         }
         updateArticles();
         console.log(totalEntriesCountRef.current);
-        console.log(`${rangeStartsRef.current} - ${rangeEndsRed.current}`);
+        console.log(`${rangeStartsRef.current} - ${rangeEndsRef.current}`);
         console.log(`articlesRangeHandler triggered by ${action}`);
     };
 
@@ -80,7 +80,7 @@ const Projects = () => {
                         {articlesFilteredByPerPortion.length > 0 && (
                             <p className="articles-block__page-indicator">
                                 <span className="articles-block__page-indicator-display">
-                                    {`page ${currentPageNumberRef.current} of ${totalPageNumber.current}`}
+                                    {`page ${currentPageNumberRef.current} of ${totalPageNumberRef.current}`}
                                 </span>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
                                     disabled={currentPageNumberRef.current <= 1}
@@ -88,7 +88,7 @@ const Projects = () => {
                                     <FaAngleLeft />
                                 </button>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--next"
-                                    disabled={currentPageNumberRef.current >= totalPageNumber.current}
+                                    disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
                                     onClick={(event) => articlesRangeHandler(event, "next")}>
                                     <FaAngleRight />
                                 </button>
@@ -126,7 +126,7 @@ const Projects = () => {
                             </button>
                             <button
                                 className="app-cta app-cta--gray"
-                                disabled={currentPageNumberRef.current >= totalPageNumber.current}
+                                disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
                                 onClick={(event) => articlesRangeHandler(event, "next")}>
                                 Next
                             </button>
