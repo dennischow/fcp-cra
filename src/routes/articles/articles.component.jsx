@@ -19,13 +19,11 @@ const Projects = () => {
     const totalEntriesCountRef = useRef(0);
     const currentPageNumberRef = useRef(1);
     const totalPageNumberRef = useRef(0);
-    const rangeStartsRef = useRef(0);
-    const rangeEndsRef = useRef(entriesPerPage);
 
     useEffect(() => {
-        updateArticles();
         totalEntriesCountRef.current = articleEntries.length;
         totalPageNumberRef.current = Math.ceil(totalEntriesCountRef.current / entriesPerPage);
+        updateArticlesRange();
         return () => {};
     }, [articleEntries]);
 
@@ -37,28 +35,26 @@ const Projects = () => {
         return () => {};
     }, [articlesFilteredByPerPortion]);
 
-    const updateArticles = () => {
-        const result = articleEntries.slice(rangeStartsRef.current, rangeEndsRef.current);
+    const updateArticlesRange = () => {
+        const startIndex = (currentPageNumberRef.current - 1) * entriesPerPage;
+        const endIndex = currentPageNumberRef.current * entriesPerPage;
+        const result = articleEntries.slice(startIndex, endIndex);
         setArticlesFilteredByPerPortion(result);
-        console.log(currentPageNumberRef.current);
+        console.log(`currentPageNumberRef: ${currentPageNumberRef.current}`);
+        console.log(`totalEntriesCountRef: ${totalEntriesCountRef.current}`);
+        console.log(`updateArticlesRange: ${startIndex}-${endIndex} in ${totalEntriesCountRef.current}`);
     }
 
-    const articlesRangeHandler = (event, action) => {
+    const pageSwitchHandler = (event, action) => {
         event.preventDefault();
         if (action === "previous") {
-            rangeStartsRef.current = rangeStartsRef.current - entriesPerPage;
-            rangeEndsRef.current = rangeEndsRef.current - entriesPerPage;
             currentPageNumberRef.current--;
         }
         if (action === "next") {
-            rangeStartsRef.current = rangeStartsRef.current + entriesPerPage;
-            rangeEndsRef.current = rangeEndsRef.current + entriesPerPage;
             currentPageNumberRef.current++;
         }
-        updateArticles();
-        console.log(totalEntriesCountRef.current);
-        console.log(`${rangeStartsRef.current} - ${rangeEndsRef.current}`);
-        console.log(`articlesRangeHandler triggered by ${action}`);
+        updateArticlesRange();
+        console.log(`pageSwitchHandler triggered by ${action}`);
     };
 
     return (
@@ -84,12 +80,12 @@ const Projects = () => {
                                 </span>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
                                     disabled={currentPageNumberRef.current <= 1}
-                                    onClick={(event) => articlesRangeHandler(event, "previous")}>
+                                    onClick={(event) => pageSwitchHandler(event, "previous")}>
                                     <FaAngleLeft />
                                 </button>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--next"
                                     disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
-                                    onClick={(event) => articlesRangeHandler(event, "next")}>
+                                    onClick={(event) => pageSwitchHandler(event, "next")}>
                                     <FaAngleRight />
                                 </button>
                             </p>
@@ -121,13 +117,13 @@ const Projects = () => {
                             <button
                                 className="app-cta app-cta--gray"
                                 disabled={currentPageNumberRef.current <= 1}
-                                onClick={(event) => articlesRangeHandler(event, "previous")}>
+                                onClick={(event) => pageSwitchHandler(event, "previous")}>
                                 Previous
                             </button>
                             <button
                                 className="app-cta app-cta--gray"
                                 disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
-                                onClick={(event) => articlesRangeHandler(event, "next")}>
+                                onClick={(event) => pageSwitchHandler(event, "next")}>
                                 Next
                             </button>
                         </div>
