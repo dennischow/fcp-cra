@@ -56,9 +56,9 @@ const Home = () => {
                                 <p className="projects-hilite__teaser-des">
                                     There are different ways to be creative. Find out what mine are.
                                 </p>
-                                <a className="projects-hilite__teaser-link app-cta app-cta--white" href="#">
+                                <Link className="projects-hilite__teaser-link app-cta app-cta--white" to={CONSTANTS.ROUTES.projectsOverview.path}>
                                     Check it out <FaArrowRight />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                         <div className="projects-hilite__entries">
@@ -69,9 +69,9 @@ const Home = () => {
                                         style={{backgroundImage: `url(${item.thumbnail})`}}>
                                     </div>
                                     <p className="projects-hilite__entry-cat">{convertProjectCatIdToName(item.channel_id)}</p>
-                                    <a className="projects-hilite__entry-link" href="#">
+                                    <Link className="projects-hilite__entry-link" to={`${CONSTANTS.ROUTES.projectsDetails.path}/${item.url_title}`}>
                                         {item.title}
-                                    </a>
+                                    </Link>
                                 </div>
                             ))}
                         </div>
@@ -85,9 +85,9 @@ const Home = () => {
                             <p className="recent-articles__header-des">
                                 A casual corner to share what's on my mind. Come hang!
                             </p>
-                            <a className="recent-articles__view-all-link" href="#">
+                            <Link className="recent-articles__view-all-link" to={CONSTANTS.ROUTES.articlesOverview.path}>
                                 View all post <FaArrowRight />
-                            </a>
+                            </Link>
                         </div>
                         <div className="recent-articles__entries">
                             {articleEntries.length > 0 && articleEntries.slice(0, 12).map((item, index) => (
@@ -96,9 +96,9 @@ const Home = () => {
                                         role="img"
                                         style={{backgroundImage: `url(${item.thumb_image ? item.thumb_image : item.thumb_image_hotlink})`}}>
                                     </div>
-                                    <a className="recent-articles__entry-link" href="#">
+                                    <Link className="recent-articles__entry-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
                                         {item.title}
-                                    </a>
+                                    </Link>
                                     <small className="recent-articles__entry-info">
                                         <time className="recent-articles__entry-date">{UTILS.convertToRelativeDate(item.entry_date)}</time> |{" "}
                                         <span className="recent-articles__entry-views">[Views]</span>

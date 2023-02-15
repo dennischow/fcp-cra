@@ -79,11 +79,11 @@ const ProjectsOverview = () => {
                         <ul className="projects-category__list" role="tablist">
                             {categoryTabsList.map((item, index) => (
                                 <li className={getCategoryListElementClassName(activeCategoryId === item.id)} key={item.id} role="tab">
-                                    <a
+                                    <button
                                         className="projects-category__btn"
                                         onClick={(event) => categorySelectHandler(event, item.id)}>
                                         {item.text}
-                                    </a>
+                                    </button>
                                 </li>
                             ))}
                         </ul>
