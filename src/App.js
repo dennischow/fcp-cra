@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 
 import "./App.scss";
@@ -70,6 +70,7 @@ function App() {
                     <Route path={`${CONSTANTS.ROUTES.projectsDetails.path}/:entryId`} element={<ProjectsDetails />} />
                     <Route path={CONSTANTS.ROUTES.articlesOverview.path} element={<ArticlesOverview />} />
                     <Route path={`${CONSTANTS.ROUTES.articlesDetails.path}/:entryId`} element={<ArticlesDetails />} />
+                    <Route path={CONSTANTS.ROUTES.notFound.path} element={<NotFound />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>

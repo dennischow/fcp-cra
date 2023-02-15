@@ -19,7 +19,7 @@ const ProjectsDetails = () => {
         console.log(result);
         setParticularProject(result);
         return () => {};
-    }, [projectEntries]);
+    }, [projectEntries, entryId]);
 
     return (
         <Fragment>
@@ -45,7 +45,7 @@ const ProjectsDetails = () => {
                                         <img className="project-details__visual-image"
                                             key={index}
                                             src={item.image}
-                                            alt={`picture of ${particularProject?.title} screenshot ${index + 1} of ${particularProject?.full_image.length}`}/>
+                                            alt={`${particularProject?.title} screenshot ${index + 1} of ${particularProject?.full_image.length}`}/>
                                     ))}
                                 </figure>
                             </div>
@@ -67,7 +67,9 @@ const ProjectsDetails = () => {
                                                     href={particularProject?.visit_url}
                                                     target="_blank"
                                                     title="Open in new window"
-                                                    rel="noopener noreferrer">{particularProject?.visit_url}</a>
+                                                    rel="noopener noreferrer">
+                                                        {particularProject?.visit_url}
+                                                </a>
                                             </p>
                                         </Fragment>
                                     )}

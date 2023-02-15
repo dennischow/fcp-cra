@@ -6,9 +6,8 @@ import "./not-found.styles.scss";
 const NotFound = () => {
     return (
         <div className="page-not-found">
-
-            <div className="not-found__col">
-                <div className="not-found__box">
+            <div className="not-found">
+                <div className="not-found__container app-container">
                     <div className="not-found__content">
                         <p className="not-found__status">Don’t drink and drive, and you’ll stay alive</p>
                         <h1 className="not-found__message">404 page not found</h1>
@@ -21,7 +20,6 @@ const NotFound = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

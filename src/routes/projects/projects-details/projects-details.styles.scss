@@ -10,9 +10,9 @@
             display: flex;
             justify-content: flex-start;
             margin: 20px auto;
-            // padding: 0 20px;
+            padding: 20px 0;
             max-width: 1180px;
-            border: 1px solid var(--c-light-gray);
+            border: 1px solid var(--c-lighter-gray);
         }
 
         &__visual,
@@ -43,7 +43,7 @@
 
         &__info {
             flex: 0 0 40%;
-            border-left: 1px solid var(--c-light-gray);
+            border-left: 1px solid var(--c-lighter-gray);
         }
 
         &__info-subject {

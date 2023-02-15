@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import * as CONSTANTS from "../../../common/constants";
+import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../../components/app-statistics/app-statistics.component";
@@ -22,15 +23,15 @@ const ArticlesDetails = () => {
 
         const tempRelatedPostsId = result?.related_post;
         const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
-        console.log(tempRelatedPosts);
         setRelatedPosts(tempRelatedPosts);
+
         return () => {};
     }, [articleEntries, entryId]);
 
     return (
         <Fragment>
             <Helmet>
-                <title>{`${post?.title} | Project Details`}</title>
+                <title>{`${post?.title} | Articles Details`}</title>
             </Helmet>
 
             <div className="page-articles-details">
@@ -38,7 +39,7 @@ const ArticlesDetails = () => {
                     type="default"
                     heroBackgroundUrl={post?.thumbnail}
                     heading={post?.title}
-                    subHeading="Web Development / Design"
+                    subHeading={UTILS.convertToFormatDate(post?.entry_date)}
                 />
 
                 <div className="article-details">
@@ -52,16 +53,25 @@ const ArticlesDetails = () => {
                             </div>
                             <div className="article-details__sidebar">
                                 <div className="article-details__sidebar-content">
-                                    Sidebar
-                                    <ul>
+                                    <h3 className="article-details__sidebar-header">You may also be interested in:</h3>
+                                    <ul className="article-details__related-list">
                                         {relatedPosts && relatedPosts.map((item, index) => (
-                                            <li key={`related-post-${item?.entry_id}`}>
-                                                <Link to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item?.url_title}`}>
-                                                    {item?.title}
-                                                </Link>
+                                            <li className="article-details__related-item" key={`related-post-${item?.entry_id}`}>
+                                                <div className="article-details__related-visual"
+                                                    role="img"
+                                                    style={{backgroundImage: `url(${item?.thumb_image ? item?.thumb_image : item?.thumb_image_hotlink})`}}>
+                                                </div>
+                                                <p className="article-details__related-title">
+                                                    <Link className="article-details__related-title-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item?.url_title}`}>
+                                                        {item?.title}
+                                                    </Link>
+                                                </p>
                                             </li>
                                         ))}
                                     </ul>
+                                    <p className="article-details__sidebar-overview-link">
+                                        <Link to={CONSTANTS.ROUTES.articlesOverview.path}>Back to articles overview</Link>
+                                    </p>
                                 </div>
                             </div>
                         </div>

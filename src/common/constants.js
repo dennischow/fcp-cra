@@ -31,10 +31,10 @@ export const ROUTES = {
         name: "Articles",
         path: "/articles/details",
     },
-    default: {
-        title: "Page Not Found",
-        name: "NoMatch",
-        path: "*",
+    notFound: {
+        title: "404 Page Not Found",
+        name: "Not Found",
+        path: "/page-not-found",
     },
 };
 
