@@ -10,8 +10,8 @@ import AppLayout from "./components/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-top.component";
 import Home from "./routes/home/home.component";
 import About from "./routes/about/about.component";
-import Projects from "./routes/projects/projects.component";
-import ProjectDetails from "./routes/projects/project-details/project-details.component"
+import ProjectsOverview from "./routes/projects/projects-overview/projects-overview.component";
+import ProjectsDetails from "./routes/projects/projects-details/projects-details.component"
 import Articles from "./routes/articles/articles.component";
 
 function App() {
@@ -64,8 +64,8 @@ function App() {
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Home />} />
                     <Route path={CONSTANTS.ROUTES.about.path} element={<About />} />
-                    <Route path={CONSTANTS.ROUTES.projects.path} element={<Projects />} />
-                    <Route path={`${CONSTANTS.ROUTES.projectDetails.path}/:entryId`} element={<ProjectDetails />} />
+                    <Route path={CONSTANTS.ROUTES.projectsOverview.path} element={<ProjectsOverview />} />
+                    <Route path={`${CONSTANTS.ROUTES.projectsDetails.path}/:entryId`} element={<ProjectsDetails />} />
                     <Route path={CONSTANTS.ROUTES.articles.path} element={<Articles />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Route>

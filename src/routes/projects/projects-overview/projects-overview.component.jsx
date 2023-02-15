@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight } from "react-icons/fa";
 
-import * as CONSTANTS from "../../common/constants";
-import { AppContext } from "../../contexts/appContext";
-import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
-import AppStatistics from "../../components/app-statistics/app-statistics.component";
+import * as CONSTANTS from "../../../common/constants";
+import { AppContext } from "../../../contexts/appContext";
+import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
+import AppStatistics from "../../../components/app-statistics/app-statistics.component";
 
-import "./projects.styles.scss";
+import "./projects-overview.styles.scss";
 
-const Projects = () => {
+const ProjectsOverview = () => {
     const { projectEntries } = useContext(AppContext);
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
     const [activeCategoryId, setActiveCategoryId] = useState(4);
@@ -66,7 +66,7 @@ const Projects = () => {
             <Helmet>
                 <title>Projects</title>
             </Helmet>
-            <div className="page-projects">
+            <div className="page-projects-overview">
                 <AppFeatureBanner
                     type="default"
                     heroBackgroundUrl={""}
@@ -114,7 +114,7 @@ const Projects = () => {
                                     <li className="projects-block__list-item" key={index}>
                                         <div className="projects-block__content">
                                             <p className="projects-block__title">
-                                                <Link className="projects-block__title-link" to={`${CONSTANTS.ROUTES.projectDetails.path}/${item.url_title}`}>
+                                                <Link className="projects-block__title-link" to={`${CONSTANTS.ROUTES.projectsDetails.path}/${item.url_title}`}>
                                                     {item.title}
                                                 </Link>
                                             </p>
@@ -150,4 +150,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default ProjectsOverview;

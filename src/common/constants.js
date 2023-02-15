@@ -11,15 +11,15 @@ export const ROUTES = {
         name: "About",
         path: "/about",
     },
-    projects: {
+    projectsOverview: {
         title: "Project Overview",
         name: "Projects",
-        path: "/projects",
+        path: "/projects/overview",
     },
-    projectDetails: {
+    projectsDetails: {
         title: "Project Details",
         name: "Project Details",
-        path: "/project/details",
+        path: "/projects/details",
     },
     articles: {
         title: "Article Overview",

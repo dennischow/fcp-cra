@@ -7,9 +7,9 @@ import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../../components/app-statistics/app-statistics.component";
 
-import "./project-details.styles.scss";
+import "./projects-details.styles.scss";
 
-const ProjectDetails = () => {
+const ProjectsDetails = () => {
     const { projectEntries } = useContext(AppContext);
     const [particularProject, setParticularProject] = useState(null);
     const { entryId } = useParams();
@@ -27,7 +27,7 @@ const ProjectDetails = () => {
                 <title>{`${particularProject?.title} | Project Details`}</title>
             </Helmet>
 
-            <div className="page-project-details">
+            <div className="page-projects-details">
                 <AppFeatureBanner
                     type="default"
                     heroBackgroundUrl={particularProject?.thumbnail}
@@ -84,4 +84,4 @@ const ProjectDetails = () => {
     );
 };
 
-export default ProjectDetails;
+export default ProjectsDetails;
