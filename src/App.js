@@ -12,7 +12,7 @@ import Home from "./routes/home/home.component";
 import About from "./routes/about/about.component";
 import ProjectsOverview from "./routes/projects/projects-overview/projects-overview.component";
 import ProjectsDetails from "./routes/projects/projects-details/projects-details.component"
-import Articles from "./routes/articles/articles.component";
+import ArticlesOverview from "./routes/articles/articles-overview/articles-overview.component";
 
 function App() {
 
@@ -66,7 +66,7 @@ function App() {
                     <Route path={CONSTANTS.ROUTES.about.path} element={<About />} />
                     <Route path={CONSTANTS.ROUTES.projectsOverview.path} element={<ProjectsOverview />} />
                     <Route path={`${CONSTANTS.ROUTES.projectsDetails.path}/:entryId`} element={<ProjectsDetails />} />
-                    <Route path={CONSTANTS.ROUTES.articles.path} element={<Articles />} />
+                    <Route path={CONSTANTS.ROUTES.articlesOverview.path} element={<ArticlesOverview />} />
                     <Route path="*" element={<Navigate to="/" />} />
                 </Route>
             </Routes>

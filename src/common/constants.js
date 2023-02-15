@@ -21,15 +21,15 @@ export const ROUTES = {
         name: "Project Details",
         path: "/projects/details",
     },
-    articles: {
+    articlesOverview: {
         title: "Article Overview",
         name: "Articles",
-        path: "/articles",
+        path: "/articles/overview",
     },
     articleDetails: {
         title: "Article Details",
         name: "Articles",
-        path: "/articles",
+        path: "/articles/details",
     },
     default: {
         title: "Page Not Found",

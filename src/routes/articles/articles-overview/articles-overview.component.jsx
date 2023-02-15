@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-import * as CONSTANTS from "../../common/constants";
-import * as UTILS from "../../common/utils";
-import { AppContext } from "../../contexts/appContext";
-import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
-import AppStatistics from "../../components/app-statistics/app-statistics.component";
+import * as CONSTANTS from "../../../common/constants";
+import * as UTILS from "../../../common/utils";
+import { AppContext } from "../../../contexts/appContext";
+import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
+import AppStatistics from "../../../components/app-statistics/app-statistics.component";
 
-import "./articles.styles.scss";
+import "./articles-overview.styles.scss";
 
-const Projects = () => {
+const ArticlesOverview = () => {
     const { articleEntries } = useContext(AppContext);
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPage] = useState(articleEntries);
 
@@ -59,7 +59,7 @@ const Projects = () => {
             <Helmet>
                 <title>Articles</title>
             </Helmet>
-            <div className="page-articles">
+            <div className="page-articles-overview">
                 <AppFeatureBanner
                     type="default"
                     heroBackgroundUrl={""}
@@ -133,4 +133,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default ArticlesOverview;
