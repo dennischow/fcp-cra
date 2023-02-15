@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useContext, useEffect } from "react";
+import { Fragment, useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight } from "react-icons/fa";

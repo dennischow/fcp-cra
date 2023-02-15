@@ -2,26 +2,37 @@ export const BRAND_NAME = "Example Production";
 
 export const ROUTES = {
     home: {
+        title: "Home",
         name: "Home",
         path: "/",
     },
     about: {
+        title: "About",
         name: "About",
         path: "/about",
     },
     projects: {
+        title: "Project Overview",
         name: "Projects",
         path: "/projects",
     },
     projectDetails: {
+        title: "Project Details",
         name: "Project Details",
         path: "/project/details",
     },
     articles: {
+        title: "Article Overview",
+        name: "Articles",
+        path: "/articles",
+    },
+    articleDetails: {
+        title: "Article Details",
         name: "Articles",
         path: "/articles",
     },
     default: {
+        title: "Page Not Found",
         name: "NoMatch",
         path: "*",
     },
@@ -32,22 +43,3 @@ export const ENNDPOINT = {
     articles: "http://www.fat-cow.net/index.php/factories/blog-api",
     testimonials: "http://www.fat-cow.net/index.php/factories/testimonial-api",
 };
-
-export const STATISTICS = [
-    {
-        subject: "projects uploaded",
-        number: 40,
-    },
-    {
-        subject: "articles shared",
-        number: 228,
-    },
-    {
-        subject: "testimonials received",
-        number: 16,
-    },
-    {
-        subject: "passion",
-        number: "infinite",
-    },
-];
