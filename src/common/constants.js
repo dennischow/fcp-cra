@@ -26,7 +26,7 @@ export const ROUTES = {
         name: "Articles",
         path: "/articles/overview",
     },
-    articleDetails: {
+    articlesDetails: {
         title: "Article Details",
         name: "Articles",
         path: "/articles/details",

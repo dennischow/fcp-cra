@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useContext } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.scss";
@@ -13,6 +13,8 @@ import About from "./routes/about/about.component";
 import ProjectsOverview from "./routes/projects/projects-overview/projects-overview.component";
 import ProjectsDetails from "./routes/projects/projects-details/projects-details.component"
 import ArticlesOverview from "./routes/articles/articles-overview/articles-overview.component";
+import ArticlesDetails from "./routes/articles/articles-details/articles-details.component";
+import NotFound from "./routes/error/not-found/not-found.component";
 
 function App() {
 
@@ -67,7 +69,8 @@ function App() {
                     <Route path={CONSTANTS.ROUTES.projectsOverview.path} element={<ProjectsOverview />} />
                     <Route path={`${CONSTANTS.ROUTES.projectsDetails.path}/:entryId`} element={<ProjectsDetails />} />
                     <Route path={CONSTANTS.ROUTES.articlesOverview.path} element={<ArticlesOverview />} />
-                    <Route path="*" element={<Navigate to="/" />} />
+                    <Route path={`${CONSTANTS.ROUTES.articlesDetails.path}/:entryId`} element={<ArticlesDetails />} />
+                    <Route path="*" element={<NotFound />} />
                 </Route>
             </Routes>
         </Fragment>

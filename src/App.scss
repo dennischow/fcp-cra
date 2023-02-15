@@ -38,6 +38,14 @@ button {
     }
 }
 
+img, svg, iframe {
+    max-width: 100%;
+}
+
+iframe {
+    width: 100%;
+}
+
 #root {
     display: block;
 }

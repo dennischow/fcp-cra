@@ -95,9 +95,9 @@ const ArticlesOverview = () => {
                                         className="articles-block__entry-visual"
                                         role="img"
                                         style={{backgroundImage: `url(${item.thumb_image ? item.thumb_image : item.thumb_image_hotlink})`}}></div>
-                                    <a className="articles-block__entry-link" href="#">
+                                    <Link className="articles-block__entry-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
                                         {item.title}
-                                    </a>
+                                    </Link>
                                     <small className="articles-block__entry-info">
                                         <time className="articles-block__entry-date">
                                             {UTILS.convertToRelativeDate(item.entry_date)}
