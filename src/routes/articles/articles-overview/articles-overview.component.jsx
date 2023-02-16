@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useContext, useEffect } from "react";
+import { Fragment, useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
@@ -16,16 +16,24 @@ const ArticlesOverview = () => {
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPage] = useState(articleEntries);
 
     const entriesPerPage = 24;
-    const totalEntriesCountRef = useRef(0);
-    const currentPageNumberRef = useRef(1);
-    const totalPageNumberRef = useRef(0);
+
+    const [currentPageNumber, setCurrentPageNumber] = useState(1);
+    const [totalPageNumber, setTotalPageNumber] = useState(null);
+    const [isPrevEnabled, setIsPrevEnabled] = useState(false);
+    const [isNextEnabled, setIsNextEnabled] = useState(false);
 
     useEffect(() => {
-        totalEntriesCountRef.current = articleEntries.length;
-        totalPageNumberRef.current = Math.ceil(totalEntriesCountRef.current / entriesPerPage);
+        setTotalPageNumber(Math.ceil(articleEntries.length / entriesPerPage));
         updateArticlesRange();
+        paginationTracking();
         return () => {};
     }, [articleEntries]);
+
+    useEffect(() => {
+        updateArticlesRange();
+        paginationTracking();
+        return () => {};
+    }, [currentPageNumber, totalPageNumber]);
 
     useEffect(() => {
         window.scrollTo({
@@ -35,22 +43,26 @@ const ArticlesOverview = () => {
         return () => {};
     }, [articlesFilteredByPerPortion]);
 
+    const paginationTracking = () => {
+        setIsPrevEnabled(currentPageNumber > 1);
+        setIsNextEnabled(currentPageNumber < totalPageNumber);
+    };
+
     const updateArticlesRange = () => {
-        const startIndex = (currentPageNumberRef.current - 1) * entriesPerPage;
-        const endIndex = currentPageNumberRef.current * entriesPerPage;
+        const startIndex = (currentPageNumber - 1) * entriesPerPage;
+        const endIndex = currentPageNumber * entriesPerPage;
         const result = articleEntries.slice(startIndex, endIndex);
         setArticlesFilteredByPerPage(result);
-    }
+    };
 
     const pageSwitchHandler = (event, action) => {
         event.preventDefault();
         if (action === "previous") {
-            currentPageNumberRef.current--;
+            setCurrentPageNumber((preValue) => preValue - 1);
         }
         if (action === "next") {
-            currentPageNumberRef.current++;
+            setCurrentPageNumber((preValue) => preValue + 1);
         }
-        updateArticlesRange();
         console.log(`pageSwitchHandler triggered by ${action}`);
     };
 
@@ -73,15 +85,15 @@ const ArticlesOverview = () => {
                         {articlesFilteredByPerPortion.length > 0 && (
                             <p className="articles-block__page-indicator">
                                 <span className="articles-block__page-indicator-display">
-                                    {`page ${currentPageNumberRef.current} of ${totalPageNumberRef.current}`}
+                                    {`page ${currentPageNumber} of ${totalPageNumber}`}
                                 </span>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
-                                    disabled={currentPageNumberRef.current <= 1}
+                                    disabled={!isPrevEnabled}
                                     onClick={(event) => pageSwitchHandler(event, "previous")}>
                                     <FaAngleLeft />
                                 </button>
                                 <button className="articles-block__page-indicator-button articles-block__page-indicator-button--next"
-                                    disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
+                                    disabled={!isNextEnabled}
                                     onClick={(event) => pageSwitchHandler(event, "next")}>
                                     <FaAngleRight />
                                 </button>
@@ -113,13 +125,13 @@ const ArticlesOverview = () => {
                         <div className="articles-block__buttons-container">
                             <button
                                 className="app-cta app-cta--gray"
-                                disabled={currentPageNumberRef.current <= 1}
+                                disabled={!isPrevEnabled}
                                 onClick={(event) => pageSwitchHandler(event, "previous")}>
                                 Previous
                             </button>
                             <button
                                 className="app-cta app-cta--gray"
-                                disabled={currentPageNumberRef.current >= totalPageNumberRef.current}
+                                disabled={!isNextEnabled}
                                 onClick={(event) => pageSwitchHandler(event, "next")}>
                                 Next
                             </button>
