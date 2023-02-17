@@ -238,9 +238,9 @@ const About = () => {
                                     <p className="intro-group__statment">I am a web developer with design background & now focus on front end web development</p>
                                     <p className="intro-group__quote">By taking things one step at a time, you will find yourself actually mastering each specific skill and accomplishing your goals!</p>
                                     <p className="intro-group__brief">
-                                        I enjoy problem-solving and turning them into simple and clean interface designs. I also like the client-side logic, microinteractions, content presentation, structure of coding, user experience, responsive layout, and always strive to write elegant and efficient code with best practices, whether it be HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/AngularJS).
+                                        I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun microinteractions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
                                         <br />
-                                        When I am not glued to my monitor, you will find me most likely banging with dumbbells at the gym, blasting music on my headphones, tasting a sexy food, and or posting pictures on Instagram.
+                                        When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
                                     </p>
                                     <p className="intro-group__buttons-container">
                                         <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>

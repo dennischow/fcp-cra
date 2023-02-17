@@ -17,24 +17,6 @@ const Home = () => {
 
     const { projectEntries, articleEntries } = useContext(AppContext);
 
-    const convertProjectCatIdToName = (id) => {
-        let result = null;
-        switch (id) {
-            case 4:
-                result = "Web Development / Design";
-                break;
-            case 5:
-                result = "Print Design / Production";
-                break;
-            case 6:
-                result = "Tee Design";
-                break;
-            default:
-                result = id;
-        }
-        return result;
-    };
-
     return (
         <Fragment>
             <Helmet>
@@ -68,7 +50,7 @@ const Home = () => {
                                         role="img"
                                         style={{backgroundImage: `url(${item.thumbnail})`}}>
                                     </div>
-                                    <p className="projects-hilite__entry-cat">{convertProjectCatIdToName(item.channel_id)}</p>
+                                    <p className="projects-hilite__entry-cat">{UTILS.convertProjectCatIdToName(item.channel_id)}</p>
                                     <Link className="projects-hilite__entry-link" to={`${CONSTANTS.ROUTES.projectsDetails.path}/${item.url_title}`}>
                                         {item.title}
                                     </Link>

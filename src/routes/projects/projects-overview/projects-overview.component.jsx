@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { FaArrowRight } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
+import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../../components/app-statistics/app-statistics.component";
@@ -18,19 +19,16 @@ const ProjectsOverview = () => {
         {
             id: 4,
             text: "Web Projects",
-            categoryName: "Web Development / Design",
             definition: "thinking + coding",
         },
         {
             id: 5,
             text: "Print Projects",
-            categoryName: "Print Design",
             definition: "layout + cmyk",
         },
         {
             id: 6,
             text: "Tee Projects",
-            categoryName: "Tee Design",
             definition: "creativity + production",
         },
     ];
@@ -98,7 +96,7 @@ const ProjectsOverview = () => {
                                 const catObj = categoryTabsList.find((item, index) => item.id === id);
                                 return (
                                     <p className="projects-intro__content" key={item.entry_id}>
-                                        <span className="projects-intro__category-name">{catObj.categoryName}</span>
+                                        <span className="projects-intro__category-name">{UTILS.convertProjectCatIdToName(catObj.id)}</span>
                                         <span className="projects-intro__definition">{catObj.definition}</span>
                                     </p>
                                 );

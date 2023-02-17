@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import * as CONSTANTS from "../../../common/constants";
+import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/app-feature-banner/app-feature-banner.component";
 import AppStatistics from "../../../components/app-statistics/app-statistics.component";
@@ -32,7 +33,7 @@ const ProjectsDetails = () => {
                     type="info"
                     heroBackgroundUrl={particularProject?.thumbnail}
                     heading={particularProject?.title}
-                    subHeading="Web Development / Design"
+                    subHeading={UTILS.convertProjectCatIdToName(particularProject?.channel_id)}
                 />
 
                 <div className="project-details">
