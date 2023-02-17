@@ -29,7 +29,7 @@ const ProjectsDetails = () => {
 
             <div className="page-projects-details">
                 <AppFeatureBanner
-                    type="default"
+                    type="info"
                     heroBackgroundUrl={particularProject?.thumbnail}
                     heading={particularProject?.title}
                     subHeading="Web Development / Design"

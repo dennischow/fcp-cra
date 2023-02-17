@@ -36,8 +36,8 @@ const ArticlesDetails = () => {
 
             <div className="page-articles-details">
                 <AppFeatureBanner
-                    type="default"
-                    heroBackgroundUrl={post?.thumbnail}
+                    type="info"
+                    heroBackgroundUrl={post?.thumb_image ? post?.thumb_image : post?.thumb_image_hotlink}
                     heading={post?.title}
                     subHeading={UTILS.convertToFormatDate(post?.entry_date)}
                 />

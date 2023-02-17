@@ -1,15 +1,29 @@
 import "./app-feature-banner.styles.scss";
 
 const AppFeatureBanner = ({ type, heroBackgroundUrl, heading, subHeading, ...otherProps }) => {
-    // type: default, hero
+    // type: default, hero, info
 
-    const bannerClass = `app-feature-banner app-feature-banner--${type === "hero" ? "hero" : "default"}`;
+    const getBannerClass = (bannerType) => {
+        const classNames = ["app-feature-banner"];
+        switch (bannerType) {
+            case "hero":
+                classNames.push("app-feature-banner--hero");
+                break;
+            case "info":
+                classNames.push("app-feature-banner--info");
+                break;
+            default:
+                classNames.push("app-feature-banner--default");
+        }
+        return classNames.join(" ");
+    };
+
 
     return (
-        <section className={bannerClass}>
+        <section className={getBannerClass(type)}>
             <div className="app-feature-banner__container">
                 <div className="app-feature-banner__box">
-                    {type === "hero" ? (
+                    {type === "hero" || type === "info" ? (
                         <div className="app-feature-banner__visual" style={{ backgroundImage: `url(${heroBackgroundUrl})` }}></div>
                     ) : null}
                     <div className="app-feature-banner__content">

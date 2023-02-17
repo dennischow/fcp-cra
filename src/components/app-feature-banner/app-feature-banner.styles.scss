@@ -8,6 +8,7 @@
 
     &__box {
         position: relative;
+        overflow: hidden;
     }
 
     &__content {
@@ -132,4 +133,53 @@
         }
 
     }
+
+    &--info {
+        background-color: var(--c-lighter-gray);
+
+        .app-feature-banner {
+
+            &__visual {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                filter: blur(15px);
+                transform: scale(1.05);
+                z-index: 0;
+
+                &::after {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--c-black);
+                    opacity: 0.6;
+                }
+
+            }
+
+            &__tagline {
+                height: max(420px, 35vw);
+            }
+
+            &__heading {
+                color: var(--c-white);
+            }
+
+            &__sub-heading {
+
+            }
+
+        }
+
+    }
+
 }

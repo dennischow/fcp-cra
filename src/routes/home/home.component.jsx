@@ -21,13 +21,13 @@ const Home = () => {
         let result = null;
         switch (id) {
             case 4:
-                result = "Web Design/Development";
+                result = "Web Development / Design";
+                break;
+            case 5:
+                result = "Print Design / Production";
                 break;
             case 6:
                 result = "Tee Design";
-                break;
-            case 5:
-                result = "Print Design/Production";
                 break;
             default:
                 result = id;
