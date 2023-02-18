@@ -12,7 +12,7 @@ import "./articles-details.styles.scss";
 
 const ArticlesDetails = () => {
     const { articleEntries } = useContext(AppContext);
-    const [post, setPost] = useState({});
+    const [particularPost, setPost] = useState({});
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();
     const navigate = useNavigate();
@@ -31,25 +31,25 @@ const ArticlesDetails = () => {
     }, [articleEntries, entryId]);
 
     useEffect(() => {
-        if (post === undefined) {
+        if (particularPost === undefined) {
             console.error("Invalid entryId");
             navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
         }
         return () => {};
-    }, [post]);
+    }, [particularPost]);
 
     return (
         <Fragment>
             <Helmet>
-                <title>{`${post?.title} | Articles Details`}</title>
+                <title>{`${particularPost?.title} | Articles Details`}</title>
             </Helmet>
 
             <div className="page-articles-details">
                 <AppFeatureBanner
                     type="info"
-                    heroBackgroundUrl={post?.thumb_image ? post?.thumb_image : post?.thumb_image_hotlink}
-                    heading={post?.title}
-                    subHeading={UTILS.convertToFormatDate(post?.entry_date)}
+                    heroBackgroundUrl={particularPost?.thumb_image ? particularPost?.thumb_image : particularPost?.thumb_image_hotlink}
+                    heading={particularPost?.title}
+                    subHeading={UTILS.convertToFormatDate(particularPost?.entry_date)}
                 />
 
                 <div className="article-details">
@@ -58,7 +58,7 @@ const ArticlesDetails = () => {
                         <div className="article-details__wrapper">
                             <div className="article-details__post">
                                 <div className="article-details__post-content">
-                                    <div dangerouslySetInnerHTML={{__html: post?.blog_body}}></div>
+                                    <div dangerouslySetInnerHTML={{__html: particularPost?.blog_body}}></div>
                                 </div>
                             </div>
                             <div className="article-details__sidebar">
