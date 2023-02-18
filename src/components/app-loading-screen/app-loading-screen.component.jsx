@@ -3,21 +3,21 @@ import Skeleton from "react-loading-skeleton";
 import { ReactComponent as BrandLogo } from "./../../resources/images/common/brand-logo.svg";
 
 import "react-loading-skeleton/dist/skeleton.css";
-import "./app-loader.styles.scss";
+import "./app-loading-screen.styles.scss";
 
-const AppLoader = ({ hasLogo, hasIndicator, hasSkeleton }) => {
+const AppLoadingSCreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     return (
-        <div className="app-loader">
-            <div className="app-loader__container">
-                <div className="app-loader__content">
+        <div className="app-loading-screen">
+            <div className="app-loading-screen__container">
+                <div className="app-loading-screen__content">
                     {hasLogo && (
-                        <div className="app-loader__brand-logo">
+                        <div className="app-loading-screen__brand-logo">
                             <BrandLogo />
                         </div>
                     )}
 
                     {hasIndicator && (
-                        <div className="app-loader__indicator">
+                        <div className="app-loading-screen__indicator">
                             <ThreeDots
                                 height="50"
                                 width="50"
@@ -32,7 +32,7 @@ const AppLoader = ({ hasLogo, hasIndicator, hasSkeleton }) => {
                     )}
 
                     {hasSkeleton && (
-                        <div className="app-loader__skeleton">
+                        <div className="app-loading-screen__skeleton">
                             <Skeleton count={5} />
                         </div>
                     )}
@@ -42,4 +42,4 @@ const AppLoader = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     );
 };
 
-export default AppLoader;
+export default AppLoadingSCreen;

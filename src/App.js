@@ -6,7 +6,6 @@ import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
 import { AppContext } from "./contexts/appContext";
-import AppLoader from "./components/app-loader/app-loader.component";
 import AppLayout from "./components/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-top.component";
 import Home from "./routes/home/home.component";
@@ -48,10 +47,9 @@ function App() {
 
     return (
         <Fragment>
-            {isLoading && <AppLoader hasLogo={true} hasIndicator={true} hasSkeleton={true} />}
             <AppNavigateToTop />
             <Routes>
-                <Route path="/" element={<AppLayout />}>
+                <Route path="/" element={<AppLayout isLoading={isLoading} />}>
                     <Route index element={<Home />} />
                     <Route path={CONSTANTS.ROUTES.about.path} element={<About />} />
                     <Route path={CONSTANTS.ROUTES.projectsOverview.path} element={<ProjectsOverview />} />

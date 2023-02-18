@@ -14,13 +14,12 @@ import "./articles-overview.styles.scss";
 const ArticlesOverview = () => {
     const { articleEntries } = useContext(AppContext);
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPage] = useState(articleEntries);
-
-    const entriesPerPage = 24;
-
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
     const [totalPageNumber, setTotalPageNumber] = useState(null);
     const [isPrevEnabled, setIsPrevEnabled] = useState(false);
     const [isNextEnabled, setIsNextEnabled] = useState(false);
+
+    const entriesPerPage = 24;
 
     useEffect(() => {
         setTotalPageNumber(Math.ceil(articleEntries.length / entriesPerPage));
@@ -69,7 +68,7 @@ const ArticlesOverview = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>Articles</title>
+                <title>Articles Overview</title>
             </Helmet>
             <div className="page-articles-overview">
                 <AppFeatureBanner
