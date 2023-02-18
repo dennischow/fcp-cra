@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useContext } from "react";
+import { Fragment, useEffect, useContext, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import axios from "axios";
 
@@ -6,6 +6,7 @@ import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
 import { AppContext } from "./contexts/appContext";
+import AppLoader from "./components/app-loader/app-loader.component";
 import AppLayout from "./components/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-top.component";
 import Home from "./routes/home/home.component";
@@ -19,6 +20,7 @@ import NotFound from "./routes/error/not-found/not-found.component";
 function App() {
 
     const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         axios.all([
@@ -37,6 +39,7 @@ function App() {
                 console.log("projectEntries:", responses[0].data);
                 console.log("articleEntries:", responses[1].data);
                 console.log("testimonialEntries:", responses[2].data);
+                setTimeout(() => setIsLoading(false), 400);
             })
             .catch((error) => {
                 console.log(error);
@@ -45,6 +48,7 @@ function App() {
 
     return (
         <Fragment>
+            {isLoading && <AppLoader hasLogo={true} hasIndicator={true} hasSkeleton={true} />}
             <AppNavigateToTop />
             <Routes>
                 <Route path="/" element={<AppLayout />}>
