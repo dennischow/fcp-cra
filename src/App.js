@@ -21,42 +21,26 @@ function App() {
     const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
 
     useEffect(() => {
-        axios.get(CONSTANTS.ENNDPOINT.projects)
-            .then((response) => {
-                setProjectEntries(response.data);
-                console.log("Finally", CONSTANTS.ENNDPOINT.projects);
+        axios.all([
+                axios.get(CONSTANTS.ENNDPOINT.projects),
+                axios.get(CONSTANTS.ENNDPOINT.articles),
+                axios.get(CONSTANTS.ENNDPOINT.testimonials),
+            ])
+            .then((responses) => {
+                setProjectEntries(responses[0].data);
+                setArticleEntries(responses[1].data);
+                setTestimonialEntries(responses[2].data);
+                return responses;
+            }).
+            then((responses) => {
+                console.log("Data fetched!!!");
+                console.log("projectEntries:", responses[0].data);
+                console.log("articleEntries:", responses[1].data);
+                console.log("testimonialEntries:", responses[2].data);
             })
             .catch((error) => {
-                setProjectEntries([]);
                 console.log(error);
             });
-        return () => {}
-    }, []);
-
-    useEffect(() => {
-        axios.get(CONSTANTS.ENNDPOINT.articles)
-            .then((response) => {
-                setArticleEntries(response.data);
-                console.log("Finally", CONSTANTS.ENNDPOINT.articles);
-            })
-            .catch((error) => {
-                setArticleEntries([]);
-                console.log(error);
-            });
-        return () => {}
-    }, []);
-
-    useEffect(() => {
-        axios.get(CONSTANTS.ENNDPOINT.testimonials)
-            .then((response) => {
-                setTestimonialEntries(response.data);
-                console.log("Finally", CONSTANTS.ENNDPOINT.testimonials);
-            })
-            .catch((error) => {
-                setTestimonialEntries([]);
-                console.log(error);
-            })
-        return () => {}
     }, []);
 
     return (
