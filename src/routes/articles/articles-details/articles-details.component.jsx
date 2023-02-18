@@ -1,5 +1,5 @@
 import { Fragment, useState, useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import * as CONSTANTS from "../../../common/constants";
@@ -15,18 +15,28 @@ const ArticlesDetails = () => {
     const [post, setPost] = useState({});
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const result = articleEntries.find((articles) => articles.url_title === entryId);
-        console.log(result);
-        setPost(result);
+        if (articleEntries.length) {
+            const result = articleEntries.find((articles) => articles.url_title === entryId);
+            console.log(result);
+            setPost(result);
 
-        const tempRelatedPostsId = result?.related_post;
-        const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
-        setRelatedPosts(tempRelatedPosts);
-
+            const tempRelatedPostsId = result?.related_post;
+            const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
+            setRelatedPosts(tempRelatedPosts);
+        }
         return () => {};
     }, [articleEntries, entryId]);
+
+    useEffect(() => {
+        if (post === undefined) {
+            console.error("Invalid entryId");
+            navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
+        }
+        return () => {};
+    }, [post]);
 
     return (
         <Fragment>

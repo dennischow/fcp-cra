@@ -1,5 +1,5 @@
 import { Fragment, useState, useContext, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import * as CONSTANTS from "../../../common/constants";
@@ -14,13 +14,24 @@ const ProjectsDetails = () => {
     const { projectEntries } = useContext(AppContext);
     const [particularProject, setParticularProject] = useState(null);
     const { entryId } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const result = projectEntries.find((project) => project.url_title === entryId);
-        console.log(result);
-        setParticularProject(result);
+        if (projectEntries.length) {
+            const result = projectEntries.find((project) => project.url_title === entryId);
+            console.log(result);
+            setParticularProject(result);
+        }
         return () => {};
     }, [projectEntries, entryId]);
+
+    useEffect(() => {
+        if (particularProject === undefined) {
+            console.error("Invalid entryId");
+            navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
+        }
+        return () => {};
+    }, [particularProject]);
 
     return (
         <Fragment>
