@@ -27,15 +27,15 @@ const AppMainNav = ({ props, ...otherProps }) => {
     return (
         <nav className="app-main-nav">
             <ul className="app-main-nav__list">
-                <li className={getNavItemClassName({type: "/"})}>
-                    <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path}>
+                <li className={getNavItemClassName({ type: "/" })}>
+                    <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path} exact>
                         <span className="app-main-nav__icon">
                             <FaHome />
                         </span>
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.home.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName({type: "/about"})}>
+                <li className={getNavItemClassName({ type: "/about" })}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.about.path}>
                         <span className="app-main-nav__icon">
                             <FaUser />
@@ -43,7 +43,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.about.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName({type: "/projects"})}>
+                <li className={getNavItemClassName({ type: "/projects" })}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.projectsOverview.path}>
                         <span className="app-main-nav__icon">
                             <FaRegLightbulb />
@@ -51,7 +51,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.projectsOverview.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName({type: "/articles"})}>
+                <li className={getNavItemClassName({ type: "/articles" })}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.articlesOverview.path}>
                         <span className="app-main-nav__icon">
                             <FaRss />
