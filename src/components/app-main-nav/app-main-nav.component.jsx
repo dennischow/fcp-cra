@@ -6,28 +6,29 @@ import * as CONSTANTS from "../../common/constants";
 import "./app-main-nav.styles.scss";
 
 const AppMainNav = ({ props, ...otherProps }) => {
-    const [firstSegmentName, setFirstSegmentName] = useState("");
     const location = useLocation();
-    const { pathname } = location;
-    const splitPath = pathname.split("/");
 
-    useEffect(() => {
-        setFirstSegmentName(splitPath[1]);
-        return () => {};
-    }, [location]);
-
-    const getNavItemClassName = (isActive) => {
+    const getNavItemClassName = ({ type }) => {
         const classNames = ["app-main-nav__item"];
+        let isActive = false;
+
+        if (type === "/") {
+            isActive = location.pathname === type;
+        } else {
+            isActive = location.pathname.startsWith(type);
+        }
+
         if (isActive) {
             classNames.push("app-main-nav__item--active");
         }
+
         return classNames.join(" ");
     };
 
     return (
         <nav className="app-main-nav">
             <ul className="app-main-nav__list">
-                <li className={getNavItemClassName(firstSegmentName === "")}>
+                <li className={getNavItemClassName({type: "/"})}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path}>
                         <span className="app-main-nav__icon">
                             <FaHome />
@@ -35,7 +36,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.home.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName(firstSegmentName === "about")}>
+                <li className={getNavItemClassName({type: "/about"})}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.about.path}>
                         <span className="app-main-nav__icon">
                             <FaUser />
@@ -43,7 +44,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.about.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName(firstSegmentName === "projects")}>
+                <li className={getNavItemClassName({type: "/projects"})}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.projectsOverview.path}>
                         <span className="app-main-nav__icon">
                             <FaRegLightbulb />
@@ -51,7 +52,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
                         <span className="app-main-nav__text">{CONSTANTS.ROUTES.projectsOverview.name}</span>
                     </Link>
                 </li>
-                <li className={getNavItemClassName(firstSegmentName === "articles")}>
+                <li className={getNavItemClassName({type: "/articles"})}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.articlesOverview.path}>
                         <span className="app-main-nav__icon">
                             <FaRss />
