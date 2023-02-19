@@ -2,7 +2,7 @@ import * as CONSTANTS from "../../common/constants";
 import useWindowScroll from "../../hooks/use-window-scroll";
 import { ReactComponent as BrandLogo } from "./../../resources/images/common/brand-logo.svg";
 import "./app-header.styles.scss";
-import AppNav from "../app-nav/app-nav.component";
+import AppMainNav from "../app-main-nav/app-main-nav.component";
 
 const AppHeader = ({ props, ...otherProps }) => {
 
@@ -20,7 +20,7 @@ const AppHeader = ({ props, ...otherProps }) => {
                         <span className="app-header__brand-name">{CONSTANTS.BRAND_NAME}</span>
                     </a>
                 </h1>
-                <AppNav />
+                <AppMainNav />
             </div>
         </header>
     );

@@ -1,4 +1,4 @@
-.app-nav {
+.app-main-nav {
     &__list {
         display: flex;
         margin: 0;
@@ -8,16 +8,33 @@
     }
 
     &__item {
+        position: relative;
         border-bottom: 1px solid var(--c-lighter-gray);
 
         &:first-child {
             border-top: 1px solid var(--c-lighter-gray);
         }
+
+        &--active {
+
+            &::before {
+                display: block;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                width: 4px;
+                height: 4px;
+                content: "";
+                border-radius: 500px;
+                background-color: var(--c-dark-orange);
+                pointer-events: none;
+            }
+
+        }
     }
 
     &__link {
         display: flex;
-        position: relative;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -30,20 +47,6 @@
         &:hover {
             color: var(--c-dark-gray);
             background-color: var(--c-lighten-gray);
-        }
-
-        &.active {
-            &::before {
-                display: block;
-                position: absolute;
-                left: 5px;
-                top: 5px;
-                width: 4px;
-                height: 4px;
-                content: "";
-                border-radius: 500px;
-                background-color: var(--c-dark-orange);
-            }
         }
     }
 
