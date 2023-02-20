@@ -1,4 +1,4 @@
-import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search";
+import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search.component";
 import "./app-side-panel.styles.scss";
 
 const AppSidePanel = () => {
