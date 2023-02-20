@@ -28,7 +28,7 @@ const AppMainNav = ({ props, ...otherProps }) => {
         <nav className="app-main-nav">
             <ul className="app-main-nav__list">
                 <li className={getNavItemClassName({ type: "/" })}>
-                    <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path} exact>
+                    <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path} exact="true">
                         <span className="app-main-nav__icon">
                             <FaHome />
                         </span>
