@@ -5,6 +5,8 @@ import axios from "axios";
 import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
+import * as UTILS from "./common/utils";
+import * as HELPERS from "./common/helpers";
 import { AppContext } from "./contexts/appContext";
 import AppLayout from "./components/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/app-navigate-to-top/app-navigate-to-top.component";
@@ -15,6 +17,8 @@ import ProjectsDetails from "./routes/projects/projects-details/projects-details
 import ArticlesOverview from "./routes/articles/articles-overview/articles-overview.component";
 import ArticlesDetails from "./routes/articles/articles-details/articles-details.component";
 import NotFound from "./routes/error/not-found/not-found.component";
+
+HELPERS.disableProductionLogging();
 
 function App() {
 
