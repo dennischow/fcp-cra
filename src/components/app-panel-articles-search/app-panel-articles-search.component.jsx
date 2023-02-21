@@ -8,14 +8,14 @@ import "./app-panel-articles-search.styles.scss";
 
 const AppPanelArticlesSearch = () => {
     const { articleEntries, setIsPanelSearchShow } = useContext(AppContext);
-    const [articlesFilteredByKeywordSearch, setArticlesByKeywordSearch] = useState(articleEntries);
+    const [articlesFilteredByKeywordSearch, setArticlesFilteredByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
 
     const keywordSearch = (event) => {
         const keyword = event.target.value;
         setSearchValue(keyword);
         const result = articleEntries.filter((item) => item.title.toLowerCase().includes(keyword.toLowerCase()));
-        setArticlesByKeywordSearch(result);
+        setArticlesFilteredByKeywordSearch(result);
     };
 
     const keywordClear = () => {
