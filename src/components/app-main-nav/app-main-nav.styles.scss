@@ -39,14 +39,16 @@
         justify-content: center;
         align-items: center;
         height: 60px;
+        width: 100%;
+        background-color: var(--c-white);
         text-align: center;
         color: var(--c-dark-gray);
         text-decoration: none;
         text-transform: uppercase;
 
         &:hover {
-            color: var(--c-dark-gray);
             background-color: var(--c-lighten-gray);
+            color: var(--c-dark-gray);
         }
     }
 

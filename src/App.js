@@ -1,11 +1,10 @@
 import { Fragment, useEffect, useContext, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
-import * as UTILS from "./common/utils";
 import * as HELPERS from "./common/helpers";
 import { AppContext } from "./contexts/appContext";
 import AppLayout from "./components/app-layout/app-layout.component";

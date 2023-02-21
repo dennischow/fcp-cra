@@ -5,7 +5,7 @@ import { AppContext } from "../../contexts/appContext";
 import "./app-panel-articles-search.styles.scss";
 
 const AppPanelArticlesSearch = () => {
-    const { articleEntries } = useContext(AppContext);
+    const { articleEntries, setIsPanelSearchShow } = useContext(AppContext);
     const [articlesFilteredByKeywordSearch, setArticlesByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
 
@@ -16,7 +16,10 @@ const AppPanelArticlesSearch = () => {
         setArticlesByKeywordSearch(result);
     };
 
-    const keywordClear = () => setSearchValue("");
+    const keywordClear = () => {
+        setSearchValue("");
+        setIsPanelSearchShow(false);
+    };
 
     return (
         <Fragment>

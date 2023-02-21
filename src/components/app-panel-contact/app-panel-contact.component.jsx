@@ -1,12 +1,14 @@
-import { Fragment, useContext, useState } from "react";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
+import { Fragment, useContext } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { FaTelegramPlane, FaExclamationTriangle, FaTimes } from "react-icons/fa";
 
 import { AppContext } from "../../contexts/appContext";
 import "./app-panel-contact.styles.scss";
 
 const AppPanelContact = () => {
+
+    const { setIsPanelContactShow } = useContext(AppContext);
 
     const contactFormObj = useFormik({
         initialValues: {
@@ -17,21 +19,26 @@ const AppPanelContact = () => {
             referral_by: "",
         },
         validationSchema: Yup.object().shape({
-            contact_name: Yup.string().required("Required"),
-            contact_email: Yup.string().email("Invalid email address").required("Required"),
-            subject: Yup.string().required("Required"),
-            message: Yup.string().required("Required"),
-            referral_by: Yup.string().required("Required"),
+            contact_name: Yup.string().required("This field is required."),
+            contact_email: Yup.string().email("Invalid email address").required("This field is required."),
+            subject: Yup.string().required("This field is required."),
+            message: Yup.string().required("This field is required."),
+            referral_by: Yup.string().required("This field is required."),
         }),
         onSubmit: (event, values) => {
             console.log(event);
             console.log(values);
             console.log(contactFormObj);
+            setTimeout(() => {
+                contactFormObj.resetForm();
+                setIsPanelContactShow(false);
+            }, 800);
         },
     });
 
     const clearFormHandler = () => {
         contactFormObj.resetForm();
+        setIsPanelContactShow(false);
     };
 
     return (
@@ -187,11 +194,11 @@ const AppPanelContact = () => {
                         </div>
 
                         <div className="app-panel-contact__buttons-container">
-                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" onClick={clearFormHandler}>
-                                Clear <FaTimes />
-                            </button>
-                            <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
+                        <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
                                 Send <FaTelegramPlane />
+                            </button>
+                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" onClick={clearFormHandler}>
+                                Close <FaTimes />
                             </button>
                         </div>
 
