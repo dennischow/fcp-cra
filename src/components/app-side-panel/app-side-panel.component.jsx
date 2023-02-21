@@ -16,7 +16,7 @@ const AppSidePanel = () => {
 
     return (
         <Fragment>
-            {isPanelContactShow || isPanelSearchShow ? (
+            {(isPanelContactShow || isPanelSearchShow) && (
                 <div className="app-side-panel">
                     <div className="app-side-panel__inner">
                         {isPanelContactShow && <AppPanelContact />}
@@ -24,7 +24,7 @@ const AppSidePanel = () => {
                     </div>
                     <div className="app-side-panel__overlay" onClick={closeAllPanels}></div>
                 </div>
-            ) : null}
+            )}
         </Fragment>
     );
 };
