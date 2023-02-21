@@ -1,6 +1,8 @@
 import { Fragment, useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
+import * as CONSTANTS from "../../common/constants.js";
 import { AppContext } from "../../contexts/appContext";
 import "./app-panel-articles-search.styles.scss";
 
@@ -38,7 +40,7 @@ const AppPanelArticlesSearch = () => {
                         <ul className="app-panel-articles-search__result-list">
                             {articlesFilteredByKeywordSearch.map((item, index) => (
                                 <li className="app-panel-articles-search__result-list-item" key={item.entry_id}>
-                                    <a className="app-panel-articles-search__result-list-item-link" href="#">{item.title}</a>
+                                    <Link className="app-panel-articles-search__result-list-item-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>{item.title}</Link>
                                 </li>
                             ))}
                             {articlesFilteredByKeywordSearch.length <= 0 && (

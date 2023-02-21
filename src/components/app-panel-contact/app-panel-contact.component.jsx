@@ -25,19 +25,18 @@ const AppPanelContact = () => {
             message: Yup.string().required("This field is required."),
             referral_by: Yup.string().required("This field is required."),
         }),
-        onSubmit: (event, values) => {
-            console.log(event);
+        onSubmit: (values, formikBag) => {
             console.log(values);
-            console.log(contactFormObj);
+            console.log(formikBag);
             setTimeout(() => {
-                contactFormObj.resetForm();
+                formikBag.resetForm();
                 setIsPanelContactShow(false);
             }, 800);
         },
     });
 
-    const clearFormHandler = () => {
-        contactFormObj.resetForm();
+    const clearFormHandler = (formikBag) => {
+        formikBag.resetForm();
         setIsPanelContactShow(false);
     };
 
@@ -125,7 +124,7 @@ const AppPanelContact = () => {
                                 className="app-panel-contact__input form-control"
                                 placeholder="Your message"
                                 name="message"
-                                rows={8}
+                                rows={5}
                                 maxLength={2000}
                                 value={contactFormObj.values.message}
                                 onChange={contactFormObj.handleChange}
@@ -197,7 +196,7 @@ const AppPanelContact = () => {
                         <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
                                 Send <FaTelegramPlane />
                             </button>
-                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" onClick={clearFormHandler}>
+                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" onClick={() => clearFormHandler(contactFormObj)}>
                                 Close <FaTimes />
                             </button>
                         </div>

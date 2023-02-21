@@ -110,7 +110,9 @@
         display: block;
         padding: 10px;
         font-size: var(--text-size-s);
+        background-color: transparent;
         color: var(--c-gray);
+        text-align: left;
         text-decoration: none;
 
         &:hover {

@@ -7,7 +7,12 @@ import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-artic
 import "./app-side-panel.styles.scss";
 
 const AppSidePanel = () => {
-    const { isPanelContactShow, isPanelSearchShow } = useContext(AppContext);
+    const { isPanelContactShow, isPanelSearchShow, setIsPanelContactShow, setIsPanelSearchShow } = useContext(AppContext);
+
+    const closeAllPanels = () => {
+        setIsPanelContactShow(false);
+        setIsPanelSearchShow(false);
+    };
 
     return (
         <Fragment>
@@ -17,7 +22,7 @@ const AppSidePanel = () => {
                         {isPanelContactShow && <AppPanelContact />}
                         {isPanelSearchShow && <AppPanelArticlesSearch />}
                     </div>
-                    <div className="app-side-panel__overlay"></div>
+                    <div className="app-side-panel__overlay" onClick={closeAllPanels}></div>
                 </div>
             ) : null}
         </Fragment>
