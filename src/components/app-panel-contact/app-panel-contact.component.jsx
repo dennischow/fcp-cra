@@ -1,8 +1,11 @@
 import { Fragment, useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import qs from "qs";
 import { FaTelegramPlane, FaExclamationTriangle, FaTimes } from "react-icons/fa";
 
+import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
 import "./app-panel-contact.styles.scss";
 
@@ -28,10 +31,20 @@ const AppPanelContact = () => {
         onSubmit: (values, formikBag) => {
             console.log(values);
             console.log(formikBag);
-            setTimeout(() => {
-                formikBag.resetForm();
-                setIsPanelContactShow(false);
-            }, 800);
+            console.log(JSON.stringify(values, null, 2));
+            axios.post(CONSTANTS.ENNDPOINT.conact, qs.stringify(values))
+                .then((response) => {
+                    console.log(response);
+                    setTimeout(() => {
+                        formikBag.resetForm();
+                        setIsPanelContactShow(false);
+                    }, 800);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    console.error(error.message);
+                    formikBag.setSubmitting(false);
+                });
         },
     });
 
@@ -196,7 +209,7 @@ const AppPanelContact = () => {
                         <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
                                 Send <FaTelegramPlane />
                             </button>
-                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" onClick={() => clearFormHandler(contactFormObj)}>
+                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" disabled={contactFormObj.isSubmitting} onClick={() => clearFormHandler(contactFormObj)}>
                                 Close <FaTimes />
                             </button>
                         </div>

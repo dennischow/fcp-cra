@@ -1,5 +1,12 @@
 export const BRAND_NAME = "Example Production";
 
+export const ENNDPOINT = {
+    projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,
+    articles: process.env.REACT_APP_DEFAULT_ENDPOINT_ARTICLES,
+    testimonials: process.env.REACT_APP_DEFAULT_ENDPOINT_TESTIMONIALS,
+    conact: process.env.REACT_APP_DEFAULT_ENDPOINT_CONTACT,
+};
+
 export const ROUTES = {
     home: {
         title: "Home",
@@ -36,10 +43,4 @@ export const ROUTES = {
         name: "Not Found",
         path: "/page-not-found",
     },
-};
-
-export const ENNDPOINT = {
-    projects: "http://www.fat-cow.net/index.php/factories/work-api",
-    articles: "http://www.fat-cow.net/index.php/factories/blog-api",
-    testimonials: "http://www.fat-cow.net/index.php/factories/testimonial-api",
 };
