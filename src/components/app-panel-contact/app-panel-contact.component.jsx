@@ -37,7 +37,6 @@ const AppPanelContact = () => {
                     console.log(response);
                     setTimeout(() => {
                         formikBag.resetForm();
-                        setIsPanelContactShow(false);
                     }, 800);
                 })
                 .catch((error) => {
