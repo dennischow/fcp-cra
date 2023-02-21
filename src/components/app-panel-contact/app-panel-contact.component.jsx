@@ -91,7 +91,7 @@ const AppPanelContact = () => {
                                 name="subject"
                                 value={contactFormObj.values.subject}
                                 onChange={contactFormObj.handleChange}>
-                                <option disabled="disabled">-- Select a subject --</option>
+                                <option value="">-- Select a subject --</option>
                                 <option label="General" value="General">
                                     General
                                 </option>
@@ -143,7 +143,7 @@ const AppPanelContact = () => {
                                 name="referral_by"
                                 value={contactFormObj.values.referral_by}
                                 onChange={contactFormObj.handleChange}>
-                                <option disabled="disabled">-- Select referral by --</option>
+                                <option value="">-- Select referral by --</option>
                                 <optgroup label="Search Engine">
                                     <option label="Google" value="Google">
                                         Google

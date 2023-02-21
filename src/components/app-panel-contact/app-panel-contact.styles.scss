@@ -8,7 +8,7 @@
 
     &__fieldset {
         position: relative;
-        margin: 20px auto;
+        margin: 0 auto 20px;
         padding: 20px 10px;
         border: 1px solid var(--c-light-gray);
         border-radius: 5px;
@@ -85,9 +85,9 @@
     }
 
     &__note {
-        font-size: var(--text-size-s);
+        font-size: var(--text-size-xs);
         color: var(--c-gray);
-        line-height: 1.25em;
+        line-height: 1.5em;
 
         & > svg {
 
