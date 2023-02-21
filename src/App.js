@@ -26,9 +26,9 @@ function App() {
 
     useEffect(() => {
         axios.all([
-                axios.get(CONSTANTS.ENNDPOINT.projects),
-                axios.get(CONSTANTS.ENNDPOINT.articles),
-                axios.get(CONSTANTS.ENNDPOINT.testimonials),
+                axios.get(CONSTANTS.ENDPOINT.projects),
+                axios.get(CONSTANTS.ENDPOINT.articles),
+                axios.get(CONSTANTS.ENDPOINT.testimonials),
             ])
             .then((responses) => {
                 setProjectEntries(responses[0].data);
