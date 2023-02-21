@@ -16,14 +16,14 @@ const AppPanelContact = () => {
     const contactFormObj = useFormik({
         initialValues: {
             contact_name: "",
-            contact_email: "",
+            email_address: "",
             subject: "",
             message: "",
             referral_by: "",
         },
         validationSchema: Yup.object().shape({
             contact_name: Yup.string().required("This field is required."),
-            contact_email: Yup.string().email("Invalid email address").required("This field is required."),
+            email_address: Yup.string().email("Invalid email address").required("This field is required."),
             subject: Yup.string().required("This field is required."),
             message: Yup.string().required("This field is required."),
             referral_by: Yup.string().required("This field is required."),
@@ -32,7 +32,7 @@ const AppPanelContact = () => {
             console.log(values);
             console.log(formikBag);
             console.log(JSON.stringify(values, null, 2));
-            axios.post(CONSTANTS.ENNDPOINT.conact, qs.stringify(values))
+            axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
                 .then((response) => {
                     console.log(response);
                     setTimeout(() => {
@@ -78,19 +78,19 @@ const AppPanelContact = () => {
                         </div>
 
                         <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="contact_email">
+                            <label className="app-panel-contact__label form-label" htmlFor="email_address">
                                 Email address
                             </label>
                             <input
                                 className="app-panel-contact__input form-control"
                                 type="email"
                                 placeholder="Email address"
-                                name="contact_email"
-                                value={contactFormObj.values.contact_email}
+                                name="email_address"
+                                value={contactFormObj.values.email_address}
                                 onChange={contactFormObj.handleChange}
                             />
-                            {contactFormObj.touched.contact_email && contactFormObj.errors.contact_email ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.contact_email}</div>
+                            {contactFormObj.touched.email_address && contactFormObj.errors.email_address ? (
+                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.email_address}</div>
                             ) : null}
                         </div>
 

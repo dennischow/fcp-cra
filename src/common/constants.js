@@ -1,6 +1,6 @@
 export const BRAND_NAME = "Example Production";
 
-export const ENNDPOINT = {
+export const ENDPOINT = {
     projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,
     articles: process.env.REACT_APP_DEFAULT_ENDPOINT_ARTICLES,
     testimonials: process.env.REACT_APP_DEFAULT_ENDPOINT_TESTIMONIALS,
