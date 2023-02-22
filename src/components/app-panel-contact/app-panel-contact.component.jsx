@@ -47,13 +47,13 @@ const AppPanelContact = () => {
                     }
                     setTimeout(() => {
                         formikBag.setSubmitting(false);
-                    }, 2400);
+                    }, 4000);
                 })
                 .catch((error) => {
                     setLoaderFeedback({ indicator: false, message: error.message });
                     setTimeout(() => {
                         formikBag.setSubmitting(false);
-                    }, 2400);
+                    }, 4000);
                 });
         },
     });

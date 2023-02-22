@@ -31,7 +31,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "deploy": "craco build && node deploy"
+    "deploy": "npm run build && node deploy"
   },
   "eslintConfig": {
     "extends": [
@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "base-64": "^1.0.0",
     "dotenv": "^16.0.3",
     "ftp-deploy": "^2.4.3",
     "prettier": "^2.8.3"
