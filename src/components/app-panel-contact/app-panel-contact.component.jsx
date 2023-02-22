@@ -7,6 +7,9 @@ import { FaTelegramPlane, FaExclamationTriangle, FaTimes } from "react-icons/fa"
 
 import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
+import AppInputField from "../form/app-input-field/app-input-field.component";
+import AppTextareaField from "../form/app-textarea-field/app-textarea-field.component";
+import AppSelectField from "../form/app-select-field/app-select-field.component";
 import "./app-panel-contact.styles.scss";
 
 const AppPanelContact = () => {
@@ -52,6 +55,103 @@ const AppPanelContact = () => {
         setIsPanelContactShow(false);
     };
 
+    const subjectOptions = [
+        {
+            label: "-- Select a subject --",
+            value: "",
+        },
+        {
+            label: "General",
+            value: "General",
+        },
+        {
+            label: "Comment",
+            value: "Comment",
+        },
+        {
+            label: "Testimonial",
+            value: "Testimonial",
+        },
+        {
+            label: "Hang out",
+            value: "Hang out",
+        },
+        {
+            label: "Recommendation",
+            value: "Recommendation",
+        },
+    ];
+
+    const referralByOptions = [
+        {
+            label: "-- Select referral by --",
+            value: "",
+        },
+        {
+            label: "Search Engine",
+            options: [
+                {
+                    label: "Google",
+                    value: "Google",
+                },
+                {
+                    label: "Yahoo",
+                    value: "Yahoo",
+                },
+                {
+                    label: "Bing",
+                    value: "Bing",
+                },
+                {
+                    label: "DuckDuckGo",
+                    value: "DuckDuckGo",
+                },
+            ],
+        },
+        {
+            label: "Social Networking",
+            options: [
+                {
+                    label: "LinkedIn",
+                    value: "LinkedIn",
+                },
+                {
+                    label: "Facebook",
+                    value: "Facebook",
+                },
+                {
+                    label: "Twitter",
+                    value: "Twitter",
+                },
+                {
+                    label: "Instagram",
+                    value: "Instagram",
+                },
+            ],
+        },
+        {
+            label: "Others",
+            options: [
+                {
+                    label: "Friend",
+                    value: "Friend",
+                },
+                {
+                    label: "Colleague",
+                    value: "Colleague",
+                },
+                {
+                    label: "Recruitment Agency",
+                    value: "Recruitment Agency",
+                },
+                {
+                    label: "Others",
+                    value: "Others",
+                },
+            ],
+        },
+    ];
+
     return (
         <Fragment>
             <div className="app-panel-contact">
@@ -59,153 +159,48 @@ const AppPanelContact = () => {
                     <fieldset className="app-panel-contact__fieldset">
                         <legend className="app-panel-contact__legend">Get in touch</legend>
 
-                        <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="contact_name">
-                                Contact name
-                            </label>
-                            <input
-                                className="app-panel-contact__input form-control"
-                                type="text"
-                                placeholder="Contact name"
-                                name="contact_name"
-                                value={contactFormObj.values.contact_name}
-                                onChange={contactFormObj.handleChange}
-                                autoFocus
-                            />
-                            {contactFormObj.touched.contact_name && contactFormObj.errors.contact_name ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.contact_name}</div>
-                            ) : null}
-                        </div>
+                        <AppInputField
+                            label="Contact name"
+                            type="text"
+                            name="contact_name"
+                            placeholder="Contact name"
+                            form={contactFormObj}
+                            autoFocus
+                        />
 
-                        <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="email_address">
-                                Email address
-                            </label>
-                            <input
-                                className="app-panel-contact__input form-control"
-                                type="email"
-                                placeholder="Email address"
-                                name="email_address"
-                                value={contactFormObj.values.email_address}
-                                onChange={contactFormObj.handleChange}
-                            />
-                            {contactFormObj.touched.email_address && contactFormObj.errors.email_address ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.email_address}</div>
-                            ) : null}
-                        </div>
+                        <AppInputField
+                            label="Email address"
+                            type="email"
+                            name="email_address"
+                            placeholder="Email address"
+                            form={contactFormObj}
+                        />
 
-                        <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="subject">
-                                Subject
-                            </label>
-                            <select
-                                className="app-panel-contact__input form-select"
-                                name="subject"
-                                value={contactFormObj.values.subject}
-                                onChange={contactFormObj.handleChange}>
-                                <option value="">-- Select a subject --</option>
-                                <option label="General" value="General">
-                                    General
-                                </option>
-                                <option label="Project" value="Project">
-                                    Project
-                                </option>
-                                <option label="Comment" value="Comment">
-                                    Comment
-                                </option>
-                                <option label="Testimonial" value="Testimonial">
-                                    Testimonial
-                                </option>
-                                <option label="Hang out" value="Hang out">
-                                    Hang out
-                                </option>
-                                <option label="Recommendation" value="Recommendation">
-                                    Recommendation
-                                </option>
-                            </select>
-                            {contactFormObj.touched.subject && contactFormObj.errors.subject ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.subject}</div>
-                            ) : null}
-                        </div>
+                        <AppSelectField
+                            label="Subject"
+                            name="subject"
+                            options={subjectOptions}
+                            form={contactFormObj}
+                        />
 
-                        <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="message">
-                                Your message
-                            </label>
-                            <textarea
-                                className="app-panel-contact__input form-control"
-                                placeholder="Your message"
-                                name="message"
-                                rows={5}
-                                maxLength={2000}
-                                value={contactFormObj.values.message}
-                                onChange={contactFormObj.handleChange}
-                            />
-                            {contactFormObj.touched.message && contactFormObj.errors.message ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.message}</div>
-                            ) : null}
-                        </div>
+                        <AppTextareaField
+                            label="Your message"
+                            name="message"
+                            placeholder="Your message"
+                            rows={5}
+                            maxLength={2000}
+                            form={contactFormObj}
+                        />
 
-                        <div className="app-panel-contact__form-group">
-                            <label className="app-panel-contact__label form-label" htmlFor="referral_by">
-                                Referral by
-                            </label>
-                            <select
-                                className="app-panel-contact__input form-select"
-                                name="referral_by"
-                                value={contactFormObj.values.referral_by}
-                                onChange={contactFormObj.handleChange}>
-                                <option value="">-- Select referral by --</option>
-                                <optgroup label="Search Engine">
-                                    <option label="Google" value="Google">
-                                        Google
-                                    </option>
-                                    <option label="Yahoo" value="Yahoo">
-                                        Yahoo
-                                    </option>
-                                    <option label="Bing" value="Bing">
-                                        Bing
-                                    </option>
-                                    <option label="DuckDuckGo" value="DuckDuckGo">
-                                        DuckDuckGo
-                                    </option>
-                                </optgroup>
-                                <optgroup label="Social Networking">
-                                    <option label="LinkedIn" value="LinkedIn">
-                                        LinkedIn
-                                    </option>
-                                    <option label="Facebook" value="Facebook">
-                                        Facebook
-                                    </option>
-                                    <option label="Twitter" value="Twitter">
-                                        Twitter
-                                    </option>
-                                    <option label="Instagram" value="Instagram">
-                                        Instagram
-                                    </option>
-                                </optgroup>
-                                <optgroup label="Others">
-                                    <option label="Friend" value="Friend">
-                                        Friend
-                                    </option>
-                                    <option label="Colleague" value="Colleague">
-                                        Colleague
-                                    </option>
-                                    <option label="Recruitment Agency" value="Recruitment Agency">
-                                        Recruitment Agency
-                                    </option>
-                                    <option label="Others" value="Others">
-                                        Others
-                                    </option>
-                                </optgroup>
-                            </select>
-                            {contactFormObj.touched.referral_by && contactFormObj.errors.referral_by ? (
-                                <div className="app-panel-contact__error-message invalid-feedback">{contactFormObj.errors.referral_by}</div>
-                            ) : null}
-                        </div>
+                        <AppSelectField
+                            label="Referral by"
+                            name="referral_by"
+                            options={referralByOptions}
+                            form={contactFormObj}
+                        />
 
                         <div className="app-panel-contact__buttons-container">
-                        <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
+                            <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
                                 Send <FaTelegramPlane />
                             </button>
                             <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" disabled={contactFormObj.isSubmitting} onClick={() => clearFormHandler(contactFormObj)}>

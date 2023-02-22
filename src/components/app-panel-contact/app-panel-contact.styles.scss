@@ -24,33 +24,6 @@
         color: var(--c-gray);
     }
 
-    &__form-group {
-        margin-bottom: 15px;
-    }
-
-    &__label {
-        display: none;
-    }
-
-    &__input {
-        padding: 10px 40px 10px 10px;
-        width: 100%;
-        border: none;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-        font-size: var(--text-size-s);
-
-        &::placeholder {
-            color: var(--c-light-gray);
-        }
-    }
-
-    &__error-message {
-        display: block;
-        margin-top: 5px;
-        color: var(--c-light-red);
-        font-size: var(--text-size-xs);
-    }
-
     &__buttons-container {
         display: flex;
         flex-direction: column;
