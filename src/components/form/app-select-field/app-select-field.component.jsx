@@ -25,7 +25,7 @@ const AppSelectField = ({ label, name, options, helperText, autoFocus, ...otherP
                 <select
                     className="app-select-field__input form-select"
                     name={name}
-                    value={form?.values.subject}
+                    value={form?.values[name]}
                     onChange={form?.handleChange}
                     onBlur={form?.handleBlur}>
                     {options.map((option, index) => {
@@ -49,7 +49,7 @@ const AppSelectField = ({ label, name, options, helperText, autoFocus, ...otherP
                     })}
                 </select>
                 {isInvalid ? (
-                    <div className="app-select-field__error-message invalid-feedback">{form?.errors.subject}</div>
+                    <div className="app-select-field__error-message invalid-feedback">{form?.errors[name]}</div>
                 ) : null}
             </div>
         </div>

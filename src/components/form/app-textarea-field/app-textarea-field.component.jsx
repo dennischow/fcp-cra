@@ -34,7 +34,7 @@ const AppInputField = ({ label, name, placeholder, rows, maxLength, helperText, 
                     autoFocus={autoFocus ? true : null}
                 />
                 {isInvalid ? (
-                    <div className="app-textarea-field__error-message invalid-feedback">{form?.errors.message}</div>
+                    <div className="app-textarea-field__error-message invalid-feedback">{form?.errors[name]}</div>
                 ) : null}
             </div>
         </div>
