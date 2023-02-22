@@ -16,7 +16,7 @@ import "./app-panel-contact.styles.scss";
 const AppPanelContact = () => {
 
     const { setIsPanelContactShow } = useContext(AppContext);
-    const [loaderFeedback, setLoaderFeedback] = useState({ indicator: true, message: "Your message has been sent successfully. Thank you!" });
+    const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "" });
 
     const contactFormObj = useFormik({
         initialValues: {
@@ -42,10 +42,10 @@ const AppPanelContact = () => {
             axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
                 .then((response) => {
                     setLoaderFeedback({ indicator: false, message: response.data.status });
+                    if (response.data.result) {
+                        formikBag.resetForm();
+                    }
                     setTimeout(() => {
-                        if (response.data.result) {
-                            formikBag.resetForm();
-                        }
                         formikBag.setSubmitting(false);
                     }, 2400);
                 })
@@ -164,7 +164,7 @@ const AppPanelContact = () => {
         <Fragment>
             <div className="app-panel-contact">
 
-                {!contactFormObj.isSubmitting && (
+                {contactFormObj.isSubmitting && (
                     <div className="app-panel-contact__loader">
                         <div className="app-panel-contact__loader-inner">
                             {loaderFeedback.indicator && (
