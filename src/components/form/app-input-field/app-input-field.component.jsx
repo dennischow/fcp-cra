@@ -1,8 +1,8 @@
 import "./app-input-field.styles.scss";
 
-const AppInputField = ({ form, label, type, name, placeholder, helperText, autoFocus, ...otherProps }) => {
-
-    const isInvalid = form.touched[name] && form.errors[name];
+const AppInputField = ({ label, type, name, placeholder, helperText, autoFocus, ...otherProps }) => {
+    const { form } = otherProps;
+    const isInvalid = form?.touched[name] && form?.errors[name];
 
     const getWrapperClassNames = () => {
         const classNames = ["app-input-field"];
@@ -12,7 +12,7 @@ const AppInputField = ({ form, label, type, name, placeholder, helperText, autoF
         }
 
         return classNames.join(" ");
-    }
+    };
 
     return (
         <div className={getWrapperClassNames()}>
@@ -27,14 +27,13 @@ const AppInputField = ({ form, label, type, name, placeholder, helperText, autoF
                     type={type}
                     placeholder={placeholder}
                     name={name}
-                    value={form.values[name]}
-                    onChange={form.handleChange}
+                    value={form?.values[name]}
+                    onChange={form?.handleChange}
+                    onBlur={form?.handleBlur}
                     autoFocus={autoFocus ? true : null}
                 />
                 {isInvalid ? (
-                    <div className="app-input-field__error-message invalid-feedback">
-                        {form.errors[name]}
-                    </div>
+                    <div className="app-input-field__error-message invalid-feedback">{form?.errors[name]}</div>
                 ) : null}
             </div>
         </div>

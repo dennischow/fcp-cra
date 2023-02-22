@@ -1,8 +1,8 @@
 import "./app-select-field.styles.scss";
 
-const AppSelectField = ({ form, label, name, options, helperText, autoFocus, ...otherProps }) => {
-
-    const isInvalid = form.touched[name] && form.errors[name];
+const AppSelectField = ({ label, name, options, helperText, autoFocus, ...otherProps }) => {
+    const { form } = otherProps;
+    const isInvalid = form?.touched[name] && form?.errors[name];
 
     const getWrapperClassNames = () => {
         const classNames = ["app-select-field"];
@@ -12,7 +12,7 @@ const AppSelectField = ({ form, label, name, options, helperText, autoFocus, ...
         }
 
         return classNames.join(" ");
-    }
+    };
 
     return (
         <div className={getWrapperClassNames()}>
@@ -25,8 +25,9 @@ const AppSelectField = ({ form, label, name, options, helperText, autoFocus, ...
                 <select
                     className="app-select-field__input form-select"
                     name={name}
-                    value={form.values.subject}
-                    onChange={form.handleChange}>
+                    value={form?.values.subject}
+                    onChange={form?.handleChange}
+                    onBlur={form?.handleBlur}>
                     {options.map((option, index) => {
                         if (option.options) {
                             return (
@@ -48,7 +49,7 @@ const AppSelectField = ({ form, label, name, options, helperText, autoFocus, ...
                     })}
                 </select>
                 {isInvalid ? (
-                    <div className="app-select-field__error-message invalid-feedback">{form.errors.subject}</div>
+                    <div className="app-select-field__error-message invalid-feedback">{form?.errors.subject}</div>
                 ) : null}
             </div>
         </div>

@@ -1,7 +1,8 @@
 import "./app-textarea-field.styles.scss";
 
-const AppInputField = ({ form, label, name, placeholder, rows, maxLength, helperText, autoFocus, ...otherProps }) => {
-    const isInvalid = form.touched[name] && form.errors[name];
+const AppInputField = ({ label, name, placeholder, rows, maxLength, helperText, autoFocus, ...otherProps }) => {
+    const { form } = otherProps;
+    const isInvalid = form?.touched[name] && form?.errors[name];
 
     const getWrapperClassNames = () => {
         const classNames = ["app-textarea-field"];
@@ -11,7 +12,7 @@ const AppInputField = ({ form, label, name, placeholder, rows, maxLength, helper
         }
 
         return classNames.join(" ");
-    }
+    };
 
     return (
         <div className={getWrapperClassNames()}>
@@ -27,14 +28,13 @@ const AppInputField = ({ form, label, name, placeholder, rows, maxLength, helper
                     name={name}
                     rows={rows}
                     maxLength={maxLength}
-                    value={form.values[name]}
-                    onChange={form.handleChange}
+                    value={form?.values[name]}
+                    onChange={form?.handleChange}
+                    onBlur={form?.handleBlur}
                     autoFocus={autoFocus ? true : null}
                 />
                 {isInvalid ? (
-                    <div className="app-textarea-field__error-message invalid-feedback">
-                        {form.errors.message}
-                    </div>
+                    <div className="app-textarea-field__error-message invalid-feedback">{form?.errors.message}</div>
                 ) : null}
             </div>
         </div>

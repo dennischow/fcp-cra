@@ -160,7 +160,6 @@ const AppPanelContact = () => {
                         <legend className="app-panel-contact__legend">Get in touch</legend>
 
                         <AppInputField
-                            label="Contact name"
                             type="text"
                             name="contact_name"
                             placeholder="Contact name"
@@ -169,7 +168,6 @@ const AppPanelContact = () => {
                         />
 
                         <AppInputField
-                            label="Email address"
                             type="email"
                             name="email_address"
                             placeholder="Email address"
@@ -177,14 +175,12 @@ const AppPanelContact = () => {
                         />
 
                         <AppSelectField
-                            label="Subject"
                             name="subject"
                             options={subjectOptions}
                             form={contactFormObj}
                         />
 
                         <AppTextareaField
-                            label="Your message"
                             name="message"
                             placeholder="Your message"
                             rows={5}
@@ -193,7 +189,6 @@ const AppPanelContact = () => {
                         />
 
                         <AppSelectField
-                            label="Referral by"
                             name="referral_by"
                             options={referralByOptions}
                             form={contactFormObj}
