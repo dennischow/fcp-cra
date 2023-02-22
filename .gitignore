@@ -11,6 +11,9 @@
 # php services
 /public/services
 
+# deployment to FTP
+deploy.js
+
 # testing
 /coverage
 
