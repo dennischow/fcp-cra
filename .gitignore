@@ -8,6 +8,9 @@
 # environment
 /.env
 
+# php services
+/public/services
+
 # testing
 /coverage
 
