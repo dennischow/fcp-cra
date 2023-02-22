@@ -42,10 +42,10 @@ const AppPanelContact = () => {
             axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
                 .then((response) => {
                     setLoaderFeedback({ indicator: false, message: response.data.status });
-                    if (response.data.result) {
-                        formikBag.resetForm();
-                    }
                     setTimeout(() => {
+                        if (response.data.result) {
+                            formikBag.resetForm();
+                        }
                         formikBag.setSubmitting(false);
                     }, 4000);
                 })
