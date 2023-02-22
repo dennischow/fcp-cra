@@ -1,8 +1,9 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import qs from "qs";
+import { ThreeDots } from "react-loader-spinner";
 import { FaTelegramPlane, FaExclamationTriangle, FaTimes } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
@@ -15,6 +16,7 @@ import "./app-panel-contact.styles.scss";
 const AppPanelContact = () => {
 
     const { setIsPanelContactShow } = useContext(AppContext);
+    const [loaderFeedback, setLoaderFeedback] = useState({ indicator: true, message: "Your message has been sent successfully. Thank you!" });
 
     const contactFormObj = useFormik({
         initialValues: {
@@ -32,20 +34,26 @@ const AppPanelContact = () => {
             referral_by: Yup.string().required("This field is required."),
         }),
         onSubmit: (values, formikBag) => {
-            console.log(values);
-            console.log(formikBag);
+            setLoaderFeedback({ indicator: true, message: "Sending out the message..." });
+            console.log("values: ", values);
+            console.log("formikBag: ", formikBag);
             console.log(JSON.stringify(values, null, 2));
+
             axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
                 .then((response) => {
-                    console.log(response);
+                    setLoaderFeedback({ indicator: false, message: response.data.status });
                     setTimeout(() => {
-                        formikBag.resetForm();
-                    }, 800);
+                        if (response.data.result) {
+                            formikBag.resetForm();
+                        }
+                        formikBag.setSubmitting(false);
+                    }, 2400);
                 })
                 .catch((error) => {
-                    console.log(error);
-                    console.error(error.message);
-                    formikBag.setSubmitting(false);
+                    setLoaderFeedback({ indicator: false, message: error.message });
+                    setTimeout(() => {
+                        formikBag.setSubmitting(false);
+                    }, 2400);
                 });
         },
     });
@@ -155,6 +163,29 @@ const AppPanelContact = () => {
     return (
         <Fragment>
             <div className="app-panel-contact">
+
+                {!contactFormObj.isSubmitting && (
+                    <div className="app-panel-contact__loader">
+                        <div className="app-panel-contact__loader-inner">
+                            {loaderFeedback.indicator && (
+                                <div className="app-panel-contact__loader-indicator">
+                                    <ThreeDots
+                                        height="50"
+                                        width="50"
+                                        radius="10"
+                                        color="#000000"
+                                        ariaLabel="three-dots-loading"
+                                        wrapperStyle={{}}
+                                        wrapperClassName
+                                        visible={true}
+                                    />
+                                </div>
+                            )}
+                            <p className="app-panel-contact__loader-message">{loaderFeedback.message}</p>
+                        </div>
+                    </div>
+                )}
+
                 <form className="app-panel-contact__form" noValidate autoComplete="off" onSubmit={contactFormObj.handleSubmit}>
                     <fieldset className="app-panel-contact__fieldset">
                         <legend className="app-panel-contact__legend">Get in touch</legend>
