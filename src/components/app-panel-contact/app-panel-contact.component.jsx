@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import qs from "qs";
 import { ThreeDots } from "react-loader-spinner";
-import { FaTelegramPlane, FaExclamationTriangle, FaTimes } from "react-icons/fa";
+import { FaTelegramPlane, FaExclamationTriangle, FaTimes, FaCheck } from "react-icons/fa";
 
 import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
@@ -16,7 +16,7 @@ import "./app-panel-contact.styles.scss";
 const AppPanelContact = () => {
 
     const { setIsPanelContactShow } = useContext(AppContext);
-    const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "" });
+    const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "", result: null });
 
     const contactFormObj = useFormik({
         initialValues: {
@@ -34,26 +34,39 @@ const AppPanelContact = () => {
             referral_by: Yup.string().required("This field is required."),
         }),
         onSubmit: (values, formikBag) => {
-            setLoaderFeedback({ indicator: true, message: "Sending out the message..." });
             console.log("values: ", values);
             console.log("formikBag: ", formikBag);
             console.log(JSON.stringify(values, null, 2));
 
+            setLoaderFeedback({
+                indicator: true,
+                message: "Sending out the message...",
+                result: null,
+            });
+
             axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
                 .then((response) => {
-                    setLoaderFeedback({ indicator: false, message: response.data.status });
+                    setLoaderFeedback({
+                        indicator: false,
+                        message: response.data.status,
+                        result: response.data.result ? "success" : "failed",
+                    });
                     setTimeout(() => {
                         if (response.data.result) {
                             formikBag.resetForm();
                         }
                         formikBag.setSubmitting(false);
-                    }, 4000);
+                    }, 3000);
                 })
                 .catch((error) => {
-                    setLoaderFeedback({ indicator: false, message: error.message });
+                    setLoaderFeedback({
+                        indicator: false,
+                        message: error.message,
+                        result: "failed",
+                    });
                     setTimeout(() => {
                         formikBag.setSubmitting(false);
-                    }, 4000);
+                    }, 3000);
                 });
         },
     });
@@ -181,6 +194,13 @@ const AppPanelContact = () => {
                                     />
                                 </div>
                             )}
+
+                            {loaderFeedback.result && (
+                                <p className={`app-panel-contact__loader-status app-panel-contact__loader-status--${loaderFeedback.result}`}>
+                                    {loaderFeedback.result === "success" ? <FaCheck /> : <FaTimes />}
+                                </p>
+                            )}
+
                             <p className="app-panel-contact__loader-message">{loaderFeedback.message}</p>
                         </div>
                     </div>
@@ -226,10 +246,17 @@ const AppPanelContact = () => {
                         />
 
                         <div className="app-panel-contact__buttons-container">
-                            <button className="app-panel-contact__button app-panel-contact__button--submit" type="submit" disabled={contactFormObj.isSubmitting}>
+                            <button
+                                className="app-panel-contact__button app-panel-contact__button--submit"
+                                type="submit"
+                                disabled={contactFormObj.isSubmitting}>
                                 Send <FaTelegramPlane />
                             </button>
-                            <button className="app-panel-contact__button app-panel-contact__button--reset" type="button" disabled={contactFormObj.isSubmitting} onClick={() => clearFormHandler(contactFormObj)}>
+                            <button
+                                className="app-panel-contact__button app-panel-contact__button--reset"
+                                type="button"
+                                disabled={contactFormObj.isSubmitting}
+                                onClick={() => clearFormHandler(contactFormObj)}>
                                 Close <FaTimes />
                             </button>
                         </div>

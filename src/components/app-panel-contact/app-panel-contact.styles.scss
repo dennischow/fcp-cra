@@ -96,6 +96,20 @@
         }
     }
 
+    &__loader-status {
+        margin-bottom: 0;
+        font-size: calc(var(--text-size-l) * 2);
+
+        &--success {
+            color: var(--c-lettuce-green);
+        }
+
+        &--failed {
+            color: var(--c-light-red);
+        }
+
+    }
+
     &__loader-message {
         color: var(--c-dark-gray);
         text-align: center;
