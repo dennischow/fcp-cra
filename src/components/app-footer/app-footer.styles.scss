@@ -1,10 +1,14 @@
 .app-footer {
     position: relative;
+    padding: 20px 0;
     width: calc(100% - 60px);
-    height: 50px;
     background-color: var(--c-white);
     border-top: 1px solid var(--c-light-gray);
     z-index: 0;
+
+    @include max-media($scr-tablet) {
+        width: auto;
+    }
 
     &__container {
         display: flex;
@@ -12,6 +16,11 @@
         align-items: center;
         padding: 0 20px;
         height: 100%;
+
+        @include max-media($scr-tablet) {
+            display: block;
+        }
+
     }
 
     &__text {
@@ -21,6 +30,22 @@
 
     &__copyright-info,
     &__remark {
+        display: block;
         margin: 0;
+
+        @include max-media($scr-tablet) {
+            text-align: center;
+        }
+
+    }
+
+    &__remark {
+        text-align: right;
+
+        @include max-media($scr-tablet) {
+            margin-top: 10px;
+            text-align: center;
+        }
+
     }
 }
