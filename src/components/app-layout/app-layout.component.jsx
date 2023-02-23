@@ -20,8 +20,8 @@ const AppContent = () => {
             </div>
             <AppSidePanel />
         </Fragment>
-    )
-}
+    );
+};
 
 const AppLayout = ({ isLoading }) => {
     return (
