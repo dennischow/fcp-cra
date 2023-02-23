@@ -107,13 +107,25 @@
     &__header-group-headline {
         text-align: center;
         font-size: calc(var(--text-size-xxl) * 2);
+        line-height: 1em;
         font-weight: 700;
+
+        @include max-media($scr-laptop) {
+            font-size: calc(var(--text-size-xxl) * 1.25);
+        }
+
     }
 
     &__header-group-sub-headline {
+        margin-top: 5px;
         text-align: center;
         font-size: var(--text-size-l);
         color: var(--c-dark-orange);
+
+        @include max-media($scr-laptop) {
+            font-size: var(--text-size-body);
+        }
+
     }
 
     &__header-group-buttons-container {
@@ -140,6 +152,12 @@
 
     &__content-group-content {
         display: flex;
+
+        @include max-media($scr-laptop) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
     }
 
     &__content-group-content-text,
@@ -151,7 +169,12 @@
         padding-right: 20px;
         margin-bottom: 0;
         color: var(--c-gray);
-        font-size: var(--text-size-m);
+        font-size: calc(var(--text-size-m) - 0.2rem);
+
+        @include max-media($scr-laptop) {
+            padding-right: 0;
+            font-size: var(--text-size-body);
+        }
 
         &::before,
         &::after {
@@ -159,16 +182,34 @@
     }
 
     &__content-group-sender-info {
+        position: relative;
         flex: 0 0 auto;
         padding-left: 20px;
         width: 200px;
         border-left: 1px solid var(--c-light-gray);
+
+        @include max-media($scr-laptop) {
+            flex: 1 0 auto;
+            margin-top: 10px;
+            padding-right: 95px;
+            padding-left: 0;
+            width: auto;
+            height: 80px;
+            border-left: none;
+        }
+
     }
 
     &__content-group-person {
         margin-top: 5px;
         margin-bottom: 0;
-        color: var(--c-gray);
+        color: var(--c-dark-orange);
+
+        @include max-media($scr-laptop) {
+            margin-top: 10px;
+            text-align: right;
+        }
+
     }
 
     &__content-group-company {
@@ -176,6 +217,11 @@
         color: var(--c-gray);
         font-size: var(--text-size-xs);
         font-style: italic;
+
+        @include max-media($scr-laptop) {
+            text-align: right;
+        }
+
     }
 
     &__content-group-visual {
@@ -186,6 +232,13 @@
         overflow: hidden;
         border: 2px solid var(--c-lighten-gray);
         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+
+        @include max-media($scr-laptop) {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
     }
 
     &__content-group-img {
