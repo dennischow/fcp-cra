@@ -23,6 +23,11 @@
         align-items: flex-start;
         padding: 30px;
         height: max(320px, 25vw);
+
+        @include max-media($scr-tablet) {
+            padding: 20px;
+        }
+
     }
 
     &__heading {
@@ -31,6 +36,15 @@
         color: var(--c-body);
         line-height: 0.9em;
         font-weight: 700;
+
+        @include max-media($scr-laptop) {
+            font-size: calc(var(--text-size-xxl) * 1.5);
+        }
+
+        @include max-media($scr-tablet) {
+            font-size: calc(var(--text-size-xxl) * 1.15);
+        }
+
     }
 
     &__sub-heading {
@@ -38,7 +52,13 @@
         margin-bottom: 0;
         color: var(--c-dark-orange);
         font-size: var(--text-size-l);
+        line-height: 1.2em;
         text-transform: uppercase;
+
+        @include max-media($scr-laptop) {
+            font-size: var(--text-size-m);
+        }
+
     }
 
     &--default {
@@ -94,8 +114,16 @@
                 flex-direction: column;
                 justify-content: flex-end;
                 align-items: flex-start;
-                padding: 30px;
                 height: 100vh;
+
+                @include max-media($scr-laptop) {
+                    height: max(420px, 65vw);
+                }
+
+                @include max-media($scr-tablet) {
+                    height: 45vh;
+                }
+
             }
 
             &__heading {
@@ -106,6 +134,14 @@
                 font-weight: 700;
                 text-shadow: -2px 0 var(--c-red), 2px 0 var(--c-cyan);
 
+                @include max-media($scr-laptop) {
+                    font-size: calc(var(--text-size-xxl) * 2);
+                }
+
+                @include max-media($scr-tablet) {
+                    font-size: calc(var(--text-size-xxl) * 1.15);
+                }
+
                 span {
                     display: block;
                     position: relative;
@@ -113,6 +149,11 @@
                     &:first-child {
                         font-size: 40%;
                         transform: translate(-10px, 30%);
+
+                        @include max-media($scr-tablet) {
+                            transform: translate(-5px, 27.5%);
+                        }
+
                     }
 
                 }
@@ -128,6 +169,18 @@
                 font-size: var(--text-size-m);
                 text-transform: uppercase;
                 transform: translate(-10px, 0);
+
+                @include max-media($scr-laptop) {
+                    font-size: calc(var(--text-size-m) - 0.2em);
+                }
+
+                @include max-media($scr-tablet) {
+                    margin-top: 0;
+                    background-color: inherit;
+                    color: var(--c-dark-orange);
+                    font-size: var(--text-size-s);
+                }
+
             }
 
         }
