@@ -43,7 +43,6 @@
         text-align: right;
 
         @include max-media($scr-tablet) {
-            margin-top: 10px;
             text-align: center;
         }
 

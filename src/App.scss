@@ -60,6 +60,11 @@ iframe {
     padding: 0;
     width: calc(100% - 60px);
     flex-grow: 1;
+
+    @include max-media($scr-tablet) {
+        width: 100%;
+    }
+
 }
 
 .app-container {
@@ -157,7 +162,7 @@ iframe {
         color: var(--c-white);
         font-size: 10px;
         line-height: 1em;
-        z-index: 10;
+        z-index: 1;
     }
 
 }
