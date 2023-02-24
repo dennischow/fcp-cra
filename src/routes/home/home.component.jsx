@@ -67,12 +67,9 @@ const Home = () => {
                             <p className="recent-articles__header-des">
                                 A casual corner to share what's on my mind. Come hang!
                             </p>
-                            <Link className="recent-articles__view-all-link" to={CONSTANTS.ROUTES.articlesOverview.path}>
-                                View all post <FaArrowRight />
-                            </Link>
                         </div>
                         <div className="recent-articles__entries">
-                            {articleEntries.length > 0 && articleEntries.slice(0, 12).map((item, index) => (
+                            {articleEntries.length > 0 && articleEntries.slice(0, 6).map((item, index) => (
                                 <div className="recent-articles__entry" key={item.entry_id}>
                                     <div className="recent-articles__entry-visual"
                                         role="img"
@@ -88,6 +85,9 @@ const Home = () => {
                                 </div>
                             ))}
                         </div>
+                        <Link className="recent-articles__view-all-link" to={CONSTANTS.ROUTES.articlesOverview.path}>
+                            View all post <FaArrowRight />
+                        </Link>
                     </div>
                 </section>
 
