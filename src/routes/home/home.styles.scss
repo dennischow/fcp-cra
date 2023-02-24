@@ -46,9 +46,11 @@
         }
 
         &__teaser-title {
+            margin-top: 10px;
+            font-family: "Thinking Of Betty Regular";
             font-size: calc(var(--text-size-l) * 2.5);
             color: var(--c-white);
-            font-weight: 700;
+            font-weight: 400;
 
             @include max-media($scr-laptop) {
                 font-size: calc(var(--text-size-l) * 2);
@@ -353,9 +355,11 @@
         }
 
         &__teaser-title {
+            margin-top: 10px;
+            font-family: "Thinking Of Betty Regular";
             font-size: calc(var(--text-size-l) * 2.5);
             color: var(--c-white);
-            font-weight: 700;
+            font-weight: 400;
 
             @include max-media($scr-laptop) {
                 font-size: calc(var(--text-size-l) * 2);

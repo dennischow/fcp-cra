@@ -1,5 +1,13 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+@font-face {
+    font-family: "Thinking Of Betty Regular";
+    src: url("./resources/fonts/thinking_of_betty-webfont.woff2") format("woff2"),
+        url("./resources/fonts/thinking_of_betty-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     scroll-behavior: smooth;
 }
@@ -81,12 +89,16 @@ iframe {
     border: 2px solid var(--c-base-color);
     border-radius: 500px;
     background-color: transparent;
-    font-size: 18px;
+    font-size: calc(var(--text-size-body) + 0.2rem);
     text-transform: uppercase;
     font-weight: 700;
     text-decoration: none;
     color: var(--c-base-color);
     cursor: pointer;
+
+    @include max-media($scr-tablet) {
+        font-size: var(--text-size-s);
+    }
 
     &:hover:not([disabled]),
     &:active:not([disabled]) {
