@@ -18,6 +18,7 @@ import AppFeatureBanner from "../../components/app-feature-banner/app-feature-ba
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.componnet";
 import AppStatistics from "../../components/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/about/double-colors-exposure.jpg";
+import profilePicture from "../../resources/images/about/photoshoot-at-central-ferry-piers.jpg";
 
 import "./about.styles.scss";
 
@@ -196,7 +197,7 @@ const About = () => {
             },
         },
         data: {
-            labels: ["Loud Music", "Javascript Logic", "HTML & CSS", "Designing", "ExpressionEngine", "PHP & MySQL"],
+            labels: ["Loud Music", "Javascript", "HTML & CSS", "Designing", "ExpressionEngine", "PHP & MySQL"],
             datasets: [
                 {
                     // label: "Music on Headphone",
@@ -235,11 +236,13 @@ const About = () => {
                                 <div className="intro-group__visual"></div>
                                 <div className="intro-group__content">
                                     <p className="intro-group__name">My name is Dennis Chow a.k.a. Fat-Cow</p>
-                                    <p className="intro-group__statment">I am a web developer with design background & now focus on front end web development</p>
+
+                                    <p className="intro-group__statment">I am a web <strong className="hi-lite hi-lite--orange">developer</strong> with <strong className="hi-lite hi-lite--black">design</strong> background & now focus on <strong className="hi-lite hi-lite--dark-orange">front end</strong> web development</p>
+                                    <img className="intro-group__img" width="360" height="360" src={profilePicture} />
                                     <p className="intro-group__quote">By taking things one step at a time, you will find yourself actually mastering each specific skill and accomplishing your goals!</p>
                                     <p className="intro-group__brief">
                                         I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun microinteractions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
-                                        <br />
+                                        <br /><br />
                                         When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
                                     </p>
                                     <p className="intro-group__buttons-container">
@@ -258,12 +261,12 @@ const About = () => {
                                     <div className="profile-group__content">
                                         <p className="profile-group__text">I create content first, clean, functional, logical, search engine spiders friendly, professional websites that validated with W3C standards, resulting in semantic structure and accessible HTML and CSS. 100% of my websites are dedicatedly hand coded. Because I enjoy the romance of "Start From Scratch".</p>
                                         <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud music , speakers, sub-woofer, and headphones are part of my gear.</p>
-                                        <p className="profile-group__text">Specialties: Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
-                                        <p className="profile-group__text">In the past two years, I have been on and off self-experimenting with AngularJS, Vue, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
+                                        <p className="profile-group__text"><strong>Specialties:</strong> Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
+                                        <p className="profile-group__text">In the past two years, I have been on and off self-experimenting with AngularJS, Vue, ReactJS, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
                                         <div className="profile-group__line-chart">
                                             <Line options={aWeekOfMyWeek.options} data={aWeekOfMyWeek.data} />
                                         </div>
-                                        <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p>
+                                        {/* <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p> */}
                                         <p className="profile-group__text">Front-End Web Developer responsible for a website’s user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
                                     </div>
                                 </div>
