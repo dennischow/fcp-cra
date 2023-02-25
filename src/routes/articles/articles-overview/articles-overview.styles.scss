@@ -32,8 +32,13 @@
         }
 
         &__page-indicator-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
             width: 32px;
             height: 32px;
+            font-size: var(--text-size-body);
 
             &:first-of-type {
                 margin-left: 5px;
@@ -49,6 +54,19 @@
             row-gap: 20px;
             position: relative;
             z-index: 0;
+
+            @include max-media($scr-desktop) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            @include max-media($scr-laptop) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include max-media($scr-tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
         }
 
         &__entry {
@@ -57,7 +75,7 @@
             flex-direction: column;
             justify-content: flex-end;
             padding: 10px;
-            height: max(300px, 17.5vw);
+            height: max(240px, 17.5vw);
             background-color: var(--c-light-gray);
         }
 
@@ -90,11 +108,16 @@
 
         &__entry-link {
             margin-bottom: 5px;
-            font-size: var(--text-size-l);
+            font-size: max(var(--text-size-m), 1.5vw);;
             color: var(--c-white);
             font-weight: 700;
             line-height: 1.25;
             z-index: 1;
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-body);
+            }
+
         }
 
         &__entry-info {

@@ -153,7 +153,7 @@
                 font-size: var(--text-size-body);
             }
 
-            @include max-media($scr-tablet) {
+            @include max-media($scr-phone) {
                 font-size: var(--text-size-s);
             }
 
