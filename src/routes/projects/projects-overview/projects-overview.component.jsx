@@ -133,7 +133,7 @@ const ProjectsOverview = () => {
                         </ul>
 
                         <div className="projects-block__buttons-container">
-                            <Link className="app-cta app-cta--gray" to={CONSTANTS.ROUTES.about.path}>
+                            <Link className="app-cta app-cta--orange" to={CONSTANTS.ROUTES.about.path}>
                                 Learn more about me <FaArrowRight />
                             </Link>
                         </div>

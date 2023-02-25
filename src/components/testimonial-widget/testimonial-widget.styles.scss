@@ -203,7 +203,7 @@
     &__content-group-person {
         margin-top: 5px;
         margin-bottom: 0;
-        color: var(--c-dark-orange);
+        color: var(--c-orange);
 
         @include max-media($scr-laptop) {
             margin-top: 10px;
