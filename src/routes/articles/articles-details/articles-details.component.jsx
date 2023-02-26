@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { FaArrowLeft } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
@@ -80,7 +81,9 @@ const ArticlesDetails = () => {
                                         ))}
                                     </ul>
                                     <p className="article-details__sidebar-overview-link">
-                                        <Link to={CONSTANTS.ROUTES.articlesOverview.path}>Back to articles overview</Link>
+                                        <Link to={CONSTANTS.ROUTES.articlesOverview.path}>
+                                            <FaArrowLeft /> Back to articles overview
+                                        </Link>
                                     </p>
                                 </div>
                             </div>

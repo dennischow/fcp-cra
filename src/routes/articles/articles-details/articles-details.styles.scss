@@ -13,11 +13,16 @@
             padding: 20px 0;
             max-width: 1180px;
             border: 1px solid var(--c-lighter-gray);
+
+            @include max-media($scr-laptop) {
+                flex-direction: column;
+            }
+
         }
 
         &__post,
         &__sidebar {
-            padding: 20px;
+            padding: 0 20px;
             flex: 1 1 auto;
         }
 
@@ -37,6 +42,22 @@
         &__sidebar {
             flex: 0 0 35%;
             border-left: 1px solid var(--c-lighter-gray);
+
+            @include max-media($scr-laptop) {
+                flex: 1 1 auto;
+                margin-top: 20px;
+                border-left: none;
+            }
+
+        }
+
+        &__sidebar-content {
+
+            @include max-media($scr-laptop) {
+                padding-top: 20px;
+                border-top: 1px solid var(--c-lighter-gray);
+            }
+
         }
 
         &__sidebar-header {
@@ -46,23 +67,35 @@
         }
 
         &__sidebar-overview-link {
-            margin-top: 20px;
+            margin-top: 40px;
             text-align: center;
         }
 
         &__related-list {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
             padding: 0;
             list-style: none;
+
+            @include max-media($scr-laptop) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include max-media($scr-phone) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
         }
 
         &__related-item {
             display: flex;
             gap: 10px;
-            margin-top: 20px;
 
-            &:first-child {
-                margin-top: 0;
+            @include max-media($scr-laptop) {
+
             }
+
         }
 
         &__related-visual {
@@ -77,6 +110,7 @@
         }
 
         &__related-title {
+            margin-bottom: 0;
             font-size: var(--text-size-s);
         }
 
