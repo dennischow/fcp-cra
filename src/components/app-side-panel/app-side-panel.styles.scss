@@ -7,6 +7,10 @@
     z-index: 1;
     backdrop-filter: blur(10px);
 
+    @include max-media($scr-tablet) {
+        z-index: 5;
+    }
+
     &__inner {
         position: relative;
         margin: 0 60px 0 auto;
@@ -17,6 +21,12 @@
         background-size: 240px auto;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         z-index: 1;
+
+        @include max-media($scr-tablet) {
+            margin: 0 0 0 auto;
+            width: 300px;
+        }
+
     }
 
     &__overlay {

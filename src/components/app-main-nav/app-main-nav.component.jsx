@@ -6,7 +6,7 @@ import * as CONSTANTS from "../../common/constants";
 import { AppContext } from "../../contexts/appContext";
 import "./app-main-nav.styles.scss";
 
-const AppMainNav = () => {
+const AppMainNav = ({ isMainNavShown, ...otherProps }) => {
 
     const { setIsPanelContactShow, setIsPanelSearchShow } = useContext(AppContext);
     const location = useLocation();
@@ -40,8 +40,18 @@ const AppMainNav = () => {
         console.log("toggleSearchPanel");
     };
 
+    const getMainNavClassName = ({ isActive }) => {
+        const classNames = ["app-main-nav"];
+
+        if (isActive) {
+            classNames.push("app-main-nav--is-active");
+        }
+
+        return classNames.join(" ");
+    };
+
     return (
-        <nav className="app-main-nav">
+        <nav className={getMainNavClassName({isActive: isMainNavShown})}>
             <ul className="app-main-nav__list">
                 <li className={getNavItemClassName({ type: "/" })}>
                     <Link className="app-main-nav__link" to={CONSTANTS.ROUTES.home.path} exact="true">

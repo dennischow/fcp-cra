@@ -70,6 +70,7 @@ iframe {
     flex-grow: 1;
 
     @include max-media($scr-tablet) {
+        padding-top: 60px;
         width: 100%;
     }
 

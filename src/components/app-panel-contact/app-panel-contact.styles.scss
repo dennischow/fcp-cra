@@ -1,6 +1,7 @@
 .app-panel-contact {
     padding: 10px;
     height: 100%;
+    overflow-y: auto;
 
     &__form {
         flex: 0 0 auto;
