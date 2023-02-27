@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import { Fragment, useState, useContext, useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowLeft } from "react-icons/fa";
@@ -13,16 +13,17 @@ import "./articles-details.styles.scss";
 
 const ArticlesDetails = () => {
     const { articleEntries } = useContext(AppContext);
-    const [particularPost, setPost] = useState({});
+    const [particularPost, setParticularPost] = useState({});
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();
     const navigate = useNavigate();
+    const postContentRef = useRef(null);
 
     useEffect(() => {
         if (articleEntries.length) {
             const result = articleEntries.find((articles) => articles.url_title === entryId);
             console.log(result);
-            setPost(result);
+            setParticularPost(result);
 
             const tempRelatedPostsId = result?.related_post;
             const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
@@ -34,10 +35,24 @@ const ArticlesDetails = () => {
     useEffect(() => {
         if (particularPost === undefined) {
             console.error("Invalid entryId");
-            navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
+            navigate(CONSTANTS.ROUTES.notFound.path, { replace: true });
         }
+        postContentManipulation(postContentRef);
         return () => {};
-    }, [particularPost]);
+    }, [particularPost, postContentRef]);
+
+    const postContentManipulation = (postContentRef) => {
+        const iframeElements = postContentRef?.current?.querySelectorAll("iframe") || [];
+        if (iframeElements.length) {
+            iframeElements.forEach((iframeElement) => {
+                const mediaEmbedWrapper = document.createElement("div");
+                mediaEmbedWrapper.classList.add("media-embed", "media-embed--aspect-16by9");
+                iframeElement.classList.add("media-embed__media-item");
+                iframeElement?.parentNode?.insertBefore(mediaEmbedWrapper, iframeElement);
+                mediaEmbedWrapper.appendChild(iframeElement);
+            });
+        }
+    };
 
     return (
         <Fragment>
@@ -58,7 +73,7 @@ const ArticlesDetails = () => {
 
                         <div className="article-details__wrapper">
                             <div className="article-details__post">
-                                <div className="article-details__post-content">
+                                <div className="article-details__post-content" ref={postContentRef}>
                                     <div dangerouslySetInnerHTML={{__html: particularPost?.blog_body}}></div>
                                 </div>
                             </div>
