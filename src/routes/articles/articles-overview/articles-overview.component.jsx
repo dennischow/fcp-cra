@@ -19,7 +19,7 @@ const ArticlesOverview = () => {
     const [isPrevEnabled, setIsPrevEnabled] = useState(false);
     const [isNextEnabled, setIsNextEnabled] = useState(false);
 
-    const entriesPerPage = 24;
+    const entriesPerPage = 12;
 
     useEffect(() => {
         setTotalPageNumber(Math.ceil(articleEntries.length / entriesPerPage));
