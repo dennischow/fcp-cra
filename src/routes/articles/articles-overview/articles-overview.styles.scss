@@ -116,7 +116,7 @@
             z-index: 1;
 
             @include max-media($scr-laptop) {
-                font-size: var(--text-size-body);
+                font-size: var(--text-size-m);
             }
 
         }

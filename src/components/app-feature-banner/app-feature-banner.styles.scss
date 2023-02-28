@@ -59,6 +59,10 @@
             font-size: var(--text-size-m);
         }
 
+        @include max-media($scr-tablet) {
+            font-size: var(--text-size-s);
+        }
+
     }
 
     &--default {
@@ -140,6 +144,7 @@
 
                 @include max-media($scr-tablet) {
                     font-size: calc(var(--text-size-xxl) * 1.15);
+                    text-shadow: none;
                 }
 
                 span {
