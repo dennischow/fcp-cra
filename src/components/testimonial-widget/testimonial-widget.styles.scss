@@ -143,7 +143,8 @@
     }
 
     &__content-group-list-item {
-        margin: 40px 0;
+        margin: 40px auto;
+        width: min(840px, 100%);
     }
 
     &__content-group-item {

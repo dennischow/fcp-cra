@@ -65,8 +65,9 @@ const ProjectsDetails = () => {
                             <div className="project-details__info">
                                 <div className="project-details__info-content">
                                     <p className="project-details__info-subject">Description:</p>
-                                    <p className="project-details__info-description"
-                                        dangerouslySetInnerHTML={{__html: particularPost?.description}}></p>
+                                    <div className="project-details__info-description"
+                                        dangerouslySetInnerHTML={{__html: particularPost?.description}}>
+                                    </div>
                                     <p className="project-details__info-subject">Year:</p>
                                     <p className="project-details__info-description">{particularPost?.project_date}</p>
                                     <p className="project-details__info-subject">Produced with:</p>

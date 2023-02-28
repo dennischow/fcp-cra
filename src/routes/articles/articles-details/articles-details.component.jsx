@@ -73,8 +73,9 @@ const ArticlesDetails = () => {
 
                         <div className="article-details__wrapper">
                             <div className="article-details__post">
-                                <div className="article-details__post-content" ref={postContentRef}>
-                                    <div dangerouslySetInnerHTML={{__html: particularPost?.blog_body}}></div>
+                                <div className="article-details__post-content"
+                                    ref={postContentRef}
+                                    dangerouslySetInnerHTML={{__html: particularPost?.blog_body}}>
                                 </div>
                             </div>
                             <div className="article-details__sidebar">
