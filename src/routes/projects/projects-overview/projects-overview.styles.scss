@@ -148,8 +148,15 @@
         &__title {
             position: relative;
             margin: 0;
+            font-size: max(var(--text-size-m), 1.5vw);
+            font-weight: 700;
+            line-height: 1.25;
             z-index: 1;
-            font-weight: 700;;
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-m);
+            }
+
         }
 
         &__title-link {
