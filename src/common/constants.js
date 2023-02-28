@@ -1,4 +1,5 @@
-export const BRAND_NAME = "Example Production";
+export const BRAND_NAME = process.env.REACT_APP_DEFAULT_BRAND_NAME;
+export const AUTHOR = process.env.REACT_APP_DEFAULT_AUTHOR;
 
 export const ENDPOINT = {
     projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,
