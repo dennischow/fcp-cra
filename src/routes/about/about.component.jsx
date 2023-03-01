@@ -14,9 +14,9 @@ import {
 import { Line, Bar } from "react-chartjs-2";
 import { FaInfoCircle } from "react-icons/fa";
 
-import AppFeatureBanner from "../../components/app-feature-banner/app-feature-banner.component";
+import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
-import AppStatistics from "../../components/app-statistics/app-statistics.component";
+import AppStatistics from "../../components/shared/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/about/double-colors-exposure.jpg";
 import profilePicture from "../../resources/images/about/photoshoot-at-central-ferry-piers.jpg";
 

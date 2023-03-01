@@ -2,8 +2,8 @@ import { Fragment, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
-import * as CONSTANTS from "../../common/constants.js";
-import { AppContext } from "../../contexts/appContext";
+import * as CONSTANTS from "../../../common/constants.js";
+import { AppContext } from "../../../contexts/appContext";
 import "./app-panel-articles-search.styles.scss";
 
 const AppPanelArticlesSearch = () => {

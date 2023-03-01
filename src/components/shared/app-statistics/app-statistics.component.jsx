@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState} from "react";
 
-import { AppContext } from "../../contexts/appContext";
+import { AppContext } from "../../../contexts/appContext";
 import "./app-statistics.styles.scss";
 
 const AppStatistics = () => {

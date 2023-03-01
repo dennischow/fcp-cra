@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 
-import { AppContext } from "../../contexts/appContext";
+import { AppContext } from "../../../contexts/appContext";
 import AppPanelContact from "../app-panel-contact/app-panel-contact.component";
 import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search.component";
 

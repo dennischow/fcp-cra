@@ -6,11 +6,11 @@ import qs from "qs";
 import { ThreeDots } from "react-loader-spinner";
 import { FaTelegramPlane, FaExclamationTriangle, FaTimes, FaCheck } from "react-icons/fa";
 
-import * as CONSTANTS from "../../common/constants";
-import { AppContext } from "../../contexts/appContext";
-import AppInputField from "../form/app-input-field/app-input-field.component";
-import AppTextareaField from "../form/app-textarea-field/app-textarea-field.component";
-import AppSelectField from "../form/app-select-field/app-select-field.component";
+import * as CONSTANTS from "../../../common/constants";
+import { AppContext } from "../../../contexts/appContext";
+import AppInputField from "../../form/app-input-field/app-input-field.component";
+import AppTextareaField from "../../form/app-textarea-field/app-textarea-field.component";
+import AppSelectField from "../../form/app-select-field/app-select-field.component";
 import "./app-panel-contact.styles.scss";
 
 const AppPanelContact = () => {

@@ -1,4 +1,4 @@
-import * as CONSTANTS from "../../common/constants";
+import * as CONSTANTS from "../../../common/constants";
 import "./app-footer.styles.scss";
 
 const AppFooter = ({ props, ...otherProps }) => {
