@@ -51,8 +51,9 @@
             width: 280px;
             height: auto;
             max-width: 100%;
-            border: 1px solid var(--c-light-gray);
             border-radius: 500px;
+            border: 2px solid var(--c-lighten-gray);
+            box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.15);
 
             @include max-media($scr-laptop) {
                 display: block;
