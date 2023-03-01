@@ -237,17 +237,17 @@ const About = () => {
                                 <div className="intro-group__content">
                                     <p className="intro-group__name">My name is Dennis Chow a.k.a. Fat-Cow</p>
 
-                                    <p className="intro-group__statment">I am a web <strong className="hi-lite hi-lite--orange">developer</strong> with <strong className="hi-lite hi-lite--black">design</strong> background & now focus on <strong className="hi-lite hi-lite--dark-orange">front end</strong> web development</p>
+                                    <p className="intro-group__statement">I am a web <strong className="hi-lite hi-lite--orange">developer</strong> with <strong className="hi-lite hi-lite--black">design</strong> background & now focus on <strong className="hi-lite hi-lite--dark-orange">front end</strong> web development</p>
                                     <img className="intro-group__img" width="360" height="360" alt="photoshoot at central ferry piers" src={profilePicture} />
                                     <p className="intro-group__quote">By taking things one step at a time, you will find yourself actually mastering each specific skill and accomplishing your goals!</p>
                                     <p className="intro-group__brief">
-                                        I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun microinteractions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
+                                        I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun micro-interactions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
                                         <br /><br />
                                         When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
                                     </p>
                                     <p className="intro-group__buttons-container">
                                         <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>
-                                            A litte bit more <FaInfoCircle />
+                                            A little bit more <FaInfoCircle />
                                         </button>
                                     </p>
                                 </div>
