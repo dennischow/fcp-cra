@@ -3,14 +3,14 @@ import { useContext, useState } from "react";
 import { AppContext } from "../../contexts/appContext";
 import "./testimonial-widget.styles.scss";
 
-const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault }) => {
+const TestimonialWidget = ({ isContentExpandedByDefault, entriesLimitByDefault }) => {
 
     const { testimonialEntries } = useContext(AppContext);
     const [isExpanded, setIsExpanded] = useState(isContentExpandedByDefault || false);
-    const [enteriesLimit, setEnteriesLimit] = useState(enteriesLimitByDefault || 5);
+    const [entriesLimit, setEntriesLimit] = useState(entriesLimitByDefault || 5);
 
     const toggleExpandContent = () => setIsExpanded(!isExpanded);
-    const showAllEntries = () => setEnteriesLimit(testimonialEntries.length);
+    const showAllEntries = () => setEntriesLimit(testimonialEntries.length);
 
     return (
         <div className="testimonial-widget">
@@ -34,7 +34,7 @@ const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault 
                 {isExpanded && (
                     <div className="testimonial-widget__content-group">
                         <div className="testimonial-widget__content-group-list">
-                            {testimonialEntries.length > 0 && testimonialEntries.slice(0, enteriesLimit).map((item, index) => (
+                            {testimonialEntries.length > 0 && testimonialEntries.slice(0, entriesLimit).map((item, index) => (
                                 <div className="testimonial-widget__content-group-list-item"
                                     data-id={item.entry_id}
                                     key={item.entry_id}>
@@ -65,10 +65,10 @@ const TestimonialWidget = ({ isContentExpandedByDefault, enteriesLimitByDefault 
                                 </div>
                             ))}
                         </div>
-                        {enteriesLimit < testimonialEntries.length && (
+                        {entriesLimit < testimonialEntries.length && (
                             <p className="testimonial-widget__buttons-container">
                                 <button className="app-cta app-cta--orange" type="button" onClick={showAllEntries}>
-                                    Show all <span className="app-cta__bubble">{`+${testimonialEntries.length - enteriesLimit}`}</span>
+                                    Show all <span className="app-cta__bubble">{`+${testimonialEntries.length - entriesLimit}`}</span>
                                 </button>
                             </p>
                         )}

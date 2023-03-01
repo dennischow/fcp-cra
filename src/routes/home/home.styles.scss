@@ -1,5 +1,5 @@
 .page-home {
-    .projects-hilite {
+    .projects-highlight {
         &__container {
             display: flex;
             padding: 20px;
@@ -102,6 +102,14 @@
             align-items: flex-start;
             padding: 10px;
             background-color: var(--c-light-gray);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
+
         }
 
         &__entry-visual {
@@ -141,7 +149,7 @@
             z-index: 1;
         }
 
-        &__entry-link {
+        &__entry-title {
             margin-bottom: 0;
             font-size: var(--text-size-m);
             color: var(--c-white);
@@ -195,7 +203,6 @@
             color: var(--c-dark-orange);
 
             @include max-media($scr-tablet) {
-
                 text-align: center;
             }
 
@@ -240,6 +247,13 @@
             padding: 10px;
             height: max(300px, 17.5vw);
             background-color: var(--c-light-gray);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
 
             @include max-media($scr-laptop) {
                 height: 240px;
@@ -286,7 +300,7 @@
             }
         }
 
-        &__entry-link {
+        &__entry-title {
             margin-bottom: 5px;
             font-size: var(--text-size-xl);
             color: var(--c-white);
@@ -311,7 +325,7 @@
         }
     }
 
-    .passionate-hilite {
+    .passionate-highlight {
         border-top: 1px solid var(--c-light-gray);
 
         &__container {
