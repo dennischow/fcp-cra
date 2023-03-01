@@ -13,7 +13,7 @@ import "./articles-details.styles.scss";
 
 const ArticlesDetails = () => {
     const { articleEntries } = useContext(AppContext);
-    const [particularPost, setParticularPost] = useState({});
+    const [currentPost, setCurrentPost] = useState({});
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();
     const navigate = useNavigate();
@@ -23,23 +23,21 @@ const ArticlesDetails = () => {
         if (articleEntries.length) {
             const result = articleEntries.find((articles) => articles.url_title === entryId);
             console.log(result);
-            setParticularPost(result);
+            setCurrentPost(result);
 
             const tempRelatedPostsId = result?.related_post;
             const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
             setRelatedPosts(tempRelatedPosts);
         }
-        return () => {};
     }, [articleEntries, entryId]);
 
     useEffect(() => {
-        if (particularPost === undefined) {
+        if (currentPost === undefined) {
             console.error("Invalid entryId");
             navigate(CONSTANTS.ROUTES.notFound.path, { replace: true });
         }
         postContentManipulation(postContentRef);
-        return () => {};
-    }, [particularPost, postContentRef]);
+    }, [currentPost, postContentRef]);
 
     const postContentManipulation = (postContentRef) => {
         const iframeElements = postContentRef?.current?.querySelectorAll("iframe") || [];
@@ -57,15 +55,15 @@ const ArticlesDetails = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>{`${particularPost?.title} | Articles Details`}</title>
+                <title>{`${currentPost?.title} | Articles Details`}</title>
             </Helmet>
 
             <div className="page-articles-details">
                 <AppFeatureBanner
                     type="info"
-                    heroBackgroundUrl={particularPost?.thumb_image ? particularPost?.thumb_image : particularPost?.thumb_image_hotlink}
-                    heading={particularPost?.title}
-                    subHeading={UTILS.convertToFormatDate(particularPost?.entry_date)}
+                    heroBackgroundUrl={currentPost?.thumb_image ? currentPost?.thumb_image : currentPost?.thumb_image_hotlink}
+                    heading={currentPost?.title}
+                    subHeading={UTILS.convertToFormatDate(currentPost?.entry_date)}
                 />
 
                 <div className="article-details">
@@ -75,7 +73,7 @@ const ArticlesDetails = () => {
                             <div className="article-details__post">
                                 <div className="article-details__post-content"
                                     ref={postContentRef}
-                                    dangerouslySetInnerHTML={{__html: particularPost?.blog_body}}>
+                                    dangerouslySetInnerHTML={{__html: currentPost?.blog_body}}>
                                 </div>
                             </div>
                             <div className="article-details__sidebar">

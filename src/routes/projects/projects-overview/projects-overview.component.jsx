@@ -35,7 +35,6 @@ const ProjectsOverview = () => {
 
     useEffect(() => {
         categoryToShow(activeCategoryId);
-        return () => {};
     }, [projectEntries]);
 
     const getCategoryListElementClassName = (isActive) => {

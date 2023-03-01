@@ -25,13 +25,11 @@ const ArticlesOverview = () => {
         setTotalPageNumber(Math.ceil(articleEntries.length / entriesPerPage));
         updateArticlesRange();
         paginationTracking();
-        return () => {};
     }, [articleEntries]);
 
     useEffect(() => {
         updateArticlesRange();
         paginationTracking();
-        return () => {};
     }, [currentPageNumber, totalPageNumber]);
 
     useEffect(() => {
@@ -39,7 +37,6 @@ const ArticlesOverview = () => {
             top: 0,
             behavior: "smooth",
         });
-        return () => {};
     }, [articlesFilteredByPerPortion]);
 
     const paginationTracking = () => {
@@ -82,16 +79,16 @@ const ArticlesOverview = () => {
                     <div className="articles-block__container">
 
                         {articlesFilteredByPerPortion.length > 0 && (
-                            <p className="articles-block__page-indicator">
-                                <span className="articles-block__page-indicator-display">
+                            <p className="articles-block__pagination">
+                                <span className="articles-block__pagination-display">
                                     {`page ${currentPageNumber} of ${totalPageNumber}`}
                                 </span>
-                                <button className="articles-block__page-indicator-button articles-block__page-indicator-button--previous"
+                                <button className="articles-block__pagination-button articles-block__pagination-button--previous"
                                     disabled={!isPrevEnabled}
                                     onClick={(event) => pageSwitchHandler(event, "previous")}>
                                     <FaAngleLeft />
                                 </button>
-                                <button className="articles-block__page-indicator-button articles-block__page-indicator-button--next"
+                                <button className="articles-block__pagination-button articles-block__pagination-button--next"
                                     disabled={!isNextEnabled}
                                     onClick={(event) => pageSwitchHandler(event, "next")}>
                                     <FaAngleRight />

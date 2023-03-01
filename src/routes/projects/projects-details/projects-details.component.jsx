@@ -12,7 +12,7 @@ import "./projects-details.styles.scss";
 
 const ProjectsDetails = () => {
     const { projectEntries } = useContext(AppContext);
-    const [particularPost, setParticularPost] = useState(null);
+    const [currentPost, setCurrentPost] = useState(null);
     const { entryId } = useParams();
     const navigate = useNavigate();
 
@@ -20,31 +20,29 @@ const ProjectsDetails = () => {
         if (projectEntries.length) {
             const result = projectEntries.find((project) => project.url_title === entryId);
             console.log(result);
-            setParticularPost(result);
+            setCurrentPost(result);
         }
-        return () => {};
     }, [projectEntries, entryId]);
 
     useEffect(() => {
-        if (particularPost === undefined) {
+        if (currentPost === undefined) {
             console.error("Invalid entryId");
             navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
         }
-        return () => {};
-    }, [particularPost]);
+    }, [currentPost]);
 
     return (
         <Fragment>
             <Helmet>
-                <title>{`${particularPost?.title} | Project Details`}</title>
+                <title>{`${currentPost?.title} | Project Details`}</title>
             </Helmet>
 
             <div className="page-projects-details">
                 <AppFeatureBanner
                     type="info"
-                    heroBackgroundUrl={particularPost?.thumbnail}
-                    heading={particularPost?.title}
-                    subHeading={UTILS.convertProjectCatIdToName(particularPost?.channel_id)}
+                    heroBackgroundUrl={currentPost?.thumbnail}
+                    heading={currentPost?.title}
+                    subHeading={UTILS.convertProjectCatIdToName(currentPost?.channel_id)}
                 />
 
                 <div className="project-details">
@@ -53,11 +51,11 @@ const ProjectsDetails = () => {
                         <div className="project-details__wrapper">
                             <div className="project-details__visual">
                                 <figure className="project-details__visual-figure">
-                                    {particularPost?.full_image?.map((item, index) => (
+                                    {currentPost?.full_image?.map((item, index) => (
                                         <img className="project-details__visual-image"
                                             key={index}
                                             src={item.image}
-                                            alt={`${particularPost?.title} screenshot ${index + 1} of ${particularPost?.full_image.length}`}/>
+                                            alt={`${currentPost?.title} screenshot ${index + 1} of ${currentPost?.full_image.length}`}/>
                                     ))}
                                 </figure>
                             </div>
@@ -66,22 +64,22 @@ const ProjectsDetails = () => {
                                 <div className="project-details__info-content">
                                     <p className="project-details__info-subject">Description:</p>
                                     <div className="project-details__info-description"
-                                        dangerouslySetInnerHTML={{__html: particularPost?.description}}>
+                                        dangerouslySetInnerHTML={{__html: currentPost?.description}}>
                                     </div>
                                     <p className="project-details__info-subject">Year:</p>
-                                    <p className="project-details__info-description">{particularPost?.project_date}</p>
+                                    <p className="project-details__info-description">{currentPost?.project_date}</p>
                                     <p className="project-details__info-subject">Produced with:</p>
-                                    <p className="project-details__info-description">{particularPost?.language_software}</p>
-                                    {particularPost?.visit_url && (
+                                    <p className="project-details__info-description">{currentPost?.language_software}</p>
+                                    {currentPost?.visit_url && (
                                         <Fragment>
                                             <p className="project-details__info-subject">Demo :</p>
                                             <p className="project-details__info-description">
                                                 <a className="project-details__info-live-demo-link"
-                                                    href={particularPost?.visit_url}
+                                                    href={currentPost?.visit_url}
                                                     target="_blank"
                                                     title="Open in new window"
                                                     rel="noopener noreferrer">
-                                                        {particularPost?.visit_url}
+                                                        {currentPost?.visit_url}
                                                 </a>
                                             </p>
                                         </Fragment>
