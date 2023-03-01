@@ -101,21 +101,21 @@ const ArticlesOverview = () => {
 
                         <div className="articles-block__entries">
                             {articlesFilteredByPerPortion.length > 0 && articlesFilteredByPerPortion.map((item, index) => (
-                                <div className="articles-block__entry" key={item.entry_id}>
+                                <Link className="articles-block__entry" key={item.entry_id} to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
                                     <div
                                         className="articles-block__entry-visual"
                                         role="img"
                                         style={{backgroundImage: `url(${item.thumb_image ? item.thumb_image : item.thumb_image_hotlink})`}}></div>
-                                    <Link className="articles-block__entry-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
+                                    <div className="articles-block__entry-title">
                                         {item.title}
-                                    </Link>
+                                    </div>
                                     <small className="articles-block__entry-info">
                                         <time className="articles-block__entry-date">
                                             {UTILS.convertToRelativeDate(item.entry_date)}
                                         </time>{" "}
                                         | <span className="articles-block__entry-views">[Views]</span>
                                     </small>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

@@ -108,11 +108,11 @@ const ProjectsOverview = () => {
                         <ul className="projects-block__list">
                             {projectsFilteredByCategory.length > 0 && projectsFilteredByCategory.map((item, index) => (
                                 <li className="projects-block__list-item" key={index}>
-                                    <div className="projects-block__content">
+                                    <Link className="projects-block__content" to={`${CONSTANTS.ROUTES.projectsDetails.path}/${item.url_title}`}>
                                         <p className="projects-block__title">
-                                            <Link className="projects-block__title-link" to={`${CONSTANTS.ROUTES.projectsDetails.path}/${item.url_title}`}>
+                                            <span className="projects-block__title-text">
                                                 {item.title}
-                                            </Link>
+                                            </span>
                                         </p>
                                         <div
                                             className="projects-block__visual"
@@ -127,7 +127,7 @@ const ProjectsOverview = () => {
                                                 alt={`Thumbnail of ${item.title}`}
                                             />
                                         </div>
-                                    </div>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

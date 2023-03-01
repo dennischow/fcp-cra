@@ -78,6 +78,14 @@
             padding: 10px;
             height: max(240px, 17.5vw);
             background-color: var(--c-light-gray);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
+
         }
 
         &__entry-visual {
@@ -107,7 +115,7 @@
             }
         }
 
-        &__entry-link {
+        &__entry-title {
             margin-bottom: 5px;
             font-size: max(var(--text-size-m), 1.5vw);;
             color: var(--c-white);
