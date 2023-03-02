@@ -19,27 +19,13 @@ const ArticlesDetails = () => {
     const navigate = useNavigate();
     const postContentRef = useRef(null);
 
-    useEffect(() => {
-        if (articleEntries.length) {
-            const result = articleEntries.find((articles) => articles.url_title === entryId);
-            console.log(result);
-            setCurrentPost(result);
+    const getRelatedPosts = (entry) => {
+        const result = entry?.related_post?.map((id) => articleEntries.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
+        console.log("relatedPosts:", result);
+        return result;
+    }
 
-            const tempRelatedPostsId = result?.related_post;
-            const tempRelatedPosts = tempRelatedPostsId?.map((id) => articleEntries.find((articles) => articles.entry_id === id)).filter((post) => post !== undefined);
-            setRelatedPosts(tempRelatedPosts);
-        }
-    }, [articleEntries, entryId]);
-
-    useEffect(() => {
-        if (currentPost === undefined) {
-            console.error("Invalid entryId");
-            navigate(CONSTANTS.ROUTES.notFound.path, { replace: true });
-        }
-        postContentManipulation(postContentRef);
-    }, [currentPost, postContentRef]);
-
-    const postContentManipulation = (postContentRef) => {
+    const postContentManipulation = () => {
         const iframeElements = postContentRef?.current?.querySelectorAll("iframe") || [];
         if (iframeElements.length) {
             iframeElements.forEach((iframeElement) => {
@@ -50,7 +36,28 @@ const ArticlesDetails = () => {
                 mediaEmbedWrapper.appendChild(iframeElement);
             });
         }
+        console.log("postContentManipulation ran");
     };
+
+    useEffect(() => {
+        if (!articleEntries?.length) return;
+
+        const entry = articleEntries?.find((article) => article.url_title === entryId);
+
+        if (!entry) {
+            console.error("Invalid entryId");
+            navigate(CONSTANTS.ROUTES.notFound.path, { replace: true });
+            return;
+        }
+
+        console.log("entry:", entry);
+        setCurrentPost(entry);
+
+        const relatedPosts = getRelatedPosts(entry);
+        setRelatedPosts(relatedPosts);
+
+        postContentManipulation();
+    }, [articleEntries, entryId, navigate]);
 
     return (
         <Fragment>

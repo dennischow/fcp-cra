@@ -17,19 +17,19 @@ const ProjectsDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (projectEntries.length) {
-            const result = projectEntries.find((project) => project.url_title === entryId);
-            console.log(result);
-            setCurrentPost(result);
-        }
-    }, [projectEntries, entryId]);
+        if (!projectEntries?.length) return;
 
-    useEffect(() => {
-        if (currentPost === undefined) {
+        const entry = projectEntries?.find((project) => project.url_title === entryId);
+
+        if (!entry) {
             console.error("Invalid entryId");
-            navigate(CONSTANTS.ROUTES.notFound.path, {replace: true});
+            navigate(CONSTANTS.ROUTES.notFound.path, { replace: true });
+            return;
         }
-    }, [currentPost]);
+
+        console.log("entry:", entry);
+        setCurrentPost(entry);
+    }, [projectEntries, entryId, navigate]);
 
     return (
         <Fragment>
