@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
@@ -39,10 +39,10 @@ const AppHeader = ({ props, ...otherProps }) => {
             </div>
             <div className="app-header__container">
                 <h1 className="app-header__brand">
-                    <a className="app-header__brand-link">
+                    <Link className="app-header__brand-link" to={CONSTANTS.ROUTES.home.path}>
                         <BrandLogo className="app-header__brand-logo" />
                         <span className="app-header__brand-name">{CONSTANTS.BRAND_NAME}</span>
-                    </a>
+                    </Link>
                 </h1>
                 <button className="app-header__nav-toggle" type="button" onClick={navToggleHandler}>
                     <span className="app-header__nav-toggle-text">Menu</span>
