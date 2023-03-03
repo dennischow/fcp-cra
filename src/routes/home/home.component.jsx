@@ -80,8 +80,8 @@ const Home = () => {
                                     </div>
                                     <small className="recent-articles__entry-info">
                                         <time className="recent-articles__entry-date">{UTILS.convertToRelativeDate(item.entry_date)}</time>
-                                        {" "}|{" "}
-                                        <span className="recent-articles__entry-views">[Views]</span>
+                                        {/* {" "}|{" "}
+                                        <span className="recent-articles__entry-views">[Views]</span> */}
                                     </small>
                                 </Link>
                             ))}

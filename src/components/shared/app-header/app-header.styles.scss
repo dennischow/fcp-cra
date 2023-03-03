@@ -77,7 +77,12 @@
         top: 0;
         width: 100%;
         background-color: var(--c-lighter-gray);
-        z-index: 10;
+        z-index: 1;
+
+        @include max-media($scr-tablet) {
+            display: none;
+        }
+
     }
 
     &__scroll-progress-grow {

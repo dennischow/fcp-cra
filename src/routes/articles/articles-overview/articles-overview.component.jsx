@@ -109,8 +109,9 @@ const ArticlesOverview = () => {
                                     <small className="articles-block__entry-info">
                                         <time className="articles-block__entry-date">
                                             {UTILS.convertToRelativeDate(item.entry_date)}
-                                        </time>{" "}
-                                        | <span className="articles-block__entry-views">[Views]</span>
+                                        </time>
+                                        {/* {" "} | {" "}
+                                        <span className="articles-block__entry-views">[Views]</span> */}
                                     </small>
                                 </Link>
                             ))}
