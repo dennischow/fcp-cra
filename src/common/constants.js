@@ -1,5 +1,22 @@
 export const BRAND_NAME = process.env.REACT_APP_DEFAULT_BRAND_NAME;
 export const AUTHOR = process.env.REACT_APP_DEFAULT_AUTHOR;
+export const VIDEO_IDS = [
+    "9XBIcYE1T98",
+    "Z5NoQg8LdDk",
+    "zSmvW2sZ3ZU",
+    "YUTK6AcjHQQ",
+    "BaOScwq_lZs",
+    "om-OQ2VaN-w",
+    "ByucbuSe958",
+    "tQ0yjYUFKAE",
+    "I7R-PSvvziU",
+    "zqOWV_pq9Zs",
+    "WZf9IkF7YHg",
+    "z5rRZdiu1UE",
+    "eVTXPUF4Oz4",
+    "JTMVOzPPtiw",
+    "2cXDgFwE13g",
+];
 
 export const ENDPOINT = {
     projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,

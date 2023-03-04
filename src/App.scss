@@ -37,7 +37,23 @@ a, button {
 
 a {
     color: var(--c-blue);
+
+    &:not([href]):not([class]) {
+        color: var(--c-blue);
+        text-decoration: underline;
+
+        &:hover {
+            color: var(--c-dark-blue);
+        }
+
+    }
+
 }
+
+// a:not([href]):not([class]),
+// a:not([href]):not([class]):hover {
+
+// }
 
 button {
     &[disabled] {

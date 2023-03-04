@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
@@ -7,6 +7,7 @@ import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { AppContext } from "../../contexts/appContext";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
+import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
 import AppStatistics from "../../components/shared/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
@@ -16,6 +17,10 @@ import "./home.styles.scss";
 const Home = () => {
 
     const { projectEntries, articleEntries } = useContext(AppContext);
+    const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
+
+    const openYoutubePlayer = () => setIsYoutubePlayerOn(true);
+    const closeYoutubePlayer = () => setIsYoutubePlayerOn(false);
 
     return (
         <Fragment>
@@ -118,15 +123,17 @@ const Home = () => {
                                 </p>
                                 <p className="passionate-highlight__interest-text">Design</p>
                             </div>
-                            <div className="passionate-highlight__interest">
+                            <button className="passionate-highlight__interest" onClick={openYoutubePlayer}>
                                 <p className="passionate-highlight__interest-icon">
                                     <FaMusic />
                                 </p>
                                 <p className="passionate-highlight__interest-text">Music</p>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </section>
+
+                {isYoutubePlayerOn && <YoutubePlayer closeYoutubePlayer={closeYoutubePlayer} />}
 
                 <TestimonialWidget isContentExpandedByDefault={false} entriesLimitByDefault={5} />
 

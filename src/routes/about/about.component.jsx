@@ -12,9 +12,10 @@ import {
     Legend,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaInfoCircle, FaYoutube } from "react-icons/fa";
 
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
+import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
 import AppStatistics from "../../components/shared/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/about/double-colors-exposure.jpg";
@@ -212,8 +213,12 @@ const About = () => {
     };
 
     const [isProfileExpanded, setIsProfileExpanded] = useState(false);
+    const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
 
     const toggleProfile = () => setIsProfileExpanded(!isProfileExpanded);
+
+    const openYoutubePlayer = () => setIsYoutubePlayerOn(true);
+    const closeYoutubePlayer = () => setIsYoutubePlayerOn(false);
 
     return (
         <Fragment>
@@ -241,7 +246,7 @@ const About = () => {
                                     <img className="intro-group__img" width="360" height="360" alt="photoshoot at central ferry piers" src={profilePicture} />
                                     <p className="intro-group__quote">By taking things one step at a time, you will find yourself actually mastering each specific skill and accomplishing your goals!</p>
                                     <p className="intro-group__brief">
-                                        I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun micro-interactions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS3/LESS, or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
+                                        I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun micro-interactions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS (LESS/SASS), or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
                                         <br /><br />
                                         When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
                                     </p>
@@ -260,7 +265,7 @@ const About = () => {
                                     <p className="profile-group__header">CODER <span>✖</span> DESIGNER</p>
                                     <div className="profile-group__content">
                                         <p className="profile-group__text">I create content first, clean, functional, logical, search engine spiders friendly, professional websites that validated with W3C standards, resulting in semantic structure and accessible HTML and CSS. 100% of my websites are dedicatedly hand coded. Because I enjoy the romance of "Start From Scratch".</p>
-                                        <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud music , speakers, sub-woofer, headphones, TWS earphones are part of my gear.</p>
+                                        <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud <strong><a onClick={openYoutubePlayer}>music <FaYoutube /></a></strong>, speakers, sub-woofer, headphones, TWS earphones are part of my gear.</p>
                                         <p className="profile-group__text"><strong>Specialties:</strong> Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
                                         <p className="profile-group__text">In the past years, I have been on and off self-experimenting with AngularJS, Vue, ReactJS, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
                                         <div className="profile-group__line-chart">
@@ -284,6 +289,8 @@ const About = () => {
                         </section>
                     </div>
                 </div>
+
+                {isYoutubePlayerOn && <YoutubePlayer closeYoutubePlayer={closeYoutubePlayer} />}
 
                 <TestimonialWidget isContentExpandedByDefault={true} entriesLimitByDefault={6} />
 
