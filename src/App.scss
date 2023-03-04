@@ -50,11 +50,6 @@ a {
 
 }
 
-// a:not([href]):not([class]),
-// a:not([href]):not([class]):hover {
-
-// }
-
 button {
     &[disabled] {
         cursor: not-allowed;
