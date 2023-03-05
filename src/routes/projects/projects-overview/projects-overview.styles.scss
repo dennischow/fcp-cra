@@ -111,25 +111,10 @@
         }
 
         &__list {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            @include dynamic-grid(20px, 4, 280px);
             margin: 0;
             padding: 0;
             list-style: none;
-
-            @include max-media($scr-laptop) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            @include max-media($scr-tablet) {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            @include max-media($scr-phone) {
-                grid-template-columns: repeat(1, 1fr);
-            }
-
         }
 
         &__list-item {
@@ -140,7 +125,7 @@
             align-items: flex-end;
             position: relative;
             padding: 10px;
-            height: 210px;
+            height: max(240px, 17.5vw);
             background-color: var(--c-lighter-gray);
             overflow: hidden;
             text-decoration: none;
