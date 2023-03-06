@@ -31,7 +31,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && node deploy"
+    "deploy:dev": "npm run build && node deploy --NODE_ENV=development",
+    "deploy:prod": "npm run build && node deploy --NODE_ENV=production"
   },
   "eslintConfig": {
     "extends": [
