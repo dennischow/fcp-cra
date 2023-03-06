@@ -44,10 +44,10 @@ const AppHeader = ({ props, ...otherProps }) => {
                         <span className="app-header__brand-name">{CONSTANTS.BRAND_NAME}</span>
                     </Link>
                 </h1>
-                <button className="app-header__nav-toggle" type="button" onClick={navToggleHandler}>
+                <button className="app-header__nav-toggle" type="button" onClick={navToggleHandler} aria-label="Toggle mobile navigation">
                     <span className="app-header__nav-toggle-text">Menu</span>
                     <span className="app-header__nav-toggle-icon">
-                        {isMainNavShown ? <FaTimes /> : <FaBars /> }
+                        {isMainNavShown ? <FaTimes /> : <FaBars />}
                     </span>
                 </button>
                 <AppMainNav isMainNavShown={isMainNavShown} />

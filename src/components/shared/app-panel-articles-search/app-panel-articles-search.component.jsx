@@ -47,7 +47,11 @@ const AppPanelArticlesSearch = () => {
                             onChange={keywordSearch}
                             value={searchValue}
                         />
-                        <button className="app-panel-articles-search__button" type="button" onClick={keywordClear}>
+                        <button
+                            className="app-panel-articles-search__button"
+                            type="button"
+                            onClick={keywordClear}
+                            aria-label="Clear and close search">
                             <FaTimes />
                         </button>
                     </fieldset>
@@ -57,12 +61,18 @@ const AppPanelArticlesSearch = () => {
                         <ul className="app-panel-articles-search__result-list">
                             {articlesFilteredByKeywordSearch.map((item, index) => (
                                 <li className="app-panel-articles-search__result-list-item" key={item.entry_id}>
-                                    <Link className="app-panel-articles-search__result-list-item-link" to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>{item.title}</Link>
+                                    <Link
+                                        className="app-panel-articles-search__result-list-item-link"
+                                        to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
+                                        {item.title}
+                                    </Link>
                                 </li>
                             ))}
                             {articlesFilteredByKeywordSearch.length <= 0 && (
                                 <li className="app-panel-articles-search__result-list-item app-panel-articles-search__result-list-item--empty">
-                                    <span className="app-panel-articles-search__result-list-item-link">No match found</span>
+                                    <span className="app-panel-articles-search__result-list-item-link">
+                                        No match found
+                                    </span>
                                 </li>
                             )}
                         </ul>
