@@ -9,7 +9,6 @@ import { AppContext } from "../../contexts/appContext";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
-import AppStatistics from "../../components/shared/app-statistics/app-statistics.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
 import "./home.styles.scss";
@@ -136,8 +135,6 @@ const Home = () => {
                 {isYoutubePlayerOn && <YoutubePlayer closeYoutubePlayer={closeYoutubePlayer} />}
 
                 <TestimonialWidget isContentExpandedByDefault={false} entriesLimitByDefault={5} />
-
-                <AppStatistics />
             </div>
         </Fragment>
     );

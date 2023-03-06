@@ -1,14 +1,9 @@
 .app-footer {
     position: relative;
     padding: 20px 0;
-    width: calc(100% - 60px);
     background-color: var(--c-white);
     border-top: 1px solid var(--c-light-gray);
     z-index: 0;
-
-    @include max-media($scr-tablet) {
-        width: auto;
-    }
 
     &__container {
         display: flex;

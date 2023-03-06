@@ -73,18 +73,18 @@ iframe {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: calc(100% - 60px);
+
+    @include max-media($scr-tablet) {
+        padding-top: 60px;
+        width: auto;
+    }
+
 }
 
 .app-main {
     padding: 0;
-    width: calc(100% - 60px);
     flex-grow: 1;
-
-    @include max-media($scr-tablet) {
-        padding-top: 60px;
-        width: 100%;
-    }
-
 }
 
 .app-container {

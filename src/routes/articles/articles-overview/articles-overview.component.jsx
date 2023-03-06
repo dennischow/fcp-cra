@@ -7,7 +7,6 @@ import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
-import AppStatistics from "../../../components/shared/app-statistics/app-statistics.component";
 
 import "./articles-overview.styles.scss";
 
@@ -135,8 +134,6 @@ const ArticlesOverview = () => {
                         </div>
                     )}
                 </section>
-
-                <AppStatistics />
             </div>
         </Fragment>
     );
