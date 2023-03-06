@@ -1,5 +1,5 @@
-import { Fragment, useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Fragment, useContext, useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants.js";
@@ -10,6 +10,8 @@ const AppPanelArticlesSearch = () => {
     const { articleEntries, setIsPanelSearchShow } = useContext(AppContext);
     const [articlesFilteredByKeywordSearch, setArticlesFilteredByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
+    const [previousPathname, setPreviousPathname] = useState(null);
+    const location = useLocation();
 
     const keywordSearch = (event) => {
         const keyword = event.target.value;
@@ -22,6 +24,13 @@ const AppPanelArticlesSearch = () => {
         setSearchValue("");
         setIsPanelSearchShow(false);
     };
+
+    useEffect(() => {
+        if (previousPathname && previousPathname !== location.pathname) {
+            setIsPanelSearchShow(false);
+        }
+        setPreviousPathname(location.pathname);
+    }, [location.pathname, previousPathname]);
 
     return (
         <Fragment>

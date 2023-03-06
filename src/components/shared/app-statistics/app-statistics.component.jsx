@@ -13,7 +13,6 @@ const AppStatistics = () => {
         setProjectsCount(projectEntries.length || "-");
         setArticlesCount(articleEntries.length || "-");
         setTestimonialsCount(testimonialEntries.length || "-");
-        return () => {}
     }, [articleEntries, projectEntries, testimonialEntries]);
 
     return (

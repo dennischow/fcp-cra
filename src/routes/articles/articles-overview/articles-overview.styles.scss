@@ -62,7 +62,7 @@
             height: max(240px, 17.5vw);
             background-color: var(--c-light-gray);
             text-decoration: none;
-            transition: all 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
             &:hover {
                 transform: translateY(-5px);

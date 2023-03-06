@@ -2,19 +2,18 @@ import { useEffect } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 
 const AppNavigateToTop = () => {
-    const getLocation = useLocation();
-    const getNavigationType = useNavigationType();
+    const location = useLocation();
+    const navigationType = useNavigationType();
 
     useEffect(() => {
-        if (getNavigationType !== "POP") {
+        if (navigationType !== "POP") {
             window.scrollTo({
                 top: 0,
                 behavior: "instant",
             });
-            console.log("AppNavigateToTop: Window scroll to top instantly:", getNavigationType);
+            console.log("AppNavigateToTop: Window scroll to top instantly:", navigationType);
         }
-        return () => {}
-    }, [getLocation]);
+    }, [location]);
 };
 
 export default AppNavigateToTop;
