@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaUser, FaRegLightbulb, FaRss, FaRegEnvelope, FaSearch } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import "./app-main-nav.styles.scss";
 
 const AppMainNav = ({ isMainNavShown, ...otherProps }) => {
 
-    const { setIsPanelContactShow, setIsPanelSearchShow } = useContext(AppContext);
+    const { setIsPanelContactShow, setIsPanelSearchShow } = useContext(appContext);
     const location = useLocation();
 
     const getNavItemClassName = ({ type }) => {

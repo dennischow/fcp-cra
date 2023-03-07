@@ -3,11 +3,11 @@ import { Link, useLocation } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants.js";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import "./app-panel-articles-search.styles.scss";
 
 const AppPanelArticlesSearch = () => {
-    const { articleEntries, setIsPanelSearchShow } = useContext(AppContext);
+    const { articleEntries, setIsPanelSearchShow } = useContext(appContext);
     const [articlesFilteredByKeywordSearch, setArticlesFilteredByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
     const [previousPathname, setPreviousPathname] = useState(null);

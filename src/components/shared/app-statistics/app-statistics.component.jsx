@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState} from "react";
 
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import "./app-statistics.styles.scss";
 
 const AppStatistics = () => {
-    const { projectEntries, articleEntries, testimonialEntries } = useContext(AppContext);
+    const { projectEntries, articleEntries, testimonialEntries } = useContext(appContext);
     const [projectsCount, setProjectsCount] = useState("");
     const [articlesCount, setArticlesCount] = useState("");
     const [testimonialsCount, setTestimonialsCount] = useState("");

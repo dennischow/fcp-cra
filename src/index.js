@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./index.scss";
 import App from "./App";
-import { AppContextProvider } from "./contexts/appContext";
+import { AppContextProvider } from "./contexts/app-context";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

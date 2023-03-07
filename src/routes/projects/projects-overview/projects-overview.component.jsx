@@ -6,11 +6,11 @@ import { FaArrowRight } from "react-icons/fa";
 import "./projects-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsOverview = () => {
-    const { projectEntries } = useContext(AppContext);
+    const { projectEntries } = useContext(appContext);
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
     const [activeCategoryId, setActiveCategoryId] = useState(4);
     const categoryTabsList = [

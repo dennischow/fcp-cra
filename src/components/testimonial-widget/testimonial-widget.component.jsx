@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 
-import { AppContext } from "../../contexts/appContext";
+import { appContext } from "../../contexts/app-context";
 import "./testimonial-widget.styles.scss";
 
 const TestimonialWidget = ({ isContentExpandedByDefault, entriesLimitByDefault }) => {
 
-    const { testimonialEntries } = useContext(AppContext);
+    const { testimonialEntries } = useContext(appContext);
     const [isExpanded, setIsExpanded] = useState(isContentExpandedByDefault || false);
     const [entriesLimit, setEntriesLimit] = useState(entriesLimitByDefault || 5);
 

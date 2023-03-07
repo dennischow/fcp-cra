@@ -8,14 +8,14 @@ import { FaTelegramPlane, FaExclamationTriangle, FaTimes, FaCheck } from "react-
 import "./app-panel-contact.styles.scss";
 
 import api from "../../../services/api";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import AppInputField from "../../form/app-input-field/app-input-field.component";
 import AppTextareaField from "../../form/app-textarea-field/app-textarea-field.component";
 import AppSelectField from "../../form/app-select-field/app-select-field.component";
 
 const AppPanelContact = () => {
 
-    const { setIsPanelContactShow } = useContext(AppContext);
+    const { setIsPanelContactShow } = useContext(appContext);
     const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "", result: null });
 
     const contactFormObj = useFormik({

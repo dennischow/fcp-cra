@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
 
-export const AppContext = createContext();
+export const appContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
     const [projectEntries, setProjectEntries] = useState([]);
@@ -20,5 +20,5 @@ export const AppContextProvider = ({ children }) => {
         isPanelSearchShow,
         setIsPanelSearchShow,
     };
-    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+    return <appContext.Provider value={value}>{children}</appContext.Provider>;
 };

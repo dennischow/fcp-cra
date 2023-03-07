@@ -6,11 +6,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import "./articles-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesDetails = () => {
-    const { articleEntries } = useContext(AppContext);
+    const { articleEntries } = useContext(appContext);
     const [currentPost, setCurrentPost] = useState({});
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();

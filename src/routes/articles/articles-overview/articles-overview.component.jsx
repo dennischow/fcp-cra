@@ -6,11 +6,11 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import "./articles-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { AppContext } from "../../../contexts/appContext";
+import { appContext } from "../../../contexts/app-context";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesOverview = () => {
-    const { articleEntries } = useContext(AppContext);
+    const { articleEntries } = useContext(appContext);
     const [articlesFilteredByPerPortion, setArticlesFilteredByPerPage] = useState(articleEntries);
     const [currentPageNumber, setCurrentPageNumber] = useState(1);
     const [totalPageNumber, setTotalPageNumber] = useState(null);

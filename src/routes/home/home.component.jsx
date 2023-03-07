@@ -6,7 +6,7 @@ import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 import "./home.styles.scss";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
-import { AppContext } from "../../contexts/appContext";
+import { appContext } from "../../contexts/app-context";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
@@ -14,7 +14,7 @@ import heroBackgroundImg from "../../resources/images/home/polygon-colored-cross
 
 const Home = () => {
 
-    const { projectEntries, articleEntries } = useContext(AppContext);
+    const { projectEntries, articleEntries } = useContext(appContext);
     const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
 
     const openYoutubePlayer = () => setIsYoutubePlayerOn(true);

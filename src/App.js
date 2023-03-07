@@ -5,7 +5,7 @@ import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
 import * as HELPERS from "./common/helpers";
-import { AppContext } from "./contexts/appContext";
+import { appContext } from "./contexts/app-context";
 import api from "./services/api";
 import AppLayout from "./components/shared/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/shared/app-navigate-to-top/app-navigate-to-top.component";
@@ -21,7 +21,7 @@ HELPERS.disableProductionLogging();
 
 function App() {
 
-    const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
+    const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(appContext);
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchData = async () => {
