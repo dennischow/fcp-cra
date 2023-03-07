@@ -59,7 +59,7 @@ const ProjectsOverview = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>Projects Overview</title>
+                <title>{`Projects Overview | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
             <div className="page-projects-overview">
                 <AppFeatureBanner

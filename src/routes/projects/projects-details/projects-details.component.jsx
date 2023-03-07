@@ -32,7 +32,7 @@ const ProjectsDetails = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>{`${currentPost?.title} | Project Details`}</title>
+                <title>{`${currentPost?.title} | Project Details | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
 
             <div className="page-projects-details">

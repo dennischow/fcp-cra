@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>Homepage</title>
+                <title>{`Home | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
             <div className="page-home">
                 <AppFeatureBanner

@@ -15,6 +15,7 @@ import { Line, Bar } from "react-chartjs-2";
 import { FaInfoCircle, FaYoutube, FaMusic } from "react-icons/fa";
 
 import "./about.styles.scss";
+import * as CONSTANTS from "../../common/constants";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
@@ -221,7 +222,7 @@ const About = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>About</title>
+                <title>{`About | ${CONSTANTS.AUTHOR} | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
             <div className="page-about">
 

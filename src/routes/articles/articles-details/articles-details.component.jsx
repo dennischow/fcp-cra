@@ -60,7 +60,7 @@ const ArticlesDetails = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>{`${currentPost?.title} | Articles Details`}</title>
+                <title>{`${currentPost?.title} | Articles Details | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
 
             <div className="page-articles-details">

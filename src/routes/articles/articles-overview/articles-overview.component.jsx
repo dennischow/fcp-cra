@@ -63,7 +63,7 @@ const ArticlesOverview = () => {
     return (
         <Fragment>
             <Helmet>
-                <title>Articles Overview</title>
+                <title>{`Articles Overview | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
             <div className="page-articles-overview">
                 <AppFeatureBanner
