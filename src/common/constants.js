@@ -22,7 +22,7 @@ export const ENDPOINT = {
     projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,
     articles: process.env.REACT_APP_DEFAULT_ENDPOINT_ARTICLES,
     testimonials: process.env.REACT_APP_DEFAULT_ENDPOINT_TESTIMONIALS,
-    conact: process.env.REACT_APP_DEFAULT_ENDPOINT_CONTACT,
+    contact: process.env.REACT_APP_DEFAULT_ENDPOINT_CONTACT,
 };
 
 export const ROUTES = {

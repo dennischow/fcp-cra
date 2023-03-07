@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-import * as CONSTANTS from "../../../common/constants.js";
 import "./not-found.styles.scss";
+import * as CONSTANTS from "../../../common/constants.js";
 
 const NotFound = () => {
     return (

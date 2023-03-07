@@ -1,13 +1,12 @@
 import { Fragment, useState, useContext, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
+import "./projects-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
-
-import "./projects-details.styles.scss";
 
 const ProjectsDetails = () => {
     const { projectEntries } = useContext(AppContext);

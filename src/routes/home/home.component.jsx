@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 
+import "./home.styles.scss";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { AppContext } from "../../contexts/appContext";
@@ -10,8 +11,6 @@ import AppFeatureBanner from "../../components/shared/app-feature-banner/app-fea
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
 import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
-
-import "./home.styles.scss";
 
 const Home = () => {
 

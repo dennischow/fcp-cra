@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight } from "react-icons/fa";
 
+import "./projects-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
-
-import "./projects-overview.styles.scss";
 
 const ProjectsOverview = () => {
     const { projectEntries } = useContext(AppContext);

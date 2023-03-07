@@ -1,17 +1,17 @@
 import { Fragment, useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import qs from "qs";
 import { ThreeDots } from "react-loader-spinner";
 import { FaTelegramPlane, FaExclamationTriangle, FaTimes, FaCheck } from "react-icons/fa";
 
-import * as CONSTANTS from "../../../common/constants";
+import "./app-panel-contact.styles.scss";
+
+import api from "../../../services/api";
 import { AppContext } from "../../../contexts/appContext";
 import AppInputField from "../../form/app-input-field/app-input-field.component";
 import AppTextareaField from "../../form/app-textarea-field/app-textarea-field.component";
 import AppSelectField from "../../form/app-select-field/app-select-field.component";
-import "./app-panel-contact.styles.scss";
 
 const AppPanelContact = () => {
 
@@ -33,7 +33,7 @@ const AppPanelContact = () => {
             message: Yup.string().required("This field is required."),
             referral_by: Yup.string().required("This field is required."),
         }),
-        onSubmit: (values, formikBag) => {
+        onSubmit: async (values, formikBag) => {
             console.log("values: ", values);
             console.log("formikBag: ", formikBag);
             console.log(JSON.stringify(values, null, 2));
@@ -44,30 +44,29 @@ const AppPanelContact = () => {
                 result: null,
             });
 
-            axios.post(CONSTANTS.ENDPOINT.conact, qs.stringify(values))
-                .then((response) => {
-                    setLoaderFeedback({
-                        indicator: false,
-                        message: response.data.status,
-                        result: response.data.result ? "success" : "failed",
-                    });
-                    setTimeout(() => {
-                        if (response.data.result) {
-                            formikBag.resetForm();
-                        }
-                        formikBag.setSubmitting(false);
-                    }, 3000);
-                })
-                .catch((error) => {
-                    setLoaderFeedback({
-                        indicator: false,
-                        message: error.message,
-                        result: "failed",
-                    });
-                    setTimeout(() => {
-                        formikBag.setSubmitting(false);
-                    }, 3000);
+            try {
+                const response = await api.post.contact(qs.stringify(values));
+                setLoaderFeedback({
+                    indicator: false,
+                    message: response.data.status,
+                    result: response.data.result ? "success" : "failed",
                 });
+                setTimeout(() => {
+                    if (response.data.result) {
+                        formikBag.resetForm();
+                    }
+                    formikBag.setSubmitting(false);
+                }, 3000);
+            } catch (error) {
+                setLoaderFeedback({
+                    indicator: false,
+                    message: error.message,
+                    result: "failed",
+                });
+                setTimeout(() => {
+                    formikBag.setSubmitting(false);
+                }, 3000);
+            }
         },
     });
 

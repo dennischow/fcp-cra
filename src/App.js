@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
 
 import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
 import * as HELPERS from "./common/helpers";
 import { AppContext } from "./contexts/appContext";
+import api from "./services/api";
 import AppLayout from "./components/shared/app-layout/app-layout.component";
 import AppNavigateToTop from "./components/shared/app-navigate-to-top/app-navigate-to-top.component";
 import Home from "./routes/home/home.component";
@@ -24,28 +24,31 @@ function App() {
     const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(true);
 
+    const fetchData = async () => {
+        try {
+            const [projects, articles, testimonials] = await Promise.all([
+                api.get.projects(),
+                api.get.articles(),
+                api.get.testimonials(),
+            ]);
+
+            setProjectEntries(projects.data);
+            setArticleEntries(articles.data);
+            setTestimonialEntries(testimonials.data);
+
+            console.log("Data fetched!!!");
+            console.log("projectEntries:", projects.data);
+            console.log("articleEntries:", articles.data);
+            console.log("testimonialEntries:", testimonials.data);
+
+            setTimeout(() => setIsLoading(false), 400);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     useEffect(() => {
-        axios.all([
-                axios.get(CONSTANTS.ENDPOINT.projects),
-                axios.get(CONSTANTS.ENDPOINT.articles),
-                axios.get(CONSTANTS.ENDPOINT.testimonials),
-            ])
-            .then((responses) => {
-                setProjectEntries(responses[0].data);
-                setArticleEntries(responses[1].data);
-                setTestimonialEntries(responses[2].data);
-                return responses;
-            }).
-            then((responses) => {
-                console.log("Data fetched!!!");
-                console.log("projectEntries:", responses[0].data);
-                console.log("articleEntries:", responses[1].data);
-                console.log("testimonialEntries:", responses[2].data);
-                setTimeout(() => setIsLoading(false), 400);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        fetchData();
     }, []);
 
     return (

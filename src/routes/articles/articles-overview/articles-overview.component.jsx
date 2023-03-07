@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
+import "./articles-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { AppContext } from "../../../contexts/appContext";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
-
-import "./articles-overview.styles.scss";
 
 const ArticlesOverview = () => {
     const { articleEntries } = useContext(AppContext);
