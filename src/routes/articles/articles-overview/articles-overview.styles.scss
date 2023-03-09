@@ -1,6 +1,6 @@
 .page-articles-overview {
     .articles-block {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 40px;
 
         &__container {
@@ -12,9 +12,15 @@
             justify-content: flex-end;
             align-items: center;
             position: sticky;
-            top: 20px;
-            margin-bottom: 20px;
+            top: 0;
+            margin: 0 -20px;
+            padding: 20px;
+            background-color: var(--c-white);
             z-index: 1;
+
+            @include max-media($scr-tablet) {
+                position: inherit;
+            }
         }
 
         &__pagination-display {
