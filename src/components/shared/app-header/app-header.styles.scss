@@ -124,4 +124,30 @@
         transform: translate(0, -1px);
     }
 
+    &__scroll-to-top {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        right: -15px;
+        bottom: 60px;
+        width: 90px;
+        height: 18px;
+        font-size: var(--text-size-xxs);
+        text-transform: uppercase;
+        transform: rotate(-90deg) translate(0, 0);
+        opacity: 0.4;
+
+        @include max-media($scr-tablet) {
+            display: none;
+        }
+
+        &:hover {
+            opacity: 1;
+            transform: rotate(-90deg) translate(5px, 0);
+        }
+
+    }
+
 }
