@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaFastBackward, FaFastForward, FaRandom, FaTimes } from "react-icons/fa";
 
-import * as CONSTANTS from "../../common/constants";
 import "./youtube-player.styles.scss";
+
+import * as CONSTANTS from "../../common/constants";
 
 const YoutubePlayer = ({ closeYoutubePlayer }) => {
     const videoIds = CONSTANTS.VIDEO_IDS;

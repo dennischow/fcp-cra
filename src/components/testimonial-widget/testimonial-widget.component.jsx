@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 
-import { appContext } from "../../contexts/app-context";
 import "./testimonial-widget.styles.scss";
+
+import { appContext } from "../../contexts/app-context";
 
 const TestimonialWidget = ({ isContentExpandedByDefault, entriesLimitByDefault }) => {
 

@@ -2,9 +2,10 @@ import { Fragment, useContext, useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
+import "./app-panel-articles-search.styles.scss";
+
 import * as CONSTANTS from "../../../common/constants.js";
 import { appContext } from "../../../contexts/app-context";
-import "./app-panel-articles-search.styles.scss";
 
 const AppPanelArticlesSearch = () => {
     const { articleEntries, setIsPanelSearchShow } = useContext(appContext);

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
 
+import "./app-header.styles.scss";
+
 import * as CONSTANTS from "../../../common/constants";
 import useWindowScroll from "../../../hooks/use-window-scroll";
 import { ReactComponent as BrandLogo } from "./../../../resources/images/common/brand-logo.svg";
-import "./app-header.styles.scss";
 import AppMainNav from "../app-main-nav/app-main-nav.component";
 
 const AppHeader = ({ props, ...otherProps }) => {

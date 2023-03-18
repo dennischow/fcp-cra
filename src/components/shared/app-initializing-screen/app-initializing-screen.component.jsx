@@ -1,9 +1,10 @@
 import { ThreeDots } from "react-loader-spinner";
 import Skeleton from "react-loading-skeleton";
-import { ReactComponent as BrandLogo } from "./../../../resources/images/common/brand-logo.svg";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import "./app-initializing-screen.styles.scss";
+
+import { ReactComponent as BrandLogo } from "./../../../resources/images/common/brand-logo.svg";
 
 const AppLoadingSCreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     return (

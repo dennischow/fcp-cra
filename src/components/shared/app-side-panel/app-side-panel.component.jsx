@@ -1,10 +1,10 @@
 import { Fragment, useContext } from "react";
 
+import "./app-side-panel.styles.scss";
+
 import { appContext } from "../../../contexts/app-context";
 import AppPanelContact from "../app-panel-contact/app-panel-contact.component";
 import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search.component";
-
-import "./app-side-panel.styles.scss";
 
 const AppSidePanel = () => {
     const { isPanelContactShow, isPanelSearchShow } = useContext(appContext);
