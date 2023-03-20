@@ -35,7 +35,7 @@
             background-position: right top;
             background-repeat: no-repeat;
             background-size: 100% auto;
-            background-image: url("./../../resources/images/about/photoshoot-at-central-ferry-piers-shaped.jpg");
+            background-image: url("./../../assets/images/about/photoshoot-at-central-ferry-piers-shaped.jpg");
 
             @include max-media($scr-laptop) {
                 display: none;
@@ -150,7 +150,7 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-image: url("./../../resources/images/about/my-headphone-family-bk.jpg");
+            background-image: url("./../../assets/images/about/my-headphone-family-bk.jpg");
             background-clip: text;
             color: transparent;
 

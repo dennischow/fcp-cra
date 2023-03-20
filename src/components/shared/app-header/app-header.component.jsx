@@ -6,7 +6,7 @@ import "./app-header.styles.scss";
 
 import * as CONSTANTS from "../../../common/constants";
 import useWindowScroll from "../../../hooks/use-window-scroll";
-import { ReactComponent as BrandLogo } from "./../../../resources/images/common/brand-logo.svg";
+import { ReactComponent as BrandLogo } from "./../../../assets/images/common/brand-logo.svg";
 import AppMainNav from "../app-main-nav/app-main-nav.component";
 
 const AppHeader = ({ props, ...otherProps }) => {

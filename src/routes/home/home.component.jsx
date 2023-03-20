@@ -10,7 +10,7 @@ import { appContext } from "../../contexts/app-context";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
-import heroBackgroundImg from "../../resources/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
+import heroBackgroundImg from "../../assets/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
 const Home = () => {
 

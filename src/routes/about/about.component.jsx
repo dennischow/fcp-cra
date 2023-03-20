@@ -19,8 +19,8 @@ import * as CONSTANTS from "../../common/constants";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
-import heroBackgroundImg from "../../resources/images/about/double-colors-exposure.jpg";
-import profilePicture from "../../resources/images/about/photoshoot-at-central-ferry-piers.jpg";
+import heroBackgroundImg from "../../assets/images/about/double-colors-exposure.jpg";
+import profilePicture from "../../assets/images/about/photoshoot-at-central-ferry-piers.jpg";
 
 ChartJS.register(
     CategoryScale,
