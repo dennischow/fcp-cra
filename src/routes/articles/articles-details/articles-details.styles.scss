@@ -83,7 +83,8 @@
                 display: block;
                 width: 100%;
                 height: auto;
-                box-shadow: 0 10px 15px -10px var(--c-light-gray)
+                box-shadow: 0 10px 15px -10px var(--c-light-gray);
+                @include rounded-corners();
             }
 
             .media-embed {
@@ -219,6 +220,7 @@
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
+            @include rounded-corners();
         }
 
         &__related-title {

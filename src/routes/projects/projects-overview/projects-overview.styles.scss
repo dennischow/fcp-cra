@@ -130,6 +130,7 @@
             overflow: hidden;
             text-decoration: none;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            @include rounded-corners();
 
             &:hover {
                 transform: translateY(-5px);

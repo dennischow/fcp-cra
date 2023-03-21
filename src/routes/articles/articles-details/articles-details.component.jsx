@@ -54,7 +54,7 @@ const ArticlesDetails = () => {
         const relatedPosts = getRelatedPosts(entry);
         setRelatedPosts(relatedPosts);
 
-        postContentManipulation();
+        setTimeout(() => postContentManipulation(), 10);
     }, [articleEntries, entryId, navigate]);
 
     return (
