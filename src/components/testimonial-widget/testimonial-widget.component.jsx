@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import DOMPurify from "dompurify";
 
 import "./testimonial-widget.styles.scss";
 
@@ -42,7 +43,7 @@ const TestimonialWidget = ({ isContentExpandedByDefault, entriesLimitByDefault }
                                     <blockquote className="testimonial-widget__content-group-item">
                                         <div className="testimonial-widget__content-group-content">
                                             <div className="testimonial-widget__content-group-text"
-                                                dangerouslySetInnerHTML={{__html: item.testimonial_content}}>
+                                                dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(item.testimonial_content)}}>
                                             </div>
                                             <footer className="testimonial-widget__content-group-sender-info">
                                                 <span className="testimonial-widget__content-group-visual">

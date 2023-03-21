@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import DOMPurify from "dompurify";
 
 import "./projects-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
@@ -53,7 +54,7 @@ const ProjectsDetails = () => {
                                         <img className="project-details__visual-image"
                                             key={index}
                                             src={item.image}
-                                            alt={`${currentPost?.title} screenshot ${index + 1} of ${currentPost?.full_image.length}`}/>
+                                            alt={`${currentPost?.title} screenshot ${index + 1} of ${currentPost?.full_image.length}`} />
                                     ))}
                                 </figure>
                             </div>
@@ -62,7 +63,7 @@ const ProjectsDetails = () => {
                                 <div className="project-details__info-content">
                                     <p className="project-details__info-subject">Description:</p>
                                     <div className="project-details__info-description"
-                                        dangerouslySetInnerHTML={{__html: currentPost?.description}}>
+                                        dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(currentPost?.description)}}>
                                     </div>
                                     <p className="project-details__info-subject">Year:</p>
                                     <p className="project-details__info-description">{currentPost?.project_date}</p>

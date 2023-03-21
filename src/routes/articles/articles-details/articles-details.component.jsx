@@ -1,6 +1,7 @@
 import { Fragment, useState, useContext, useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import DOMPurify from "dompurify";
 import { FaArrowLeft } from "react-icons/fa";
 
 import "./articles-details.styles.scss";
@@ -11,7 +12,7 @@ import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-
 
 const ArticlesDetails = () => {
     const { articleEntries } = useContext(appContext);
-    const [currentPost, setCurrentPost] = useState({});
+    const [currentPost, setCurrentPost] = useState(null);
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();
     const navigate = useNavigate();
@@ -56,7 +57,9 @@ const ArticlesDetails = () => {
     }, [articleEntries, entryId, navigate]);
 
     useEffect(() => {
-        postContentManipulation();
+        if (currentPost) {
+            postContentManipulation();
+        }
     }, [currentPost]);
 
     return (
@@ -80,7 +83,7 @@ const ArticlesDetails = () => {
                             <div className="article-details__post">
                                 <div className="article-details__post-content"
                                     ref={postContentRef}
-                                    dangerouslySetInnerHTML={{__html: currentPost?.blog_body}}>
+                                    dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(currentPost?.blog_body, { ADD_TAGS: ["iframe"] })}}>
                                 </div>
                             </div>
                             <div className="article-details__sidebar">
