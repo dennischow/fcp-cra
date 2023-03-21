@@ -53,9 +53,11 @@ const ArticlesDetails = () => {
 
         const relatedPosts = getRelatedPosts(entry);
         setRelatedPosts(relatedPosts);
-
-        setTimeout(() => postContentManipulation(), 10);
     }, [articleEntries, entryId, navigate]);
+
+    useEffect(() => {
+        postContentManipulation();
+    }, [currentPost]);
 
     return (
         <Fragment>
