@@ -6,14 +6,10 @@ import { FaArrowRight } from "react-icons/fa";
 import "./projects-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import useWindowVisibility from "../../../hooks/use-window-visibility";
 import { appContext } from "../../../contexts/app-context";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsOverview = () => {
-    const windowVisibility = useWindowVisibility();
-    const pageTitle = windowVisibility ? `Projects Overview | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
-
     const { projectEntries } = useContext(appContext);
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
     const [activeCategoryId, setActiveCategoryId] = useState(4);
@@ -62,8 +58,8 @@ const ProjectsOverview = () => {
 
     return (
         <Fragment>
-            <Helmet defer={false}>
-                <title>{pageTitle}</title>
+            <Helmet>
+                <title>{`Projects Overview | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
             <div className="page-projects-overview">
                 <AppFeatureBanner

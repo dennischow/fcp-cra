@@ -7,7 +7,6 @@ import "./projects-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
-import useWindowVisibility from "../../../hooks/use-window-visibility";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsDetails = () => {
@@ -15,9 +14,6 @@ const ProjectsDetails = () => {
     const [currentPost, setCurrentPost] = useState(null);
     const { entryId } = useParams();
     const navigate = useNavigate();
-
-    const windowVisibility = useWindowVisibility();
-    const pageTitle = windowVisibility ? `${currentPost?.title} | Project Details | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
 
     useEffect(() => {
         if (!projectEntries?.length) return;
@@ -36,8 +32,8 @@ const ProjectsDetails = () => {
 
     return (
         <Fragment>
-            <Helmet defer={false}>
-                <title>{pageTitle}</title>
+            <Helmet>
+                <title>{`${currentPost?.title} | Project Details | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
 
             <div className="page-projects-details">

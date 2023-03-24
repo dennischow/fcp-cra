@@ -4,16 +4,12 @@ import { Helmet } from "react-helmet-async";
 
 import "./not-found.styles.scss";
 import * as CONSTANTS from "../../../common/constants.js";
-import useWindowVisibility from "../../../hooks/use-window-visibility";
 
 const NotFound = () => {
-    const windowVisibility = useWindowVisibility();
-    const pageTitle = windowVisibility ? `Page not found | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
-
     return (
         <Fragment>
-            <Helmet defer={false}>
-                <title>{pageTitle}</title>
+            <Helmet>
+                <title>{`Page not found | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
 
             <div className="page-not-found">
