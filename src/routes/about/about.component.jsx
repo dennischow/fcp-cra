@@ -12,10 +12,11 @@ import {
     Legend,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
-import { FaInfoCircle, FaYoutube, FaMusic } from "react-icons/fa";
+import { FaInfoCircle, FaMusic } from "react-icons/fa";
 
 import "./about.styles.scss";
 import * as CONSTANTS from "../../common/constants";
+import useWindowVisibility from "../../hooks/use-window-visibility";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
@@ -34,6 +35,9 @@ ChartJS.register(
 );
 
 const About = () => {
+
+    const windowVisibility = useWindowVisibility();
+    const pageTitle = windowVisibility ? `About | ${CONSTANTS.AUTHOR} | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
 
     const aWeekOfMyWeek = {
         options: {
@@ -221,8 +225,8 @@ const About = () => {
 
     return (
         <Fragment>
-            <Helmet>
-                <title>{`About | ${CONSTANTS.AUTHOR} | ${CONSTANTS.BRAND_NAME}`}</title>
+            <Helmet defer={false}>
+                <title>{pageTitle}</title>
             </Helmet>
             <div className="page-about">
 

@@ -7,12 +7,15 @@ import "./home.styles.scss";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { appContext } from "../../contexts/app-context";
+import useWindowVisibility from "../../hooks/use-window-visibility";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
 import heroBackgroundImg from "../../assets/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
 const Home = () => {
+    const windowVisibility = useWindowVisibility();
+    const pageTitle = windowVisibility ? `Homepage | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
 
     const { projectEntries, articleEntries } = useContext(appContext);
     const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
@@ -22,8 +25,8 @@ const Home = () => {
 
     return (
         <Fragment>
-            <Helmet>
-                <title>{`Home | ${CONSTANTS.BRAND_NAME}`}</title>
+            <Helmet defer={false}>
+                <title>{pageTitle}</title>
             </Helmet>
             <div className="page-home">
                 <AppFeatureBanner

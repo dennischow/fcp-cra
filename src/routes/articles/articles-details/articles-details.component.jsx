@@ -8,6 +8,7 @@ import "./articles-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
+import useWindowVisibility from "../../../hooks/use-window-visibility";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesDetails = () => {
@@ -17,6 +18,9 @@ const ArticlesDetails = () => {
     const { entryId } = useParams();
     const navigate = useNavigate();
     const postContentRef = useRef(null);
+
+    const windowVisibility = useWindowVisibility();
+    const pageTitle = windowVisibility ? `${currentPost?.title} | Articles Details | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
 
     const getRelatedPosts = (entry) => {
         const result = entry?.related_post?.map((id) => articleEntries.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
@@ -64,8 +68,8 @@ const ArticlesDetails = () => {
 
     return (
         <Fragment>
-            <Helmet>
-                <title>{`${currentPost?.title} | Articles Details | ${CONSTANTS.BRAND_NAME}`}</title>
+            <Helmet defer={false}>
+                <title>{pageTitle}</title>
             </Helmet>
 
             <div className="page-articles-details">

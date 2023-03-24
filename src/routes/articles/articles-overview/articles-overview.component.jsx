@@ -7,6 +7,7 @@ import "./articles-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
+import useWindowVisibility from "../../../hooks/use-window-visibility";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesOverview = () => {
@@ -18,6 +19,9 @@ const ArticlesOverview = () => {
     const [isNextEnabled, setIsNextEnabled] = useState(false);
 
     const entriesPerPage = 12;
+
+    const windowVisibility = useWindowVisibility();
+    const pageTitle = windowVisibility ? `Articles Overview | ${CONSTANTS.BRAND_NAME}` : CONSTANTS.AWAY_PAGE_TITLE;
 
     useEffect(() => {
         setTotalPageNumber(Math.ceil(articleEntries.length / entriesPerPage));
@@ -68,8 +72,8 @@ const ArticlesOverview = () => {
 
     return (
         <Fragment>
-            <Helmet>
-                <title>{`Articles Overview | ${CONSTANTS.BRAND_NAME}`}</title>
+            <Helmet defer={false}>
+                <title>{pageTitle}</title>
             </Helmet>
             <div className="page-articles-overview">
                 <AppFeatureBanner

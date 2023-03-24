@@ -1,3 +1,4 @@
+export const AWAY_PAGE_TITLE = "Come Back";
 export const BRAND_NAME = process.env.REACT_APP_DEFAULT_BRAND_NAME;
 export const AUTHOR = process.env.REACT_APP_DEFAULT_AUTHOR;
 export const VIDEO_IDS = [
