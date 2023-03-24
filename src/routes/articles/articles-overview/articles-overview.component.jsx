@@ -51,13 +51,19 @@ const ArticlesOverview = () => {
 
     const pageSwitchHandler = (event, action) => {
         event.preventDefault();
-        if (action === "previous") {
-            setCurrentPageNumber((preValue) => preValue - 1);
+        switch (action) {
+            case "previous":
+                setCurrentPageNumber((preValue) => Math.max(preValue - 1, 1));
+                console.log(`pageSwitchHandler triggered by ${action}`);
+                break;
+            case "next":
+                setCurrentPageNumber((preValue) => preValue + 1);
+                console.log(`pageSwitchHandler triggered by ${action}`);
+                break;
+            default:
+                console.log(`pageSwitchHandler triggered with unknown action: ${action}`);
+                break;
         }
-        if (action === "next") {
-            setCurrentPageNumber((preValue) => preValue + 1);
-        }
-        console.log(`pageSwitchHandler triggered by ${action}`);
     };
 
     return (
