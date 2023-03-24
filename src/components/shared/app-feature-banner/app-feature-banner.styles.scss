@@ -70,7 +70,7 @@
     }
 
     &--hero {
-        background-color: var(--c-lighter-gray);
+        background-color: var(--c-black);
 
         &::after {
             display: block;
@@ -98,6 +98,7 @@
                 background-size: cover;
                 background-repeat: no-repeat;
                 z-index: 0;
+                animation: 8s linear infinite glitch-flashing;
 
                 &::after {
                     display: block;
@@ -111,6 +112,10 @@
                     opacity: 0.4;
                 }
 
+            }
+
+            &__content {
+                animation: 8s linear infinite glitch-flashing;
             }
 
             &__tagline {
