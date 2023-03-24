@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import DOMPurify from "dompurify";
@@ -8,6 +8,7 @@ import "./articles-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
+import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesDetails = () => {
@@ -63,7 +64,7 @@ const ArticlesDetails = () => {
     }, [currentPost]);
 
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`${currentPost?.title} | Articles Details | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -116,7 +117,7 @@ const ArticlesDetails = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 

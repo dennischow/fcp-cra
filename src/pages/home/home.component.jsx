@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
@@ -7,6 +7,7 @@ import "./home.styles.scss";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
 import { appContext } from "../../contexts/app-context";
+import AppLayout from "../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
@@ -21,7 +22,7 @@ const Home = () => {
     const closeYoutubePlayer = () => setIsYoutubePlayerOn(false);
 
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`Home | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -135,7 +136,7 @@ const Home = () => {
 
                 <TestimonialWidget isContentExpandedByDefault={false} entriesLimitByDefault={5} />
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 

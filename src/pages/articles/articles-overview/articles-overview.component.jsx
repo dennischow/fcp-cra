@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
@@ -7,6 +7,7 @@ import "./articles-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
+import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesOverview = () => {
@@ -67,7 +68,7 @@ const ArticlesOverview = () => {
     };
 
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`Articles Overview | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -140,7 +141,7 @@ const ArticlesOverview = () => {
                     )}
                 </section>
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 

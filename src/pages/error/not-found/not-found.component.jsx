@@ -1,13 +1,13 @@
-import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import "./not-found.styles.scss";
 import * as CONSTANTS from "../../../common/constants.js";
+import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 
 const NotFound = () => {
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`Page not found | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -28,7 +28,7 @@ const NotFound = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 

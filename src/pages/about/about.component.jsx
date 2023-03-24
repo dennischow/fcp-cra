@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import {
     Chart as ChartJS,
@@ -12,10 +12,11 @@ import {
     Legend,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
-import { FaInfoCircle, FaYoutube, FaMusic } from "react-icons/fa";
+import { FaInfoCircle, FaMusic } from "react-icons/fa";
 
 import "./about.styles.scss";
 import * as CONSTANTS from "../../common/constants";
+import AppLayout from "../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
 import TestimonialWidget from "../../components/testimonial-widget/testimonial-widget.component";
@@ -220,7 +221,7 @@ const About = () => {
     const closeYoutubePlayer = () => setIsYoutubePlayerOn(false);
 
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`About | ${CONSTANTS.AUTHOR} | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -294,7 +295,7 @@ const About = () => {
 
                 <TestimonialWidget isContentExpandedByDefault={true} entriesLimitByDefault={6} />
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 

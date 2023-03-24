@@ -7,6 +7,7 @@ import "./projects-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import { appContext } from "../../../contexts/app-context";
+import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsOverview = () => {
@@ -57,7 +58,7 @@ const ProjectsOverview = () => {
     };
 
     return (
-        <Fragment>
+        <AppLayout>
             <Helmet>
                 <title>{`Projects Overview | ${CONSTANTS.BRAND_NAME}`}</title>
             </Helmet>
@@ -137,7 +138,7 @@ const ProjectsOverview = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </AppLayout>
     );
 };
 
