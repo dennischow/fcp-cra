@@ -61,9 +61,6 @@ const App = () => {
         <Fragment>
             <Helmet>
                 <title>{CONSTANTS.BRAND_NAME}</title>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=auto" rel="stylesheet" />
             </Helmet>
 
             {isLoading
