@@ -9,7 +9,7 @@ import ArticlesOverview from "../pages/articles/articles-overview/articles-overv
 import ArticlesDetails from "../pages/articles/articles-details/articles-details.component";
 import NotFound from "../pages/error/not-found/not-found.component";
 
-const Router = () => {
+const RouterSwitch = () => {
     return (
         <Routes>
             <Route path={CONSTANTS.ROUTES.home.path} element={<Home />} />
@@ -24,4 +24,4 @@ const Router = () => {
     );
 };
 
-export default Router;
+export default RouterSwitch;

@@ -9,7 +9,7 @@ import * as HELPERS from "./common/helpers";
 import { appContext } from "./contexts/app-context";
 import api from "./services/api";
 import AppInitializingScreen from "./components/shared/app-initializing-screen/app-initializing-screen.component";
-import Router from "./router/router";
+import RouterSwitch from "./router/router-switch";
 
 HELPERS.disableProductionLogging();
 
@@ -65,7 +65,7 @@ const App = () => {
 
             {isLoading
                 ? <AppInitializingScreen hasLogo={true} hasIndicator={true} hasSkeleton={true} />
-                : <Router />
+                : <RouterSwitch />
             }
         </Fragment>
     );
