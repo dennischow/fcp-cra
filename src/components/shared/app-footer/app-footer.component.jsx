@@ -10,7 +10,8 @@ const AppFooter = ({ props, ...otherProps }) => {
                     <span className="app-footer__text">{`© 2011-${new Date().getFullYear()} ${CONSTANTS.BRAND_NAME}`}</span>
                 </small>
                 <p className="app-footer__remark">
-                    <span className="app-footer__text">{`Handcrafted by ${CONSTANTS.AUTHOR}`} 🤘🏼</span>
+                    {/* <span className="app-footer__text">{`Handcrafted by ${CONSTANTS.AUTHOR}`} 🤘🏼</span> */}
+                    <span className="app-footer__text">{`Built with ExpressionEngine + React`} 🤘🏼</span>
                 </p>
             </div>
         </footer>
