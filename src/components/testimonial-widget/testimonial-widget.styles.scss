@@ -134,7 +134,7 @@
 
     &__content-group {
         padding: 40px 0;
-        border-top: 1px solid var(--c-light-gray);
+        // border-top: 1px solid var(--c-light-gray);
     }
 
     &__content-group-list {
@@ -145,6 +145,11 @@
     &__content-group-list-item {
         margin: 40px auto;
         width: min(840px, 100%);
+
+        &:first-child {
+            margin-top: -40px;
+        }
+
     }
 
     &__content-group-item {
@@ -180,6 +185,19 @@
         &::before,
         &::after {
         }
+
+        p {
+
+            &::before {
+                content: open-quote;
+            }
+
+            &::after {
+                content: close-quote;
+            }
+
+        }
+
     }
 
     &__content-group-sender-info {

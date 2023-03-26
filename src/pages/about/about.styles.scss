@@ -93,6 +93,15 @@
             font-size: var(--text-size-s);
             font-style: italic;
             text-align: center;
+
+            &::before {
+                content: open-quote;
+            }
+
+            &::after {
+                content: close-quote;
+            }
+
         }
 
         &__brief {
