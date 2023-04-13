@@ -73,7 +73,7 @@ const Home = () => {
                             </p>
                         </div>
                         <div className="recent-articles__entries">
-                            {articleEntries.length > 0 && articleEntries.slice(0, 6).map((item, index) => (
+                            {articleEntries.length > 0 && articleEntries.slice(0, 8).map((item, index) => (
                                 <Link className="recent-articles__entry" key={item.entry_id} to={`${CONSTANTS.ROUTES.articlesDetails.path}/${item.url_title}`}>
                                     <div className="recent-articles__entry-visual"
                                         role="img"
