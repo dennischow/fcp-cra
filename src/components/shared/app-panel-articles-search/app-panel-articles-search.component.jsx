@@ -17,7 +17,8 @@ const AppPanelArticlesSearch = () => {
     const keywordSearch = (event) => {
         const keyword = event.target.value;
         setSearchValue(keyword);
-        const result = articleEntries.filter((item) => item.title.toLowerCase().includes(keyword.toLowerCase()));
+        const matchedList = articleEntries.filter((item) => item.title.toLowerCase().includes(keyword.toLowerCase()));
+        const result = matchedList.filter((item) => !location.pathname.includes(item.url_title));
         setArticlesFilteredByKeywordSearch(result);
     };
 
