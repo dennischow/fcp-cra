@@ -242,6 +242,7 @@
                 grid-template-columns: inherit;
                 grid-auto-flow: column;
                 overflow-x: auto;
+                scroll-snap-type: x mandatory;
             }
 
         }
@@ -273,6 +274,7 @@
             }
 
             @include max-media($scr-tablet) {
+                scroll-snap-align: center;
 
                 &:hover {
                     transform: none;
