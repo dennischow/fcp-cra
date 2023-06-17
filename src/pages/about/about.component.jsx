@@ -12,7 +12,7 @@ import {
     Legend,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
-import { FaInfoCircle, FaMusic } from "react-icons/fa";
+import { FaInfoCircle, FaMusic, FaYoutube } from "react-icons/fa";
 
 import "./about.styles.scss";
 import * as CONSTANTS from "../../common/constants";
@@ -266,14 +266,14 @@ const About = () => {
                                     <div className="profile-group__content">
                                         <p className="profile-group__text">I create content first, clean, functional, logical, search engine spiders friendly, professional websites that validated with W3C standards, resulting in semantic structure and accessible HTML and CSS. 100% of my websites are dedicatedly hand coded. Because I enjoy the romance of "Start From Scratch".</p>
                                         <p className="profile-group__text">For building websites or web-based applications, my gear consists of Photoshop, Illustrator, Visual Studio Code, Sublime Text, HTML, CSS, JavaScript, Gulp, NPM, PHP, and MySQL.  My current CMS of choice is ExpressionEngine (Because I can build instead of manipulating and I love clean code).  Also, loud <strong><a onClick={openYoutubePlayer}>music <FaMusic /></a></strong>, speakers, sub-woofer, headphones, TWS earphones are part of my gear.</p>
-                                        <p className="profile-group__text"><strong>Specialties:</strong> Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (OOJS/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
+                                        <p className="profile-group__text"><strong>Specialties:</strong> Build from scratch, Web code-based prototyping, UI/UX enhancement & troubleshoot, Front-end web development, Semantic and clean HTML structure, CSS styling/hacking, DOM manipulation & data exchange with JavaScript (IIFE/AJAX/JSON), Interactive user interface, Responsive design, Web performance testing, Essential knowledge of SEO and WAI for the web, Eyes for details/design, Web development (desktop and mobile), and Design.</p>
                                         <p className="profile-group__text">In the past years, I have been on and off self-experimenting with AngularJS, Vue, ReactJS, Meteor, C3, Chart, Moment, BEM, jsRender, Handlebar, Jade/Pug, Nunjucks, and Craft, trying to have them under my belt.</p>
                                         <div className="profile-group__line-chart">
                                             <Line options={aWeekOfMyWeek.options} data={aWeekOfMyWeek.data} />
                                         </div>
                                         {/* <p className="profile-group__text">Anymore info? ↑ ↑ ↓ ↓ ← → ← → B A to unlock the secret if you interested to know more.</p> */}
                                         <p className="profile-group__text">Front-End Web Developer responsible for a website's user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
-                                        {/* <p className="profile-group__text"><strong>Disclaimer:</strong> As someone who enjoys music and creating a peaceful environment, I have a YouTube channel <a href="https://www.youtube.com/channel/UCzAOAymXn2n6cfljyj4IKNA?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Chillax Vibes Corner <FaYoutube /></a> where I share my favorite handpicked tracks and compiled some tunes for people to relax, focus, and be productive. Whether you're studying, coding, or simply need some background music, my carefully compiled playlists are sure to help you chill and stay motivated. Please visit my channel to see what I have to offer.</p> */}
+                                        <p className="profile-group__text"><strong>IMPORTANT NOTE:</strong> Just wanted to give you a heads up that I've created a YouTube channel called <a href="https://www.youtube.com/channel/UCzAOAymXn2n6cfljyj4IKNA?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Chillax Vibes Corner <FaYoutube /></a>. Where I've compiled some of my favorite tracks into playlists that are perfect for relaxing, focusing, and getting things done. Whether you're studying, coding, or just need some background music, my playlists are sure to keep you chill and motivated. Go ahead and give it a listen!</p>
                                     </div>
                                 </div>
                             </section>
