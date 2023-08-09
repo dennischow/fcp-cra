@@ -40,6 +40,7 @@ const AppPanelArticlesSearch = () => {
                             placeholder="keywords..."
                             onChange={keywordSearch}
                             value={searchValue}
+                            autoFocus
                         />
                         <button
                             className="app-panel-articles-search__button"
