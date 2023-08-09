@@ -1,4 +1,5 @@
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import "./app-side-panel.styles.scss";
 
@@ -7,7 +8,12 @@ import AppPanelContact from "../app-panel-contact/app-panel-contact.component";
 import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search.component";
 
 const AppSidePanel = () => {
-    const { isPanelContactShow, isPanelSearchShow } = useContext(appContext);
+    const { isPanelContactShow, isPanelSearchShow, setIsPanelSearchShow } = useContext(appContext);
+    const location = useLocation();
+
+    useEffect(() => {
+        setIsPanelSearchShow(false);
+    }, [location.pathname]);
 
     return (
         <Fragment>
