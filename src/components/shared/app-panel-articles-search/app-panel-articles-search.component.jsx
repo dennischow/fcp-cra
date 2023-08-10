@@ -26,10 +26,14 @@ const AppPanelArticlesSearch = () => {
         setIsPanelSearchShow(false);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
     return (
         <Fragment>
             <div className="app-panel-articles-search">
-                <form className="app-panel-articles-search__form">
+                <form className="app-panel-articles-search__form" onSubmit={handleSubmit}>
                     <fieldset className="app-panel-articles-search__fieldset">
                         <legend className="app-panel-articles-search__legend">
                             search an article that you may interested to read
