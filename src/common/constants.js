@@ -19,6 +19,11 @@ export const VIDEO_IDS = [
     "2cXDgFwE13g",
 ];
 
+export const SOCIAL_URL = {
+    linkedIn: process.env.REACT_APP_DEFAULT_SOCIAL_URL_LINKEDIN,
+    github: process.env.REACT_APP_DEFAULT_SOCIAL_URL_GITHUB,
+};
+
 export const ENDPOINT = {
     projects: process.env.REACT_APP_DEFAULT_ENDPOINT_WORKS,
     articles: process.env.REACT_APP_DEFAULT_ENDPOINT_ARTICLES,

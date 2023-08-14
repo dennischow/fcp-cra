@@ -192,6 +192,56 @@
 
         }
 
+        &__konami-code {
+            color: var(--c-orange);
+        }
+
+        &__top-secret {
+            margin: 30px 0 20px;
+
+            @include max-media($scr-laptop) {
+                display: none;
+            }
+
+        }
+
+        &__top-secret-list {
+            display: flex;
+            margin: 0;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        &__top-secret-list-item {
+
+        }
+
+        &__top-secret-link {
+            text-align: center;
+            text-decoration: none;
+            line-height: 1.5em;
+            color: var(--c-gray);
+
+            &:hover {
+                color: var(--c-dark-gray);
+            }
+
+        }
+
+        &__top-secret-icon {
+            display: block;
+            font-size: calc(var(--text-size-xxl) * 2);
+        }
+
+        &__top-secret-text {
+            display: none;
+            margin-top: 5px;
+            font-size: var(--text-size-s);
+            line-height: 1em;
+        }
+
         &__line-chart {
             margin: 20px 0;
             padding: 20px;
