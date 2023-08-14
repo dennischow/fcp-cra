@@ -1,14 +1,14 @@
-import { Fragment, useContext, useEffect } from "react";
+import { Fragment, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import "./app-side-panel.styles.scss";
 
-import { appContext } from "../../../contexts/app-context";
+import useUIStore from "../../../store/ui";
 import AppPanelContact from "../app-panel-contact/app-panel-contact.component";
 import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-articles-search.component";
 
 const AppSidePanel = () => {
-    const { isPanelContactShow, isPanelSearchShow, setIsPanelSearchShow } = useContext(appContext);
+    const { isPanelContactShow, isPanelSearchShow, setIsPanelSearchShow } = useUIStore();
     const location = useLocation();
 
     useEffect(() => {

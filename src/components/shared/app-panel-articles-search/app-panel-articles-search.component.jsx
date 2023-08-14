@@ -1,14 +1,16 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
 import "./app-panel-articles-search.styles.scss";
 
 import * as CONSTANTS from "../../../common/constants.js";
-import { appContext } from "../../../contexts/app-context";
+import useUIStore from "../../../store/ui";
+import useEntriesStore from "../../../store/entries";
 
 const AppPanelArticlesSearch = () => {
-    const { articleEntries, setIsPanelSearchShow } = useContext(appContext);
+    const { setIsPanelSearchShow } = useUIStore();
+    const { articleEntries } = useEntriesStore();
     const [articlesFilteredByKeywordSearch, setArticlesFilteredByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
     const location = useLocation();

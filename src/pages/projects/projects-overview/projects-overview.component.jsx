@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight } from "react-icons/fa";
@@ -6,12 +6,12 @@ import { FaArrowRight } from "react-icons/fa";
 import "./projects-overview.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { appContext } from "../../../contexts/app-context";
+import useEntriesStore from "../../../store/entries";
 import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsOverview = () => {
-    const { projectEntries } = useContext(appContext);
+    const { projectEntries } = useEntriesStore();
     const [projectsFilteredByCategory, setProjectsFilteredByCategory] = useState(projectEntries);
     const [activeCategoryId, setActiveCategoryId] = useState(4);
     const categoryTabsList = [

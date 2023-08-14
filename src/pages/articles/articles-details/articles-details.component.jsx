@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import DOMPurify from "dompurify";
@@ -7,12 +7,12 @@ import { FaArrowLeft } from "react-icons/fa";
 import "./articles-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { appContext } from "../../../contexts/app-context";
+import useEntriesStore from "../../../store/entries";
 import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ArticlesDetails = () => {
-    const { articleEntries } = useContext(appContext);
+    const { articleEntries } = useEntriesStore();
     const [currentPost, setCurrentPost] = useState(null);
     const [relatedPosts, setRelatedPosts] = useState([]);
     const { entryId } = useParams();

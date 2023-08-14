@@ -1,4 +1,4 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import DOMPurify from "dompurify";
@@ -6,12 +6,12 @@ import DOMPurify from "dompurify";
 import "./projects-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
-import { appContext } from "../../../contexts/app-context";
+import useEntriesStore from "../../../store/entries";
 import AppLayout from "../../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../../components/shared/app-feature-banner/app-feature-banner.component";
 
 const ProjectsDetails = () => {
-    const { projectEntries } = useContext(appContext);
+    const { projectEntries } = useEntriesStore();
     const [currentPost, setCurrentPost] = useState(null);
     const { entryId } = useParams();
     const navigate = useNavigate();

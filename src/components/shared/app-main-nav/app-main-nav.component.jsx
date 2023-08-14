@@ -1,15 +1,14 @@
-import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaHome, FaUser, FaRegLightbulb, FaRss, FaRegEnvelope, FaSearch } from "react-icons/fa";
 
 import "./app-main-nav.styles.scss";
 
 import * as CONSTANTS from "../../../common/constants";
-import { appContext } from "../../../contexts/app-context";
+import useUIStore from "../../../store/ui";
 
 const AppMainNav = ({ isMainNavShown, ...otherProps }) => {
 
-    const { setIsPanelContactShow, setIsPanelSearchShow } = useContext(appContext);
+    const { setIsPanelContactShow, setIsPanelSearchShow } = useUIStore();
     const location = useLocation();
 
     const getNavItemClassName = ({ type }) => {

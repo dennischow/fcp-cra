@@ -4,7 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import "./index.scss";
 import App from "./App";
-import { AppContextProvider } from "./contexts/app-context";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -12,9 +11,7 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <HelmetProvider>
-                <AppContextProvider>
-                    <App />
-                </AppContextProvider>
+                <App />
             </HelmetProvider>
         </BrowserRouter>
     </React.StrictMode>

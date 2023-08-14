@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import qs from "qs";
@@ -8,14 +8,14 @@ import { FaTelegramPlane, FaExclamationTriangle, FaTimes, FaCheck } from "react-
 import "./app-panel-contact.styles.scss";
 
 import api from "../../../services/api";
-import { appContext } from "../../../contexts/app-context";
+import useUIStore from "../../../store/ui";
 import AppInputField from "../../form/app-input-field/app-input-field.component";
 import AppTextareaField from "../../form/app-textarea-field/app-textarea-field.component";
 import AppSelectField from "../../form/app-select-field/app-select-field.component";
 
 const AppPanelContact = () => {
 
-    const { setIsPanelContactShow } = useContext(appContext);
+    const { setIsPanelContactShow } = useUIStore();
     const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "", result: null });
 
     const contactFormObj = useFormik({

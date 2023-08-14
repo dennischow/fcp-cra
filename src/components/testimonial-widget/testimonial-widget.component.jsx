@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import DOMPurify from "dompurify";
 
 import "./testimonial-widget.styles.scss";
 
-import { appContext } from "../../contexts/app-context";
+import useEntriesStore from "../../store/entries";
 
 const TestimonialWidget = ({ isContentExpandedByDefault, entriesLimitByDefault }) => {
 
-    const { testimonialEntries } = useContext(appContext);
+    const { testimonialEntries } = useEntriesStore();
     const [isExpanded, setIsExpanded] = useState(isContentExpandedByDefault || false);
     const [entriesLimit, setEntriesLimit] = useState(entriesLimitByDefault || 5);
 

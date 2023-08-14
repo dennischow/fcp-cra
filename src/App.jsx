@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useContext, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -6,7 +6,7 @@ import "./App.scss";
 
 import * as CONSTANTS from "./common/constants";
 import * as HELPERS from "./common/helpers";
-import { appContext } from "./contexts/app-context";
+import useEntriesStore from "./store/entries";
 import api from "./services/api";
 import AppInitializingScreen from "./components/shared/app-initializing-screen/app-initializing-screen.component";
 import RouterSwitch from "./router/router-switch";
@@ -14,7 +14,7 @@ import RouterSwitch from "./router/router-switch";
 HELPERS.disableProductionLogging();
 
 const App = () => {
-    const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useContext(appContext);
+    const { setProjectEntries, setArticleEntries, setTestimonialEntries } = useEntriesStore();
     const [isLoading, setIsLoading] = useState(true);
 
     const location = useLocation();

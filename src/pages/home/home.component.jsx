@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
@@ -6,7 +6,7 @@ import { FaArrowRight, FaCode, FaPaintBrush, FaMusic } from "react-icons/fa";
 import "./home.styles.scss";
 import * as CONSTANTS from "../../common/constants";
 import * as UTILS from "../../common/utils";
-import { appContext } from "../../contexts/app-context";
+import useEntriesStore from "../../store/entries";
 import AppLayout from "../../components/shared/app-layout/app-layout.component";
 import AppFeatureBanner from "../../components/shared/app-feature-banner/app-feature-banner.component";
 import YoutubePlayer from "../../components/youtube-player/youtube-player.component";
@@ -15,7 +15,7 @@ import heroBackgroundImg from "../../assets/images/home/polygon-colored-crossed-
 
 const Home = () => {
 
-    const { projectEntries, articleEntries } = useContext(appContext);
+    const { projectEntries, articleEntries } = useEntriesStore();
     const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
 
     const openYoutubePlayer = () => setIsYoutubePlayerOn(true);
