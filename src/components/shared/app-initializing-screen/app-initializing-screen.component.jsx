@@ -6,7 +6,7 @@ import "./app-initializing-screen.styles.scss";
 
 import { ReactComponent as BrandLogo } from "./../../../assets/images/common/brand-logo.svg";
 
-const AppLoadingSCreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
+const AppInitializingScreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     return (
         <div className="app-initializing-screen">
             <div className="app-initializing-screen__container">
@@ -43,4 +43,4 @@ const AppLoadingSCreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     );
 };
 
-export default AppLoadingSCreen;
+export default AppInitializingScreen;
