@@ -32,9 +32,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
-    "deploy:dev": "npm run build && npm run timeout && node deploy --NODE_ENV=development",
-    "deploy:prod": "npm run build && npm run timeout && node deploy --NODE_ENV=production",
-    "timeout": "node -e \"require('node:timers/promises').setTimeout(5_000)\""
+    "deploy:dev": "npm run build && node deploy --NODE_ENV=development",
+    "deploy:prod": "npm run build && node deploy --NODE_ENV=production"
   },
   "eslintConfig": {
     "extends": [
