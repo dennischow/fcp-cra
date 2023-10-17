@@ -1,7 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import DOMPurify from "dompurify";
+import { FaArrowLeft } from "react-icons/fa";
 
 import "./projects-details.styles.scss";
 import * as CONSTANTS from "../../../common/constants";
@@ -87,6 +88,12 @@ const ProjectsDetails = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <p className="project-details__buttons-container">
+                            <Link className="app-cta app-cta--orange" to={CONSTANTS.ROUTES.projectsOverview.path}>
+                                <FaArrowLeft /> Back to projects overview
+                            </Link>
+                        </p>
 
                     </div>
                 </div>

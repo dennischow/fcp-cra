@@ -91,7 +91,7 @@ const ArticlesDetails = () => {
                                 <div className="article-details__sidebar-content">
                                     <h3 className="article-details__sidebar-header">You may also be interested in:</h3>
                                     <ul className="article-details__related-list">
-                                        {relatedPosts && relatedPosts.map((item, index) => (
+                                        {relatedPosts?.map((item, index) => (
                                             <li className="article-details__related-item" key={`related-post-${item?.entry_id}`}>
                                                 <div className="article-details__related-visual"
                                                     role="img"
@@ -113,6 +113,12 @@ const ArticlesDetails = () => {
                                 </div>
                             </div>
                         </div>
+
+                        <p className="article-details__buttons-container">
+                            <Link className="app-cta app-cta--orange" to={CONSTANTS.ROUTES.articlesOverview.path}>
+                                <FaArrowLeft /> Back to articles overview
+                            </Link>
+                        </p>
 
                     </div>
                 </div>
