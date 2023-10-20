@@ -409,6 +409,11 @@
 
                 .corporate-engagements-group__brand-img {
                     max-height: 24px;
+
+                    @include max-media($scr-desktop) {
+                        max-height: 32px;
+                    }
+
                 }
 
             }
