@@ -328,7 +328,7 @@ const About = () => {
                                     <p className="intro-group__brief">
                                         I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun micro-interactions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS (LESS/SASS), or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
                                         <br /><br />
-                                        When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
+                                        When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, practicing drums in the studio, indulging in delicious food, or sharing pictures on Instagram.
                                     </p>
                                     <p className="intro-group__buttons-container">
                                         <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>
