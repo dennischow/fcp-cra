@@ -6,7 +6,7 @@ import "./app-header.styles.scss";
 
 import * as CONSTANTS from "../../../common/constants";
 import useWindowScroll from "../../../hooks/use-window-scroll";
-import { ReactComponent as BrandLogo } from "./../../../assets/images/common/brand-logo.svg";
+import brandLogo from "./../../../assets/images/common/brand-logo.svg";
 import AppMainNav from "../app-main-nav/app-main-nav.component";
 
 const AppHeader = ({ props, ...otherProps }) => {
@@ -49,7 +49,7 @@ const AppHeader = ({ props, ...otherProps }) => {
             <div className="app-header__container">
                 <p className="app-header__brand">
                     <Link className="app-header__brand-link" to={CONSTANTS.ROUTES.home.path}>
-                        <BrandLogo className="app-header__brand-logo" />
+                        <img src={brandLogo} className="app-header__brand-logo" alt="Brand Logo" />
                         <span className="app-header__brand-name">{CONSTANTS.BRAND_NAME}</span>
                     </Link>
                 </p>

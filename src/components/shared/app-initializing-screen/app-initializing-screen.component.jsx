@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./app-initializing-screen.styles.scss";
 
-import { ReactComponent as BrandLogo } from "./../../../assets/images/common/brand-logo.svg";
+import brandLogo from "./../../../assets/images/common/brand-logo.svg";
 
 const AppInitializingScreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
     return (
@@ -13,7 +13,7 @@ const AppInitializingScreen = ({ hasLogo, hasIndicator, hasSkeleton }) => {
                 <div className="app-initializing-screen__content">
                     {hasLogo && (
                         <div className="app-initializing-screen__brand-logo">
-                            <BrandLogo />
+                            <img src={brandLogo} alt="Brand Logo" />
                         </div>
                     )}
 

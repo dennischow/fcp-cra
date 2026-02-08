@@ -17,6 +17,7 @@ const AppPanelContact = () => {
 
     const { setIsPanelContactShow } = useUIStore();
     const [loaderFeedback, setLoaderFeedback] = useState({ indicator: false, message: "", result: null });
+    const [isLoaderShow, setIsLoaderShow] = useState(false);
 
     const contactFormObj = useFormik({
         initialValues: {
@@ -37,12 +38,14 @@ const AppPanelContact = () => {
             console.log("values: ", values);
             console.log("formikBag: ", formikBag);
             console.log(JSON.stringify(values, null, 2));
+            formikBag.setSubmitting(true);
 
             setLoaderFeedback({
                 indicator: true,
                 message: "Sending out the message...",
                 result: null,
             });
+            setIsLoaderShow(true);
 
             try {
                 const response = await api.post.contact(qs.stringify(values));
@@ -51,11 +54,13 @@ const AppPanelContact = () => {
                     message: response.data.status,
                     result: response.data.result ? "success" : "failed",
                 });
+                
                 setTimeout(() => {
                     if (response.data.result) {
                         formikBag.resetForm();
                     }
                     formikBag.setSubmitting(false);
+                    setIsLoaderShow(false);
                 }, 3000);
             } catch (error) {
                 setLoaderFeedback({
@@ -63,8 +68,10 @@ const AppPanelContact = () => {
                     message: error.message,
                     result: "failed",
                 });
+                
                 setTimeout(() => {
                     formikBag.setSubmitting(false);
+                    setIsLoaderShow(false);
                 }, 3000);
             }
         },
@@ -176,7 +183,7 @@ const AppPanelContact = () => {
         <Fragment>
             <div className="app-panel-contact">
 
-                {contactFormObj.isSubmitting && (
+                {isLoaderShow && (
                     <div className="app-panel-contact__loader">
                         <div className="app-panel-contact__loader-inner">
                             {loaderFeedback.indicator && (
